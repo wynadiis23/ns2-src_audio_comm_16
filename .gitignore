@@ -1,2 +1,5 @@
 *.o
 *.tr
+*.nam
+*.log
+*.osm
