@@ -34,6 +34,7 @@ if {[string is double -strict [lindex $argv 0]]} {
 	set opt(voipflows) 	[lindex $argv 4] ;# Number of correlated VoIP flows
 	set opt(bgtraffic)	[lindex $argv 5] ;# Background traffic rate
 	set opt(routing)	[lindex $argv 6] ;# Routing algorithms	
+	set opt(nnode)		[lindex $argv 7] ;# Jumlah node
 
 } else {
 	
@@ -41,7 +42,7 @@ if {[string is double -strict [lindex $argv 0]]} {
 	
 }
 
-set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(bgtraffic)-R$opt(routing).output"
+set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(bgtraffic)-R$opt(routing)-N$opt(nnode).output"
 
 if {[file exists $file] == 1} {
 	
@@ -69,7 +70,7 @@ set val(y)              4864
 set val(ifqlen)         50 
 set val(seed)           5.0
 set val(adhocRouting)   $opt(routing)
-set val(nn)            	50
+set val(nn)            	$opt(nnode)
 set val(stop)           300.0     
 set val(cp)		"./cbr-tcp/$opt(bgtraffic).tcl" ;
 set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
@@ -100,7 +101,7 @@ $topo load_flatgrid $val(x) $val(y)
 
 #use new trace format
 $ns_ use-newtrace
-set tracefile	[open voip-$opt(codec).tr w]
+set tracefile	[open voip-$opt(codec)-$opt(nnode).tr w]
 #set namtrace    [open main-out.nam w]
 $ns_ trace-all $tracefile
 #$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)

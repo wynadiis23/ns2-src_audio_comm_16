@@ -421,6 +421,10 @@ proc scenario {} {
 	#a total of 23 start times
 	set start {1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0 9.5 10.0 10.5 11.0 11.5 12.0}
 	#Total of 18 correlated flows (VoIP Flows: 36 in total)
+	#bikin random disini
+	#pengecekan random dilakukan dengan array untuk masing2, source dan destination.
+	#random angkanya opt(nnode)-1 sebagai batasnya.
+	#apakah sama source-node dengan node-source?
 	set vnode1 {2 6 10 14 18 22 26 30 34 38 42 46 50 54 58 62 64 68}
 	set vnode2 {3 7 11 15 19 23 27 31 35 39 43 47 51 55 59 63 65 69}
 
