@@ -34,7 +34,7 @@ set opt(e2et-per)            0.0        ;# Add Packet Error Rate
 # VoIP configuration
 #
 
-set opt(voip-bidirectional) 	     "off"        ;# VoIP bidirectional enable switch <on|off>
+set opt(voip-bidirectional) 	     "on"        ;# VoIP bidirectional enable switch <on|off>
 set opt(voip-debug)		     "nodebug"	  ;# VoIP debug options - "debug" or "nodebug"
 set opt(voip-model)                  one-to-one   ;# VoIP VAD model
 set opt(voip-exponential-talk)       1            ;# Average talkspurt period duration, in sec, with exponential VAD model
@@ -134,8 +134,6 @@ proc finish {} {
 # initialize simulation
 #
 proc init {} {
-	puts "Loading mobility file..."
-	
         global opt defaultRNG ns_ simtime
 
         # create the simulator instance
@@ -177,8 +175,8 @@ proc init {} {
   		 
 
         ## open trace files
-       	set opt(trace) [open voiptrace.tr w]
-        $ns_ trace-all $opt(trace)
+       	#set opt(trace) [open "/dev/null" w]
+        #$ns_ trace-all $opt(trace)
         
 
 	set simtime [clock seconds]
@@ -240,7 +238,6 @@ proc e2etConf { tag fid } {
 
 
 proc create_udp { n0 n1 fid app } {
-   puts "ini $n0"
    global ns_ voip opt
 
    set agtsrc [new Agent/UDP]
@@ -422,24 +419,16 @@ proc scenario {} {
         #set n1 [$ns_ node]
 	set fid 1
 	#a total of 23 start times
-	#set start {1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0 9.5 10.0 10.5 11.0 11.5 12.0}
-	set start 0
+	set start {1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0 9.5 10.0 10.5 11.0 11.5 12.0}
 	#Total of 18 correlated flows (VoIP Flows: 36 in total)
-	#set vnode1 {2 6 10 14 18 22 26 30 34 38 42 46}
-	#set vnode2 {3 7 11 15 19 23 27 31 35 39 43 47}
-	
-	#$ns duplex-link $node_(1) $node_(2) 8Mb 10ms DropTail
-		
+	set vnode1 {2 6 10 14 18 22 26 30 34 38 42 46 50 54 58 62 64 68}
+	set vnode2 {3 7 11 15 19 23 27 31 35 39 43 47 51 55 59 63 65 69}
 
 	set stop [expr $opt(duration)-5]
 	
 		  for { set i 0} { $i < $opt(voipflows)} { incr i } {
-			  #create_voip $fid [lindex $start $i] $stop
-			  create_voip $fid $start $stop
-			  puts "node:  $node_(1)"
-			  puts "node:  $node_(2)"
-			  #set f [create_udp $node_([lindex $vnode1 $i]) $node_([lindex $vnode2 $i]) $fid "voip"]
-			  set f [create_udp $node_(1) $node_(2) $fid "voip"]
+			  create_voip $fid [lindex $start $i] $stop
+			  set f [create_udp $node_([lindex $vnode1 $i]) $node_([lindex $vnode2 $i]) $fid "voip"]
 			  if {$opt(voip-bidirectional) != "off"} {
 			      ;# create the opposite dir correlated flow
 			      create_voip [expr $fid+1] [lindex $start $i] $stop
@@ -452,38 +441,6 @@ proc scenario {} {
 			 
 }	    
 
-proc skenario {} {
-        global ns_ opt
-        set n0 [$ns_ node]
-        set n1 [$ns_ node]
-        set n2 [$ns_ node]
-        
-	set fid 1
-	set start 0
-	set stop 300
-        
-        $ns_ duplex-link $n0 $n1 8Mb 10ms DropTail
-		$ns_ duplex-link $n0 $n2 8Mb 10ms DropTail
-
-		  for { set i 0 } { $i < 1 } { incr i } {
-			  
-			  create_voip $fid $start $stop
-			  set f [create_udp $n0 $n1 $fid "voip"]
-			  set f [create_udp $n0 $n2 $fid "voip"]
-			  
-			  if {$opt(voip-bidirectional) != "off"} {
-			      ;# create the opposite dir correlated flow
-			      create_voip [expr $fid+1] $start $stop
-			      create_udp $n1 $n0 [expr $fid+1] "voip"
-			      set f [expr $f+1]
-			  }
-
-
-		  }
-		  
-		  
-			 
-}
 
 ##############################################################################
 #                            MAIN BODY                                       #
@@ -491,7 +448,6 @@ proc skenario {} {
 
 init
 scenario
-#skenario
 if { $opt(debug) != "" } {
         printopt
 }

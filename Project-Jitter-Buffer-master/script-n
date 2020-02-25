@@ -1,0 +1,43 @@
+#!/bin/bash
+
+
+buff=( optimal )
+mp=(m)
+min=(0.1 )
+max=(2.1 )
+flows=(1) 
+try=(1 )
+codec=(G.711 )
+
+count=0
+
+setdest=~/ns-allinone-2.34/ns-2.34/indep-utils/cmu-scen-gen/setdest/setdest
+
+#####
+
+for i in "${mp[@]}"
+do
+        for j in "${min[@]}"
+        do  
+                for k in "${try[@]}"
+                do  
+                                for w in "${buff[@]}"
+                                do  
+    
+                                        for z in "${codec[@]}"
+                                        do  
+						for q in "${flows[@]}"
+                                                do
+							echo "##"
+	                                                echo " #  ns main.tcl $j $k $w $z $q  # "
+        	                                        echo "##"
+                	                                ns main.tcl $j $k $w $z $q default.v2 AODV 
+						done
+                                        done
+                                done
+
+                done
+                count=$(($count+1))
+        done
+done
+

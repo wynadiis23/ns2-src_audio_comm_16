@@ -69,12 +69,12 @@ set val(y)              4864
 set val(ifqlen)         50 
 set val(seed)           5.0
 set val(adhocRouting)   $opt(routing)
-set val(nn)            	70
-set val(stop)           300     
+set val(nn)            	50
+set val(stop)           4000.0     
 set val(cp)		"./cbr-tcp/$opt(bgtraffic).tcl" ;
-#set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
-set val(vip)		"./voip.tcl";
-set val(mob)	"./mobility.tcl";
+set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
+set val(vip)		"./voip.tcl"
+set val(mob)	"./mobility.tcl"
 
 # R O U T I N G
 
@@ -97,11 +97,11 @@ set ns_		[new Simulator]
 
 set topo	[new Topography]
 $topo load_flatgrid $val(x) $val(y)
-$ns_ use-newtrace
-set tracefile	[open "voip-out.tr" w]
-set namtrace    [open main-out.nam w]
+
+set tracefile	[open voip-out.tr w]
+#set namtrace    [open main-out.nam w]
 $ns_ trace-all $tracefile
-$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
+#$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
 
 # SET G O D
 set god_ [create-god $val(nn)]
@@ -116,26 +116,20 @@ $ns_ node-config -adhocRouting $val(adhocRouting) \
                  -propType $val(prop) \
                  -phyType $val(netif) \
                  -channelType $val(chan) \
-				 -topoInstance $topo \
-				 -agentTrace OFF \
+		 -topoInstance $topo \
+		 -agentTrace OFF \
                  -routerTrace OFF \
                  -macTrace OFF 
 
 
 for {set i 0} {$i < $val(nn) } {incr i} {
-	#puts $i
-	#puts $ns_
 	set node_($i) [$ns_ node]	
 	#$node_($i) random-motion 0
 	#Without random motion
 	}
-puts "abis inisialisasi"
-	
 puts "Loading connection pattern..."
 source $val(cp)
-#puts "Loading scenario file..."
-#source $val(sc)
-puts "Loading mobility file..."
+puts "Loading scenario file..."
 source $val(mob)
 puts "Loading VoIP Scenario File..."
 source $val(vip)
@@ -143,7 +137,7 @@ source $val(vip)
 
 for {set i 0} {$i < $val(nn)} {incr i} {
     $ns_ at $val(stop).0 "$node_($i) reset";
-    #$ns_ initial_node_pos $node_($i) 20
+    $ns_ initial_node_pos $node_($i) 20
 }
 
 # Change Node size
@@ -153,11 +147,11 @@ for {set i 0} {$i < $val(nn)} {incr i} {
 
 $ns_ at  $val(stop).0002 "puts \"NS EXITING...\" ; $ns_ halt"
 
-#puts $tracefile "M 0.0 nn $val(nn) x $val(x) y $val(y) rp $val(adhocRouting)"
+puts $tracefile "M 0.0 nn $val(nn) x $val(x) y $val(y) rp $val(adhocRouting)"
 
 #Uncomment when it's ok...
-#puts $tracefile "M 0.0 sc $val(sc) cp $val(cp) seed $val(seed)"
-#puts $tracefile "M 0.0 prop $val(prop) ant $val(ant)"
+puts $tracefile "M 0.0 sc $val(sc) cp $val(cp) seed $val(seed)"
+puts $tracefile "M 0.0 prop $val(prop) ant $val(ant)"
 
 puts "Starting Simulation..."
 
