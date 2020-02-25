@@ -428,7 +428,8 @@ proc scenario {} {
 	
 		  for { set i 0} { $i < $opt(voipflows)} { incr i } {
 			  create_voip $fid [lindex $start $i] $stop
-			  set f [create_udp $node_([lindex $vnode1 $i]) $node_([lindex $vnode2 $i]) $fid "voip"]
+			  set f [create_udp $node_(2) $node_(3) $fid "voip"]
+			  #set f [create_udp $node_([lindex $vnode1 $i]) $node_([lindex $vnode2 $i]) $fid "voip"]
 			  if {$opt(voip-bidirectional) != "off"} {
 			      ;# create the opposite dir correlated flow
 			      create_voip [expr $fid+1] [lindex $start $i] $stop

@@ -70,7 +70,7 @@ set val(ifqlen)         50
 set val(seed)           5.0
 set val(adhocRouting)   $opt(routing)
 set val(nn)            	50
-set val(stop)           4000.0     
+set val(stop)           300.0     
 set val(cp)		"./cbr-tcp/$opt(bgtraffic).tcl" ;
 set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
 set val(vip)		"./voip.tcl"
@@ -98,7 +98,9 @@ set ns_		[new Simulator]
 set topo	[new Topography]
 $topo load_flatgrid $val(x) $val(y)
 
-set tracefile	[open voip-out.tr w]
+#use new trace format
+$ns_ use-newtrace
+set tracefile	[open voip-$opt(codec).tr w]
 #set namtrace    [open main-out.nam w]
 $ns_ trace-all $tracefile
 #$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
@@ -117,9 +119,10 @@ $ns_ node-config -adhocRouting $val(adhocRouting) \
                  -phyType $val(netif) \
                  -channelType $val(chan) \
 		 -topoInstance $topo \
-		 -agentTrace OFF \
-                 -routerTrace OFF \
-                 -macTrace OFF 
+		 -agentTrace ON \
+                 -routerTrace ON \
+                 -macTrace OFF \
+                 -movementTrace ON 
 
 
 for {set i 0} {$i < $val(nn) } {incr i} {
