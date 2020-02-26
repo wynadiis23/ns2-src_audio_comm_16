@@ -425,7 +425,20 @@ proc scenario {} {
 	#pengecekan random dilakukan dengan array untuk masing2, source dan destination.
 	#random angkanya opt(nnode)-1 sebagai batasnya.
 	#apakah sama source-node dengan node-source?
-	set vnode1 {2 6 10 14 18 22 26 30 34 38 42 46 50 54 58 62 64 68}
+	set vNodeS {}
+	set vNodeD {}
+	
+	#set nodeSource [randSource {$opt(nnode)}]
+	#lappend vNodeS {$nodeSource}
+	
+	#while {llength $vNodeS} {
+	#	foreach i {$vNodeS} {
+	#		if {$i == $nodeSource} {
+	#			
+	#		}
+	#	}
+	#}
+	set vnode1 {2 6 10 14 18 22 26 30 34 38 42 46 50 54 58 62 64 68}                                                                    
 	set vnode2 {3 7 11 15 19 23 27 31 35 39 43 47 51 55 59 63 65 69}
 
 	set stop [expr $opt(duration)-5]
@@ -446,7 +459,21 @@ proc scenario {} {
 			 
 }	    
 
+proc randSource {ran} {
+	set rSource [expr {int(1 + rand() * $ran)}]
+	return $rSource
+}
 
+proc randDestination {ran} {
+	set rDestination [expr {int(1 + rand() * $ran)}]
+	return $rDestination
+}
+
+proc cekPort {nodeList} {
+	while {llength $nodeList} {
+		
+	}
+}
 ##############################################################################
 #                            MAIN BODY                                       #
 ##############################################################################

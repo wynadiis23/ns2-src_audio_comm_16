@@ -1,0 +1,18 @@
+#!/bin/bash
+
+node=(50 70)
+traffic=()
+for i in "${node[@]}"
+do
+	echo "traffic generarton $i node"
+	ns cbrgen.tcl -type cbr -nn $i -seed 1 -mc $i-20 -rate 10.0 > traffic-$i.tcl
+	traffic+=( traffic-$i.tcl )
+		
+done
+
+for a in "${traffic[@]}"
+		do
+			echo $a
+		done
+
+

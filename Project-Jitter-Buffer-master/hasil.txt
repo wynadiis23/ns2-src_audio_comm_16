@@ -1,0 +1,218 @@
+traffic generarton 50 node
+traffic generarton 70 node
+traffic-50.tcl
+traffic-70.tcl
+##
+ #  ns main.tcl 0.1 1 optimal G.711 1 traffic-50.tcl AODV 50  # 
+##
+The output file does not exist. Cont. w/ Sim
+Loading connection pattern...
+Loading scenario file...
+ini di mobility tcl AODV
+Loading VoIP Scenario File...
+bgtraffic = traffic-50.tcl
+buffer = optimal
+cc = off
+codec = G.711
+debug = debug
+duration = 300.0
+e2et-delay = off
+e2et-delay-b = 0.005
+e2et-delay-devstd = 0.050
+e2et-delay-dir = both
+e2et-delay-dst = uniform
+e2et-delay-max = 0.120
+e2et-delay-mean = 0.080
+e2et-delay-min = 0.000
+e2et-delay-reorder = true
+e2et-per = 0.0
+nnode = 50
+out = outputs/out-S0.1-T1-Boptimal-CG.711-V1-Rtraffic-50.tcl-RAODV-N50.output
+pos = NONE
+ragent = Agent/DSDV
+routing = AODV
+rt_port = 255
+run = 0
+speed = 0.1
+startdebug = 100.0
+static-buffer = 20
+static-delay = 0.08
+try = 1
+voip-aggr = 2
+voip-bidirectional = on
+voip-cell-loss-threshold = 0.02
+voip-cell-mos-threshold = 0.75
+voip-codec = G.711
+voip-comp-hdr-size = 3
+voip-debug = nodebug
+voip-decoder-chain = optimal
+voip-decoder-max-jitter = 0.100
+voip-decoder-min-jitter = 0.020
+voip-exponential-silence = 1.5
+voip-exponential-talk = 1
+voip-model = one-to-one
+voip-mos-threshold = 3.0
+voip-silence-scale = 0.899
+voip-silence-shape = 1.089
+voip-talk-scale = 0.4122
+voip-talk-shape = 0.824
+voipflows = 1
+warm = 10.0
+Starting Simulation...
+elapsed 30 s (remaining 270 s) completed 10% stat collection ON
+elapsed 60 s (remaining 240 s) completed 20% stat collection ON
+elapsed 90 s (remaining 210 s) completed 30% stat collection ON
+elapsed 120 s (remaining 180 s) completed 40% stat collection ON
+elapsed 150 s (remaining 150 s) completed 50% stat collection ON
+elapsed 180 s (remaining 120 s) completed 60% stat collection ON
+elapsed 210 s (remaining 90 s) completed 70% stat collection ON
+elapsed 240 s (remaining 60 s) completed 80% stat collection ON
+elapsed 270 s (remaining 30 s) completed 90% stat collection ON
+run duration: 21 s
+num_nodes is set 50
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl 0.1 1 optimal G.711 1 traffic-70.tcl AODV 50  # 
+##
+The output file does not exist. Cont. w/ Sim
+Loading connection pattern...
+num_nodes is set 50
+##
+ #  ns main.tcl 0.1 1 optimal G.711 1 traffic-50.tcl AODV 70  # 
+##
+The output file does not exist. Cont. w/ Sim
+Loading connection pattern...
+Loading scenario file...
+ini di mobility tcl AODV
+Loading VoIP Scenario File...
+bgtraffic = traffic-50.tcl
+buffer = optimal
+cc = off
+codec = G.711
+debug = debug
+duration = 300.0
+e2et-delay = off
+e2et-delay-b = 0.005
+e2et-delay-devstd = 0.050
+e2et-delay-dir = both
+e2et-delay-dst = uniform
+e2et-delay-max = 0.120
+e2et-delay-mean = 0.080
+e2et-delay-min = 0.000
+e2et-delay-reorder = true
+e2et-per = 0.0
+nnode = 70
+out = outputs/out-S0.1-T1-Boptimal-CG.711-V1-Rtraffic-50.tcl-RAODV-N70.output
+pos = NONE
+ragent = Agent/DSDV
+routing = AODV
+rt_port = 255
+run = 0
+speed = 0.1
+startdebug = 100.0
+static-buffer = 20
+static-delay = 0.08
+try = 1
+voip-aggr = 2
+voip-bidirectional = on
+voip-cell-loss-threshold = 0.02
+voip-cell-mos-threshold = 0.75
+voip-codec = G.711
+voip-comp-hdr-size = 3
+voip-debug = nodebug
+voip-decoder-chain = optimal
+voip-decoder-max-jitter = 0.100
+voip-decoder-min-jitter = 0.020
+voip-exponential-silence = 1.5
+voip-exponential-talk = 1
+voip-model = one-to-one
+voip-mos-threshold = 3.0
+voip-silence-scale = 0.899
+voip-silence-shape = 1.089
+voip-talk-scale = 0.4122
+voip-talk-shape = 0.824
+voipflows = 1
+warm = 10.0
+Starting Simulation...
+elapsed 30 s (remaining 270 s) completed 10% stat collection ON
+elapsed 60 s (remaining 240 s) completed 20% stat collection ON
+elapsed 90 s (remaining 210 s) completed 30% stat collection ON
+elapsed 120 s (remaining 180 s) completed 40% stat collection ON
+elapsed 150 s (remaining 150 s) completed 50% stat collection ON
+elapsed 180 s (remaining 120 s) completed 60% stat collection ON
+elapsed 210 s (remaining 90 s) completed 70% stat collection ON
+elapsed 240 s (remaining 60 s) completed 80% stat collection ON
+elapsed 270 s (remaining 30 s) completed 90% stat collection ON
+run duration: 23 s
+num_nodes is set 70
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl 0.1 1 optimal G.711 1 traffic-70.tcl AODV 70  # 
+##
+The output file does not exist. Cont. w/ Sim
+Loading connection pattern...
+num_nodes is set 70
+##
+ #  ns main.tcl 0.1 1 optimal GSM.AMR 1 traffic-50.tcl AODV 50  # 
+##
+The output file does not exist. Cont. w/ Sim
+Loading connection pattern...
+Loading scenario file...
+ini di mobility tcl AODV
+Loading VoIP Scenario File...
+bgtraffic = traffic-50.tcl
+buffer = optimal
+cc = off
+codec = GSM.AMR
+debug = debug
+duration = 300.0
+e2et-delay = off
+e2et-delay-b = 0.005
+e2et-delay-devstd = 0.050
+e2et-delay-dir = both
+e2et-delay-dst = uniform
+e2et-delay-max = 0.120
+e2et-delay-mean = 0.080
+e2et-delay-min = 0.000
+e2et-delay-reorder = true
+e2et-per = 0.0
+nnode = 50
+out = outputs/out-S0.1-T1-Boptimal-CGSM.AMR-V1-Rtraffic-50.tcl-RAODV-N50.output
+pos = NONE
+ragent = Agent/DSDV
+routing = AODV
+rt_port = 255
+run = 0
+speed = 0.1
+startdebug = 100.0
+static-buffer = 20
+static-delay = 0.08
+try = 1
+voip-aggr = 2
+voip-bidirectional = on
+voip-cell-loss-threshold = 0.02
+voip-cell-mos-threshold = 0.75
+voip-codec = GSM.AMR
+voip-comp-hdr-size = 3
+voip-debug = nodebug
+voip-decoder-chain = optimal
+voip-decoder-max-jitter = 0.100
+voip-decoder-min-jitter = 0.020
+voip-exponential-silence = 1.5
+voip-exponential-talk = 1
+voip-model = one-to-one
+voip-mos-threshold = 3.0
+voip-silence-scale = 0.899
+voip-silence-shape = 1.089
+voip-talk-scale = 0.4122
+voip-talk-shape = 0.824
+voipflows = 1
+warm = 10.0
+Starting Simulation...
+elapsed 30 s (remaining 270 s) completed 10% stat collection ON
+elapsed 60 s (remaining 240 s) completed 20% stat collection ON
+elapsed 90 s (remaining 210 s) completed 30% stat collection ON
+elapsed 120 s (remaining 180 s) completed 40% stat collection ON
+elapsed 150 s (remaining 150 s) completed 50% stat collection ON

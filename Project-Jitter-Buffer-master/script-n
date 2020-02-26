@@ -8,8 +8,25 @@ max=(2.1 )
 flows=(1) 
 try=(1 )
 codec=(G.711 GSM.AMR G.723.1)
-nnode=(25 50)
+nnode=(50)
 
+####
+#traffic generation
+####
+traffic=()
+
+for i in "${nnode[@]}"
+do
+	echo "traffic generarton $i node"
+	ns cbrgen.tcl -type cbr -nn $i -seed 1 -mc $i-20 -rate 10.0 > traffic-$i.tcl
+	traffic+=( traffic-$i.tcl )
+		
+done
+
+for a in "${traffic[@]}"
+do
+	echo $a
+done
 count=0
 
 setdest=~/ns-allinone-2.34/ns-2.34/indep-utils/cmu-scen-gen/setdest/setdest
@@ -27,16 +44,19 @@ do
     
                                         for z in "${codec[@]}"
                                         do  
-												for c in "${nnode[@]}"
-												do
-												
-														for q in "${flows[@]}"
-														do
-															echo "##"
-															echo " #  ns main.tcl $j $k $w $z $q  # "
-															echo "##"
-															ns main.tcl $j $k $w $z $q default.v2 AODV $c
-						done
+						for c in "${nnode[@]}"
+						do
+                                                        for x in "${traffic[@]}"
+                                                        do
+                                                                for q in "${flows[@]}"
+                                                                do
+                                                                        echo "##"
+                                                                        echo " #  ns main.tcl $j $k $w $z $q $x AODV $c  # "
+                                                                        echo "##"
+                                                                        ns main.tcl $j $k $w $z $q $x AODV $c
+                                                                done
+                                                        done			
+							
                                                 done
                                         done
                                 done

@@ -72,7 +72,8 @@ set val(seed)           5.0
 set val(adhocRouting)   $opt(routing)
 set val(nn)            	$opt(nnode)
 set val(stop)           300.0     
-set val(cp)		"./cbr-tcp/$opt(bgtraffic).tcl" ;
+#set val(cp)		"./cbr-tcp/$opt(bgtraffic).tcl" ;
+set val(cp)		"./$opt(bgtraffic)" ;
 set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
 set val(vip)		"./voip.tcl"
 set val(mob)	"./mobility.tcl"
