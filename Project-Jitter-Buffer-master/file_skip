@@ -69,3 +69,15 @@ skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-25.tcl-RAODV-N25-Mmobi
 skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-50.tcl-RAODV-N25-Mmobility_25.output
 skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-25.tcl-RAODV-N50-Mmobility_50.output
 skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-50.tcl-RAODV-N50-Mmobility_50.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.711-V1-Rtraffic-25.tcl-RAODV-N25-Mmobility_25.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.711-V1-Rtraffic-50.tcl-RAODV-N25-Mmobility_25.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.711-V1-Rtraffic-25.tcl-RAODV-N50-Mmobility_50.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.711-V1-Rtraffic-50.tcl-RAODV-N50-Mmobility_50.output
+skiped: outputs/out-S0.1-T1-Boptimal-CGSM.AMR-V1-Rtraffic-25.tcl-RAODV-N25-Mmobility_25.output
+skiped: outputs/out-S0.1-T1-Boptimal-CGSM.AMR-V1-Rtraffic-50.tcl-RAODV-N25-Mmobility_25.output
+skiped: outputs/out-S0.1-T1-Boptimal-CGSM.AMR-V1-Rtraffic-25.tcl-RAODV-N50-Mmobility_50.output
+skiped: outputs/out-S0.1-T1-Boptimal-CGSM.AMR-V1-Rtraffic-50.tcl-RAODV-N50-Mmobility_50.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-25.tcl-RAODV-N25-Mmobility_25.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-50.tcl-RAODV-N25-Mmobility_25.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-25.tcl-RAODV-N50-Mmobility_50.output
+skiped: outputs/out-S0.1-T1-Boptimal-CG.723.1-V1-Rtraffic-50.tcl-RAODV-N50-Mmobility_50.output

@@ -92,12 +92,13 @@ do
     
                                         for z in "${codec[@]}"
                                         do  
-						for c in "${nnode[@]}"
+                                                for m in "${mobility[@]}"
+                                                do
+                                                for c in "${nnode[@]}"
 						do
                                                         for x in "${traffic[@]}"
                                                         do
-                                                                for m in "${mobility[@]}"
-                                                                do
+                                                                
                                                                         for q in "${flows[@]}"
                                                                         do
                                                                                 echo "##"
@@ -105,9 +106,10 @@ do
                                                                                 echo "##"
                                                                                 ns main.tcl $j $k $w $z $q $x AODV $c $m
                                                                         done
-                                                                done
+                                                                
                                                         done			
 							
+                                                done
                                                 done
                                         done
                                 done
