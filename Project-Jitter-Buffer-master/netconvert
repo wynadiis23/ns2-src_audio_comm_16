@@ -1,0 +1,52 @@
+#!/bin/bash
+mobility=()
+#ganti osm file dengan file osm yang dipakai
+proj=NS/voip/Project-Jitter-Buffer-master
+nnode=(25 50)
+netfiles=osmfiles/netfiles/sebudi_edit.net.xml
+poly=osmfiles/polyfiles
+rout=osmfiles/roufiles
+sumocfg=osmfiles/sumocfg
+sumoxml=osmfiles/sumoxml
+ns2config=osmfiles/ns2config
+ns2mobility=osmfiles/mobility
+
+
+#netconvert --osm-files $osm -o $netfiles/netfiles.net.xml
+for i in "${nnode[@]}"
+do
+	#polyconvert proses
+	echo "polyconvert proccess"
+	polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
+	#randomTrips.py proses
+	echo "randomTrips proccess"
+	python $SUMO_HOME/tools/randomTrips.py -n $netfiles -r $rout/$i.rou.xml -e $i -l
+
+	echo "building $i sumo.cfg configuration"
+	printf "<configuration>
+     		<input>
+         		<net-file value='"$HOME/$proj/$netfiles"'/>
+			<route-files value='"$HOME/$proj/$rout/$i.rou.xml"'/>
+   			<additional-files value='"$HOME/$proj/$poly/$i.poly.xml"'/>
+     		</input>
+		<time>
+			<begin value='"0"'/>
+			<end value='"300"'/>
+			<step-length value='"0.1"'/>
+		</time>
+		 </configuration>" > $sumocfg/$i.sumo.cfg
+
+	echo "sumo.xml files creating ....."
+	sumo -c $HOME/$proj/$sumocfg/$i.sumo.cfg --fcd-output $sumoxml/$i.sumo.xml
+
+	echo "mobility creating with traceExporter"
+	python $SUMO_HOME/tools/traceExporter.py --fcd-input $sumoxml/$i.sumo.xml --ns2config-output $ns2config/config_$i.tcl
+	python $SUMO_HOME/tools/traceExporter.py --fcd-input $sumoxml/$i.sumo.xml --ns2mobility-output $ns2mobility/mobility_$i.tcl
+
+	mobility+=( $ns2mobility/mobility_$i.tcl ) 
+done
+
+for x in "${mobility[@]}"
+do
+	echo $x
+done

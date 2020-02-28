@@ -35,6 +35,7 @@ if {[string is double -strict [lindex $argv 0]]} {
 	set opt(bgtraffic)	[lindex $argv 5] ;# Background traffic rate
 	set opt(routing)	[lindex $argv 6] ;# Routing algorithms	
 	set opt(nnode)		[lindex $argv 7] ;# Jumlah node
+	set opt(mobility)	[lindex $argv 8] ;# mobility files
 
 } else {
 	
@@ -42,7 +43,7 @@ if {[string is double -strict [lindex $argv 0]]} {
 	
 }
 
-set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(bgtraffic)-R$opt(routing)-N$opt(nnode).output"
+set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(bgtraffic)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode).output"
 
 if {[file exists $file] == 1} {
 	
@@ -76,7 +77,7 @@ set val(stop)           300.0
 set val(cp)		"./$opt(bgtraffic)" ;
 set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
 set val(vip)		"./voip.tcl"
-set val(mob)	"./mobility.tcl"
+set val(mob)	"./$opt(mobility)"
 
 # R O U T I N G
 
