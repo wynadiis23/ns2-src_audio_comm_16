@@ -1,0 +1,17 @@
+#!/bin/bash
+#ganti osm file dengan file osm yang dipakai
+nnode=(25 50)
+netfiles=osmfiles/netfiles/sebudi_edit.net.xml
+poly=osmfiles/polyfiles
+rout=osmfiles/roufiles
+
+
+#netconvert --osm-files $osm -o $netfiles/netfiles.net.xml
+for i in "${nnode[@]}"
+do
+	#polyconvert proses
+	polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
+	#randomTrips.py proses
+	python $SUMO_HOME/tools/randomTrips.py -n $netfiles -r $rout/$i.rou.xml -e $i -l
+done
+printf '.$netfiles\n $poly\n $rout' > quote2.txt

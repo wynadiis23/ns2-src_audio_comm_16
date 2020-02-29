@@ -32,10 +32,10 @@ if {[string is double -strict [lindex $argv 0]]} {
 	set opt(buffer) 	[lindex $argv 2] ;# Buffer type
 	set opt(codec) 		[lindex $argv 3] ;# Codec used
 	set opt(voipflows) 	[lindex $argv 4] ;# Number of correlated VoIP flows
-	set opt(bgtraffic)	[lindex $argv 5] ;# Background traffic rate
-	set opt(routing)	[lindex $argv 6] ;# Routing algorithms	
-	set opt(nnode)		[lindex $argv 7] ;# Jumlah node
-	set opt(mobility)	[lindex $argv 8] ;# mobility files
+	#set opt(bgtraffic)	[lindex $argv 5] ;# Background traffic rate
+	set opt(routing)	[lindex $argv 5] ;# Routing algorithms	
+	set opt(nnode)		[lindex $argv 6] ;# Jumlah node
+	#set opt(mobility)	[lindex $argv 8] ;# mobility files
 
 } else {
 	
@@ -43,7 +43,7 @@ if {[string is double -strict [lindex $argv 0]]} {
 	
 }
 
-set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(bgtraffic)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode).output"
+set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode).output"
 
 if {[file exists $file] == 1} {
 	
@@ -74,10 +74,10 @@ set val(adhocRouting)   $opt(routing)
 set val(nn)            	$opt(nnode)
 set val(stop)           300.0     
 #set val(cp)		"./cbr-tcp/$opt(bgtraffic).tcl" ;
-set val(cp)		"./$opt(bgtraffic)" ;
+#set val(cp)		"./$opt(bgtraffic)" ;
 set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
 set val(vip)		"./voip.tcl"
-set val(mob)	"./$opt(mobility)"
+#set val(mob)	"./$opt(mobility)"
 
 # R O U T I N G
 
@@ -91,6 +91,16 @@ if {$opt(routing) == "OLSR" } {
 
 if {$opt(routing) == "DSR" } {
         set val(ifq) CMUPriQueue
+}
+if {$opt(nnode) == 25} {
+	set val(mob) "./osmfiles/mobility/mobility_25.tcl"
+	set val(cp) "./traffic-25.tcl"
+} elseif {$opt(nnode) == 50} {
+	set val(mob) "./osmfiles/mobility/mobility_50.tcl"
+	set val(cp) "./traffic-50.tcl"
+} else {
+	set val(mob) "./osmfiles/mobility/mobility_50.tcl"
+	set val(cp) "./traffic-50.tcl"
 }
 
 
@@ -156,7 +166,8 @@ $ns_ at  $val(stop).0002 "puts \"NS EXITING...\" ; $ns_ halt"
 puts $tracefile "M 0.0 nn $val(nn) x $val(x) y $val(y) rp $val(adhocRouting)"
 
 #Uncomment when it's ok...
-puts $tracefile "M 0.0 sc $val(sc) cp $val(cp) seed $val(seed)"
+puts $tracefile "ini file trace $opt(codec) node $val(nn) mob $val(mob) cp $val(cp)"
+#puts $tracefile "M 0.0 sc $val(sc) cp $val(cp) seed $val(seed)"
 puts $tracefile "M 0.0 prop $val(prop) ant $val(ant)"
 
 puts "Starting Simulation..."
