@@ -438,15 +438,18 @@ proc scenario {} {
 	#		}
 	#	}
 	#}
-	set vnode1 {2 6 10 14 18 22 26 30 34 38 42 46 50 54 58 62 64 68}                                                                    
-	set vnode2 {3 7 11 15 19 23 27 31 35 39 43 47 51 55 59 63 65 69}
-
+	#set vnode1 {2 6 10 14 18 22 26 30 34 38 42 46 50 54 58 62 64 68}                                                                    
+	#set vnode2 {3 7 11 15 19 23 27 31 35 39 43 47 51 55 59 63 65 69}
+	
+	source vnode.tcl
 	set stop [expr $opt(duration)-5]
 	
 		  for { set i 0} { $i < $opt(voipflows)} { incr i } {
 			  create_voip $fid [lindex $start $i] $stop
-			  set f [create_udp $node_(2) $node_(3) $fid "voip"]
-			  #set f [create_udp $node_([lindex $vnode1 $i]) $node_([lindex $vnode2 $i]) $fid "voip"]
+			  #set f [create_udp $node_(2) $node_(3) $fid "voip"]
+			  set f [create_udp $node_([lindex $vnode1 [expr $opt(try)-1]]) $node_([lindex $vnode2 [expr $opt(try)-1]]) $fid "voip"]
+			  puts [lindex $vnode1 [expr $opt(try)-1]]
+			  puts [lindex $vnode2 [expr $opt(try)-1]]
 			  if {$opt(voip-bidirectional) != "off"} {
 			      ;# create the opposite dir correlated flow
 			      create_voip [expr $fid+1] [lindex $start $i] $stop

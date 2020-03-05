@@ -6,9 +6,9 @@ mp=(m)
 min=(0.1 ) #speed
 max=(2.1 ) 
 flows=(1) 
-try=(1 )
-codec=(G.711 GSM.AMR G.723.1)
-nnode=(25 50)
+try=(1 2) #banyak replikasi
+codec=(G.711 GSM.AMR G.723.1) #banyak codec
+nnode=(50 70) #banyak node
 
 ####
 #mobility & traffic generation
@@ -102,7 +102,7 @@ do
                                                                         for q in "${flows[@]}"
                                                                         do
                                                                                 echo "##"
-                                                                                echo " #  ns main.tcl $j $k $w $z $q AODV $c $c mobility # "
+                                                                                echo " #  ns main.tcl $j $k $w $z $q PA_AODV $c $c mobility # "
                                                                                 echo "##"
                                                                                 ns main.tcl $j $k $w $z $q AODV $c
                                                                         done

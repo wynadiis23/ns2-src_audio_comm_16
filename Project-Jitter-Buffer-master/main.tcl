@@ -42,8 +42,10 @@ if {[string is double -strict [lindex $argv 0]]} {
 	getopt $argc $argv
 	
 }
-
-set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode).output"
+# L O A D L I S T N O D E
+source vnode.tcl
+# S E T O U T F I L E
+set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode)-SN_[lindex $vnode1 [expr $opt(try)-1]]-DN_[lindex $vnode2 [expr $opt(try)-1]].output"
 
 if {[file exists $file] == 1} {
 	
@@ -79,8 +81,7 @@ set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";#
 set val(vip)		"./voip.tcl"
 #set val(mob)	"./$opt(mobility)"
 
-# R O U T I N G
-
+#	R O U T I N G config
 if {$opt(routing) == "OLSR" } {
         Agent/OLSR set use_mac_    true
         #Agent/OLSR set debug_             true    
@@ -92,16 +93,23 @@ if {$opt(routing) == "OLSR" } {
 if {$opt(routing) == "DSR" } {
         set val(ifq) CMUPriQueue
 }
+
+#	T R A F F I C config
 if {$opt(nnode) == 25} {
 	set val(mob) "./osmfiles/mobility/mobility_25.tcl"
 	set val(cp) "./traffic-25.tcl"
 } elseif {$opt(nnode) == 50} {
 	set val(mob) "./osmfiles/mobility/mobility_50.tcl"
 	set val(cp) "./traffic-50.tcl"
+} elseif {$opt(nnode) == 70} {
+	set val(mob) "./osmfiles/mobility/mobility_70.tcl"
+	set val(cp) "./traffic-70.tcl"
 } else {
-	set val(mob) "./osmfiles/mobility/mobility_50.tcl"
-	set val(cp) "./traffic-50.tcl"
+	puts "# tidak ada file traffic!!"
+	exit 0
 }
+
+
 
 
 # M A I N
@@ -113,7 +121,8 @@ $topo load_flatgrid $val(x) $val(y)
 
 #use new trace format
 $ns_ use-newtrace
-set tracefile	[open voip-$opt(codec)-$opt(nnode).tr w]
+set tracefile	[open "trace/voip-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr" w]
+puts [expr $opt(try)-1]
 #set namtrace    [open main-out.nam w]
 $ns_ trace-all $tracefile
 #$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
