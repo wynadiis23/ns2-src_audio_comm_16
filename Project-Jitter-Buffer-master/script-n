@@ -6,7 +6,7 @@ mp=(m)
 min=(0.1 ) #speed
 max=(2.1 ) 
 flows=(1) 
-try=(1 2) #banyak replikasi
+try=(1 2 3 4 5 6 7 8 9 10) #banyak replikasi
 codec=(G.711 GSM.AMR G.723.1) #banyak codec
 nnode=(50 70) #banyak node
 
@@ -25,6 +25,19 @@ sumocfg=osmfiles/sumocfg
 sumoxml=osmfiles/sumoxml
 ns2config=osmfiles/ns2config
 ns2mobility=osmfiles/mobility
+
+#trace log
+trace_log_g_711=$HOME/$proj/trace_log_g_711
+trace_log_g_723_1=$HOME/$proj/trace_log_g_723_1
+trace_log_gsm_amr=$HOME/$proj/trace_log_gsm_amr
+if [[ -f $HOME/$proj/trace_log_g_711 ]] && [[ -f $HOME/$proj/trace_log_g_723_1 ]] && [[ -f $HOME/$proj/trace_log_gsm_amr ]] 
+then
+	echo "tracelog exist, recreating"
+	sleep 2
+	rm $HOME/$proj/trace_log_g_711
+	rm $HOME/$proj/trace_log_g_723_1
+	rm $HOME/$proj/trace_log_gsm_amr
+fi
 
 
 #netconvert --osm-files $osm -o $netfiles/netfiles.net.xml

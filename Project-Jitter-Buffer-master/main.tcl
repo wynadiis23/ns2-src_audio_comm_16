@@ -123,6 +123,23 @@ $topo load_flatgrid $val(x) $val(y)
 $ns_ use-newtrace
 set tracefile	[open "trace/voip-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr" w]
 puts [expr $opt(try)-1]
+
+#I N S E R T T R A C E catat trace ke file txt
+set tr_lg "voip-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr"
+set trace_log_g_711 [open trace_log_g_711 a]
+set trace_log_g_723_1 [open trace_log_g_723_1 a]
+set trace_log_gsm_amr [open trace_log_gsm_amr a]
+if {$opt(codec) == "G.711"} {
+	puts $trace_log_g_711 "$tr_lg"
+} elseif {$opt(codec) == "G.723.1"} {
+	puts $trace_log_g_723_1 "$tr_lg"
+} else {
+	puts $trace_log_gsm_amr "$tr_lg"
+}
+
+close $trace_log_g_711
+close $trace_log_g_723_1
+close $trace_log_gsm_amr
 #set namtrace    [open main-out.nam w]
 $ns_ trace-all $tracefile
 #$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
