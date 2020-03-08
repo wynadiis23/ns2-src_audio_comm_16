@@ -1,5 +1,6 @@
 #!/bin/bash
-# Inisialisasi array untuk masing2 node trace
+#inisialisasi masing2 trace file
+
 g711trace50=()
 g711trace70=()
 
@@ -9,14 +10,15 @@ g711trace70+=( `awk '/70/' ../trace_log_g_711` )
 
 if (( ${#g711trace50[@]} )); then
 	echo "isi bosque"
-	if [[ -f g711_delay_50.txt ]]
+	if [[ -f g711_pktloss_50.txt ]]
 	then
-		rm g711_delay_50.txt
+		rm g711_pktloss_50.txt
 		for i in "${g711trace50[@]}"
 		do
-			echo $i
+			#echo $i
 			#hasil+=( `awk -f e2e.awk ../trace/$i` )
-			awk -f e2e.awk ../trace/$i >> g711_delay_50.txt
+            #usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+			awk -v node=50 -f packetloss.awk ../trace/$i >> g711_pktloss_50.txt
 		
 		done
 	else
@@ -24,7 +26,8 @@ if (( ${#g711trace50[@]} )); then
 		do
 			#echo $i
 			#hasil+=( `awk -f e2e.awk ../trace/$i` )
-			awk -f e2e.awk ../trace/$i >> g711_delay_50.txt
+            #usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+			awk -v node=50 -f packetloss.awk ../trace/$i >> g711_pktloss_50.txt
 		done
 	fi
 	echo "file hasil trace node 50"
@@ -34,14 +37,15 @@ fi
 
 if (( ${#g711trace70[@]} )); then
 	echo "isi bosque"
-	if [[ -f g711_delay_70.txt ]]
+	if [[ -f g711_pktloss_70.txt ]]
 	then
-		rm g711_delay_70.txt
+		rm g711_pktloss_70.txt
 		for i in "${g711trace70[@]}"
 		do
-			echo $i
+			#echo $i
 			#hasil+=( `awk -f e2e.awk ../trace/$i` )
-			awk -f e2e.awk ../trace/$i >> g711_delay_70.txt
+			#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+			awk -v node=70 -f packetloss.awk ../trace/$i >> g711_pktloss_70.txt
 		
 		done
 	else
@@ -49,11 +53,11 @@ if (( ${#g711trace70[@]} )); then
 		do
 			#echo $i
 			#hasil+=( `awk -f e2e.awk ../trace/$i` )
-			awk -f e2e.awk ../trace/$i >> g711_delay_70.txt
+			#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+			awk -v node=70 -f packetloss.awk ../trace/$i >> g711_pktloss_70.txt
 		done
 	fi
 	echo "file hasil trace node 70"
 else
 	echo "Tidak ada file trace dengan node 70"
 fi
-

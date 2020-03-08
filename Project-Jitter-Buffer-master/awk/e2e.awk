@@ -49,5 +49,5 @@ for ( i in end_time ) {
  
 delay=sum/recvnum;
 #printf("%.9f ms\n", delay);
-printf("%.4f\n", delay);
+printf("%.2f\n", delay);
 }
