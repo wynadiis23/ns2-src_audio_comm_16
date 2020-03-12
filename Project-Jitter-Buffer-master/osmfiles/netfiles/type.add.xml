@@ -1,0 +1,4 @@
+<additional>
+  <vType id="myType" maxSpeed="10" vClass="passenger"/>
+</additional>
+

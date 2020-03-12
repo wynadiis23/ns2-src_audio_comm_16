@@ -6,27 +6,11 @@ mp=(m)
 min=(0.1 ) #speed
 max=(2.1 ) 
 flows=(1) 
-try=(1 2 3 4 5 6 7 8 9 10) #banyak replikasi
-codec=(G.711 GSM.AMR G.723.1) #banyak codec
-nnode=(50 70) #banyak node
-
-####
-#mobility & traffic generation
-####
-traffic=()
-mobility=()
-
-#ganti osm file dengan file osm yang dipakai
-proj=NS/voip/Project-Jitter-Buffer-master
-netfiles=osmfiles/netfiles/sebudi_edit.net.xml
-poly=osmfiles/polyfiles
-rout=osmfiles/roufiles
-sumocfg=osmfiles/sumocfg
-sumoxml=osmfiles/sumoxml
-ns2config=osmfiles/ns2config
-ns2mobility=osmfiles/mobility
-
+try=(1) #banyak replikasi
+codec=(G.711) #banyak codec
+nnode=(25 50 70) #banyak node
 #trace log
+proj=NS/voip/Project-Jitter-Buffer-master
 trace_log_g_711=$HOME/$proj/trace_log_g_711
 trace_log_g_723_1=$HOME/$proj/trace_log_g_723_1
 trace_log_gsm_amr=$HOME/$proj/trace_log_gsm_amr
@@ -38,56 +22,6 @@ then
 	rm $HOME/$proj/trace_log_g_723_1
 	rm $HOME/$proj/trace_log_gsm_amr
 fi
-
-
-#netconvert --osm-files $osm -o $netfiles/netfiles.net.xml
-for i in "${nnode[@]}"
-do
-	#polyconvert proses
-	echo "polyconvert proccess"
-	polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
-	#randomTrips.py proses
-	echo "randomTrips proccess"
-	python $SUMO_HOME/tools/randomTrips.py -n $netfiles -r $rout/$i.rou.xml -e $i -l
-
-	echo "building $i sumo.cfg configuration"
-	printf "<configuration>
-     		<input>
-         		<net-file value='"$HOME/$proj/$netfiles"'/>
-			<route-files value='"$HOME/$proj/$rout/$i.rou.xml"'/>
-   			<additional-files value='"$HOME/$proj/$poly/$i.poly.xml"'/>
-     		</input>
-		<time>
-			<begin value='"0"'/>
-			<end value='"300"'/>
-			<step-length value='"0.1"'/>
-		</time>
-		 </configuration>" > $sumocfg/$i.sumo.cfg
-
-	echo "sumo.xml files creating ....."
-	sumo -c $HOME/$proj/$sumocfg/$i.sumo.cfg --fcd-output $sumoxml/$i.sumo.xml
-
-	echo "mobility creating with traceExporter"
-	python $SUMO_HOME/tools/traceExporter.py --fcd-input $sumoxml/$i.sumo.xml --ns2config-output $ns2config/config_$i.tcl
-        python $SUMO_HOME/tools/traceExporter.py --fcd-input $sumoxml/$i.sumo.xml --ns2mobility-output $ns2mobility/mobility_$i.tcl
-
-        #append array mobility
-        mobility+=( $ns2mobility/mobility_$i.tcl )
-done
-for i in "${nnode[@]}"
-do
-	echo "##############################"
-	echo "traffic generarton for $i node"
-	echo "##############################"
-	ns cbrgen.tcl -type cbr -nn $i -seed 1 -mc 10 -rate 10.0 > traffic-$i.tcl
-	traffic+=( traffic-$i.tcl )
-		
-done
-
-for a in "${traffic[@]}"
-do
-	echo $a
-done
 count=0
 
 setdest=~/ns-allinone-2.34/ns-2.34/indep-utils/cmu-scen-gen/setdest/setdest

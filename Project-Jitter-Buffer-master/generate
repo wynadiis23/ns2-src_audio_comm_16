@@ -1,18 +1,32 @@
 #!/bin/bash
-
+x=0
 node=(50 70)
-traffic=()
-for i in "${node[@]}"
-do
-	echo "traffic generarton $i node"
-	ns cbrgen.tcl -type cbr -nn $i -seed 1 -mc $i-20 -rate 10.0 > traffic-$i.tcl
-	traffic+=( traffic-$i.tcl )
-		
-done
+#traffic=()
+#for i in "${node[@]}"
+#do
+#	echo "traffic generarton $i node"
+#	ns cbrgen.tcl -type cbr -nn $i -seed 1 -mc $i-20 -rate 10.0 > traffic-$i.tcl
+#	traffic+=( traffic-$i.tcl )
+#		
+#done
+#
+#for a in "${traffic[@]}"
+#		do
+#			echo $a
+#		done
+hasil=0
+var1=1
+nnode=70
 
-for a in "${traffic[@]}"
-		do
-			echo $a
-		done
+#hasil=(($var1/$nnode))
+#echo $hasil
 
-
+x=0
+x=`awk -v var1=1 -v var2=121 'BEGIN { print  ( var1 / var2 ) }'`
+echo $x
+y=0
+y=`awk -v var1=$x -v var2=1 'BEGIN { print ( var2 / var1 ) }'`
+echo $y
+round=0
+round=`awk -v var1=$y 'BEGIN { printf("%.0f", var1) }'`
+echo $round

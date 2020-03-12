@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Mon 09 Mar 2020 12:52:38 PM WITA by Eclipse SUMO GUI Version 1.4.0
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/osmfiles/netfiles/sebudi_edit.net.xml"/>
+        <route-files value="/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/osmfiles/roufiles/25.rou.xml"/>
+        <additional-files value="/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/osmfiles/polyfiles/25.poly.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+        <step-length value="0.1"/>
+    </time>
+
+    <gui_only>
+        <tracker-interval value="0.1"/>
+    </gui_only>
+
+</configuration>

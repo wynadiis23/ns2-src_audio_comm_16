@@ -49,11 +49,11 @@ total_pkt_recvd = total_pkt_recvd + packet_recvd[i];
 
 }
 temp=total_pkt_sent-total_pkt_recvd;
-pkt_loss=(temp/total_pkt_sent)*100
+pkt_loss=(temp/total_pkt_sent) #desimal
 #printf("Total Packets Sent 		:	%d\n",total_pkt_sent);
 #printf("Total Packets Received 		:	%d\n",total_pkt_recvd);
 #printf("Packet loss ratio : %.2f %\n", pkt_loss);
-printf("%.2f %\n", pkt_loss);
+printf("%.2f\n", pkt_loss);
 
 #if(((total_pkt_recvd + total_pkt_drop)/total_pkt_sent)==1) {
 #       printf("Statistics Correct !!!");

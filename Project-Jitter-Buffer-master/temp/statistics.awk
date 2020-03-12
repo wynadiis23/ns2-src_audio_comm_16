@@ -3,17 +3,17 @@
 BEGIN {
 print("\n\n******** Network Statistics ********\n");
 
-# Change array size from 50 to any number of nodes for which u are doing simulation. 
+# Change array size from 70 to any number of nodes for which u are doing simulation. 
 # i.e. change values of arrays packet_sent, packet_drop, packet_recvd, packet_forwarded, energy_left, 
-packet_sent[50] = 0;
-packet_drop[50] = 0;
-packet_recvd[50] = 0;
-packet_forwarded[50] = 0;
+packet_sent[70] = 0;
+packet_drop[70] = 0;
+packet_recvd[70] = 0;
+packet_forwarded[70] = 0;
 
 # Change energy assigned to initial node (as per your simulation tcl file)
 # Initial Energy assigned to each node in Joules
 
-energy_left[50] = 10000.000000;			
+energy_left[70] = 10000.000000;			
 
 total_pkt_sent=0;
 total_pkt_recvd=0;
@@ -48,32 +48,32 @@ pkt_type 	= 	$35;
 packet_id	= 	$41;
 no_of_forwards 	=	$49;
 
-# In for loop change values from 50 to number of nodes that u specify for your simulation  
+# In for loop change values from 70 to number of nodes that u specify for your simulation  
 
-if((pkt_type == "cbr") && (state == "s") && (level=="AGT")) { 
-	for(i=0;i<50;i++) {
+if((pkt_type == "udp") && (state == "s") && (level=="AGT")) { 
+	for(i=0;i<70;i++) {
 		if(i == node_id) {
 		packet_sent[i] = packet_sent[i] + 1; }
 }
-}else if((pkt_type == "cbr") && (state == "r") && (level=="AGT")) { 
-	for(i=0;i<50;i++) {
+}else if((pkt_type == "udp") && (state == "r") && (level=="AGT")) { 
+	for(i=0;i<70;i++) {
 		if(i == node_id) {
 		packet_recvd[i] = packet_recvd[i] + 1; }
 }
-}else if((pkt_type == "cbr") && (state == "d")) { 
-	for(i=0;i<50;i++) {
+}else if((pkt_type == "udp") && (state == "d")) { 
+	for(i=0;i<70;i++) {
 		if(i == node_id) {
 		packet_drop[i] = packet_drop[i] + 1; }
 }
-}else if((pkt_type == "cbr") && (state == "f")) { 
-	for(i=0;i<50;i++) {
+}else if((pkt_type == "udp") && (state == "f")) { 
+	for(i=0;i<70;i++) {
 		if(i == node_id) {
 		packet_forwarded[i] = packet_forwarded[i] + 1; }
 }
 }
 
 # To calculate total hop counts
-if ((state == "r") && (level == "RTR") && (pkt_type == "cbr")) { total_hop_count = total_hop_count + no_of_forwards; }
+if ((state == "r") && (level == "RTR") && (pkt_type == "udp")) { total_hop_count = total_hop_count + no_of_forwards; }
 
 # Routing Overhead
 if ((state == "s" || state == "f") && (level == "RTR") && (pkt_type == "message")) { overhead = overhead + 1; }
@@ -82,9 +82,9 @@ if ((state == "s" || state == "f") && (level == "RTR") && (pkt_type == "message"
 
 #if ( start_time[packet_id] == 0 )  { start_time[packet_id] = time; }
 
-if (( state == "s") &&  ( pkt_type == "cbr" ) && ( level == "AGT" ))  { start_time[packet_id] = time; }
+if (( state == "s") &&  ( pkt_type == "udp" ) && ( level == "AGT" ))  { start_time[packet_id] = time; }
 
- if (( state == "r") &&  ( pkt_type == "cbr" ) && ( level == "AGT" )) {  end_time[packet_id] = time;  }
+ if (( state == "r") &&  ( pkt_type == "udp" ) && ( level == "AGT" )) {  end_time[packet_id] = time;  }
  else {  end_time[packet_id] = -1;  }
 
 # To Calculate Average Energy Consumption
@@ -92,7 +92,7 @@ if (( state == "s") &&  ( pkt_type == "cbr" ) && ( level == "AGT" ))  { start_ti
 # Change number of nodes in this for loop also
 
 if(state == "N") {
-	for(i=0;i<50;i++) {
+	for(i=0;i<70;i++) {
 		if(i == node_num) {
 					energy_left[i] = energy_left[i] - (energy_left[i] - energy_level);
 				}
@@ -104,7 +104,7 @@ if(state == "N") {
 # In this for loop also change 
 
 END {
-for(i=0;i<50;i++) {
+for(i=0;i<70;i++) {
 printf("%d %d \n",i, packet_sent[i]) > "pktsent.txt";
 printf("%d %d \n",i, packet_recvd[i]) > "pktrecvd.txt";
 printf("%d %d \n",i, packet_drop[i]) > "pktdrop.txt";
@@ -152,13 +152,13 @@ delay=sum/recvnum;
 printf("SUM e2ed			:%.9f ms\n", sum);
 printf("Average End to End Delay 	:%.9f ms\n", delay);
 
-# Below change 50 to number of nodes that u want
+# Below change 70 to number of nodes that u want
 
-printf("Total Energy Consumed  		:%.6f\n", (50*10000)-total_energy_consumed);
+printf("Total Energy Consumed  		:%.6f\n", (70*10000)-total_energy_consumed);
 
-# Below change 50 to number of nodes that u want
+# Below change 70 to number of nodes that u want
 
-printf("Protocol Energy Consumption 	:%.6f\n", 100.000000-((total_energy_consumed/(50*10000.000000))*100.000000));
+printf("Protocol Energy Consumption 	:%.6f\n", 100.000000-((total_energy_consumed/(70*10000.000000))*100.000000));
 		
 
 if(((total_pkt_recvd + total_pkt_drop)/total_pkt_sent)==1) {

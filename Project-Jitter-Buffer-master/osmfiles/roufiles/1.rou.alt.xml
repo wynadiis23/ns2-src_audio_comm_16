@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Tue Mar 10 21:53:01 2020 by Eclipse SUMO duarouter Version 1.4.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="osmfiles/netfiles/sebudi_edit.net.xml"/>
+        <additional-files value="osmfiles/netfiles/type.add.xml"/>
+        <route-files value="trips.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="osmfiles/roufiles/1.rou.xml"/>
+        <alternatives-output value="osmfiles/roufiles/1.rou.alt.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="1.0"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="myType" maxSpeed="10.00" vClass="passenger"/>
+    <vehicle id="0" type="myType" depart="0.00">
+        <routeDistribution last="0">
+            <route cost="139.48" probability="1.00000000" edges="527775824 -527775828#4 -527775828#3 -527775828#2 -527775826#1 -527775826#0 210617558#2 451798708#0"/>
+        </routeDistribution>
+    </vehicle>
+</routes>

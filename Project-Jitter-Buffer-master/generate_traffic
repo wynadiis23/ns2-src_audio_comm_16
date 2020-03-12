@@ -1,0 +1,19 @@
+#!/bin/bash
+nnode=(50 70) #definisikan jumlah node
+traffic=()
+
+
+for i in "${nnode[@]}"
+do
+	echo "##############################"
+	echo "traffic generarton for $i node"
+	echo "##############################"
+	ns cbrgen.tcl -type cbr -nn $i -seed 1 -mc 10 -rate 10.0 > traffic-$i.tcl
+	traffic+=( traffic-$i.tcl )
+		
+done
+
+for a in "${traffic[@]}"
+do
+	echo $a
+done

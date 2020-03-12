@@ -140,9 +140,9 @@ if {$opt(codec) == "G.711"} {
 close $trace_log_g_711
 close $trace_log_g_723_1
 close $trace_log_gsm_amr
-#set namtrace    [open main-out.nam w]
+set namtrace    [open "nam/voip-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].nam" w]
 $ns_ trace-all $tracefile
-#$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
+$ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
 
 # SET G O D
 set god_ [create-god $val(nn)]
@@ -161,7 +161,7 @@ $ns_ node-config -adhocRouting $val(adhocRouting) \
 		 -agentTrace ON \
                  -routerTrace ON \
                  -macTrace OFF \
-                 -movementTrace ON 
+                 -movementTrace OFF 
 
 
 for {set i 0} {$i < $val(nn) } {incr i} {

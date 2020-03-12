@@ -1,1 +1,0 @@
-mamang osmfiles/netfiles/sebudi_edit.net.xml  osmfiles/polyfiles  osmfiles/roufiles
