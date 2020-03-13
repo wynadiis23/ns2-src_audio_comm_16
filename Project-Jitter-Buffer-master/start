@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm outputs/*
+rm trace/*
+rm nam/*
+
+#generate mobility
+./generate_mobility
+
+./script-n

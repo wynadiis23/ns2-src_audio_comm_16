@@ -2,12 +2,12 @@
 ####
 #mobility & traffic generation
 ####
-nnode=(25 50 70) #definisikan jumlah node
+nnode=(25 35 45 55 65 75) #definisikan jumlah node
 mobility=()
 
 #ganti osm file dengan file osm yang dipakai
 proj=NS/voip/Project-Jitter-Buffer-master
-netfiles=osmfiles/netfiles/sebudi_edit3.net.xml
+netfiles=osmfiles/netfiles/sebudi_edit2.net.xml
 poly=osmfiles/polyfiles
 rout=osmfiles/roufiles
 sumocfg=osmfiles/sumocfg
@@ -26,7 +26,7 @@ do
 	polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
 	#randomTrips.py proses
 	echo "randomTrips proccess"
-	python $SUMO_HOME/tools/randomTrips.py -n $netfiles a $rerouter -a $type -r $rout/$i.rou.xml -e $i -l #ini akan generate n node hingga $i second, 1 node per 1 second, jadi jika ini $i=50, maka 10 node dalam 10 detik 
+	python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $type -a $rerouter -r $rout/$i.rou.xml -e $i -l #ini akan generate n node hingga $i second, 1 node per 1 second, jadi jika ini $i=50, maka 10 node dalam 10 detik 
 	#dalam 50 detik
 	x=0
 	x=`awk -v var1=1 -v var2=$i 'BEGIN { print  ( var1 / var2 ) }'`
