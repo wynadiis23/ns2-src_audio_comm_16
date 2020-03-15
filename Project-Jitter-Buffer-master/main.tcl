@@ -27,14 +27,14 @@ proc getopt {argc argv} {
 
 
 if {[string is double -strict [lindex $argv 0]]} {	
-	set opt(speed) 		[lindex $argv 0] ;# Simulation Speed
-	set opt(try) 		[lindex $argv 1] ;# Replication id
-	set opt(buffer) 	[lindex $argv 2] ;# Buffer type
-	set opt(codec) 		[lindex $argv 3] ;# Codec used
-	set opt(voipflows) 	[lindex $argv 4] ;# Number of correlated VoIP flows
+	#set opt(speed) 		[lindex $argv 0] ;# Simulation Speed
+	set opt(try) 		[lindex $argv 0] ;# Replication id
+	set opt(buffer) 	[lindex $argv 1] ;# Buffer type
+	set opt(codec) 		[lindex $argv 2] ;# Codec used
+	set opt(voipflows) 	[lindex $argv 3] ;# Number of correlated VoIP flows
 	#set opt(bgtraffic)	[lindex $argv 5] ;# Background traffic rate
-	set opt(routing)	[lindex $argv 5] ;# Routing algorithms	
-	set opt(nnode)		[lindex $argv 6] ;# Jumlah node
+	set opt(routing)	[lindex $argv 4] ;# Routing algorithms	
+	set opt(nnode)		[lindex $argv 5] ;# Jumlah node
 	#set opt(mobility)	[lindex $argv 8] ;# mobility files
 
 } else {
@@ -45,7 +45,7 @@ if {[string is double -strict [lindex $argv 0]]} {
 # L O A D L I S T N O D E
 source vnode.tcl
 # S E T O U T F I L E
-set file "outputs/out-S$opt(speed)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode)-SN_[lindex $vnode1 [expr $opt(try)-1]]-DN_[lindex $vnode2 [expr $opt(try)-1]].output"
+set file "outputs/out-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode)-SN_[lindex $vnode1 [expr $opt(try)-1]]-DN_[lindex $vnode2 [expr $opt(try)-1]].output"
 
 if {[file exists $file] == 1} {
 	
@@ -74,10 +74,10 @@ set val(ifqlen)         50
 set val(seed)           5.0
 set val(adhocRouting)   $opt(routing)
 set val(nn)            	$opt(nnode)
-set val(stop)           300.0     
+set val(stop)           120     
 #set val(cp)		"./cbr-tcp/$opt(bgtraffic).tcl" ;
 #set val(cp)		"./$opt(bgtraffic)" ;
-set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
+#set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
 set val(vip)		"./voip.tcl"
 #set val(mob)	"./$opt(mobility)"
 
@@ -98,12 +98,21 @@ if {$opt(routing) == "DSR" } {
 if {$opt(nnode) == 25} {
 	set val(mob) "./osmfiles/mobility/mobility_25.tcl"
 	set val(cp) "./traffic-25.tcl"
-} elseif {$opt(nnode) == 50} {
-	set val(mob) "./osmfiles/mobility/mobility_50.tcl"
-	set val(cp) "./traffic-50.tcl"
-} elseif {$opt(nnode) == 70} {
-	set val(mob) "./osmfiles/mobility/mobility_70.tcl"
-	set val(cp) "./traffic-70.tcl"
+} elseif {$opt(nnode) == 35} {
+	set val(mob) "./osmfiles/mobility/mobility_35.tcl"
+	set val(cp) "./traffic-35.tcl"
+} elseif {$opt(nnode) == 45} {
+	set val(mob) "./osmfiles/mobility/mobility_45.tcl"
+	set val(cp) "./traffic-45.tcl"
+} elseif {$opt(nnode) == 55} {
+	set val(mob) "./osmfiles/mobility/mobility_55.tcl"
+	set val(cp) "./traffic-55.tcl"
+} elseif {$opt(nnode) == 65} {
+	set val(mob) "./osmfiles/mobility/mobility_65.tcl"
+	set val(cp) "./traffic-65.tcl"
+} elseif {$opt(nnode) == 75} {
+	set val(mob) "./osmfiles/mobility/mobility_75.tcl"
+	set val(cp) "./traffic-75.tcl"
 } else {
 	puts "# tidak ada file traffic!!"
 	exit 0
@@ -166,7 +175,7 @@ $ns_ node-config -adhocRouting $val(adhocRouting) \
 
 for {set i 0} {$i < $val(nn) } {incr i} {
 	set node_($i) [$ns_ node]	
-	#$node_($i) random-motion 0
+	$node_($i) random-motion 0
 	#Without random motion
 	}
 puts "Loading connection pattern..."

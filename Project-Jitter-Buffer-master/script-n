@@ -3,12 +3,12 @@
 
 buff=( optimal )
 mp=(m)
-min=(0.1 ) #speed
-max=(2.1 ) 
+#min=(0.1 ) #speed
+#max=(2.1 ) 
 flows=(1) 
-try=(1 2) #banyak replikasi
-codec=(G.711) #banyak codec
-nnode=(25 50 70) #banyak node
+try=(1 2 3 4 5 6 7 8 9 10) #banyak replikasi
+codec=(G.711 G.723.1) #banyak codec
+nnode=(25 35 45 55 65 75) #banyak node
 #trace log
 proj=NS/voip/Project-Jitter-Buffer-master
 trace_log_g_711=$HOME/$proj/trace_log_g_711
@@ -30,8 +30,8 @@ setdest=~/ns-allinone-2.34/ns-2.34/indep-utils/cmu-scen-gen/setdest/setdest
 
 for i in "${mp[@]}"
 do
-        for j in "${min[@]}"
-        do  
+        #for j in "${min[@]}"
+        #do  
                 for k in "${try[@]}"
                 do  
                                 for w in "${buff[@]}"
@@ -49,9 +49,9 @@ do
                                                                         for q in "${flows[@]}"
                                                                         do
                                                                                 echo "##"
-                                                                                echo " #  ns main.tcl $j $k $w $z $q PA_AODV $c $c mobility # "
+                                                                                echo " #  ns main.tcl $k $w $z $q PA_AODV $c $c mobility # "
                                                                                 echo "##"
-                                                                                ns main.tcl $j $k $w $z $q AODV $c
+                                                                                ns main.tcl $k $w $z $q AODV $c
                                                                         done
                                                                 
                                                         #done			
@@ -63,6 +63,6 @@ do
 
                 done
                 count=$(($count+1))
-        done
+        #done
 done
 

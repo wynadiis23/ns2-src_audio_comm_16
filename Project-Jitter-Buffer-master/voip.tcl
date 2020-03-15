@@ -13,7 +13,7 @@ set opt(run)        0         ;# replic ID
 set opt(duration)   $val(stop)     ;# run duration, in seconds
 set opt(warm)       10.0       ;# run duration, in seconds
 set opt(out)        "$file"     ;# statistics output file
-set opt(debug)      "debug"   ;# debug configuration file, "" = no debug
+set opt(debug)      ""   ;# debug configuration file, "" = no debug
 set opt(startdebug) 100.0     ;# start time of debug output
 
 
@@ -34,7 +34,7 @@ set opt(e2et-per)            0.0        ;# Add Packet Error Rate
 # VoIP configuration
 #
 
-set opt(voip-bidirectional) 	     "on"        ;# VoIP bidirectional enable switch <on|off>
+set opt(voip-bidirectional) 	     "off"        ;# VoIP bidirectional enable switch <on|off>
 set opt(voip-debug)		     "nodebug"	  ;# VoIP debug options - "debug" or "nodebug"
 set opt(voip-model)                  one-to-one   ;# VoIP VAD model
 set opt(voip-exponential-talk)       1            ;# Average talkspurt period duration, in sec, with exponential VAD model
@@ -420,7 +420,7 @@ proc scenario {} {
 	set fid 1
 	#a total of 23 start times
 	#set start {1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0 5.5 6.0 6.5 7.0 7.5 8.0 8.5 9.0 9.5 10.0 10.5 11.0 11.5 12.0}
-	set start {90.0}
+	set start {10.0}
 	#Total of 18 correlated flows (VoIP Flows: 36 in total)
 	#bikin random disini
 	#pengecekan random dilakukan dengan array untuk masing2, source dan destination.

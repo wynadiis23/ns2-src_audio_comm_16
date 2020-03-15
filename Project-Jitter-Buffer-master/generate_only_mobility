@@ -1,0 +1,70 @@
+#!/bin/bash
+####
+#mobility & traffic generation
+####
+nnode=(25 35 45 55 65 75) #definisikan jumlah node
+mobility=()
+
+#ganti osm file dengan file osm yang dipakai
+proj=NS/voip/Project-Jitter-Buffer-master
+netfiles=osmfiles/netfiles/sebudi_edit4.net.xml
+poly=osmfiles/polyfiles
+rout=osmfiles/roufiles
+sumocfg=osmfiles/sumocfg
+sumoxml=osmfiles/sumoxml
+ns2config=osmfiles/ns2config
+ns2mobility=osmfiles/mobility
+rerouter=osmfiles/netfiles/rerouter.add.xml
+type=osmfiles/netfiles/type.add.xml
+
+#netconvert --osm-files $osm -o $netfiles/netfiles.net.xml
+for i in "${nnode[@]}"
+do
+	#polyconvert proses
+	echo "***********Generate Mobility Only for $i node***************"
+	#echo "polyconvert proccess"
+	#polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
+	#randomTrips.py proses
+	#echo "randomTrips proccess"
+	#python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $rerouter -a $type -r $rout/$i.rou.xml -e $i -l #ini akan generate n node hingga $i second, 1 node per 1 second, jadi jika ini $i=50, maka 10 node dalam 10 detik 
+	#dalam 50 detik
+	#x=0
+	#x=`awk -v var1=1 -v var2=$i 'BEGIN { print  ( var1 / var2 ) }'`
+	#echo $x
+	#y=0
+	#y=`awk -v var1=$x -v var2=1 'BEGIN { print ( var2 / var1 ) }'`
+	#echo $y
+	#round=0
+	#round=`awk -v var1=$y 'BEGIN { printf("%.0f", var1) }'`
+	#echo $round
+	
+	#python $SUMO_HOME/tools/randomTrips.py -n $netfiles -r $rout/$i.rou.xml -e 1 -p 0.02 -l #akan membuat 1/0.02 node dalam 1 detik. 
+	#python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $rerouter -a $type -r $rout/$i.rou.xml -e 1 -p $x -l #akan membuat 1/$x node dalam 1 detik pada file route.
+	#echo "membuat $round node per 1 detik"
+	sleep 5
+	
+
+	echo "building $i sumo.cfg configuration"
+	printf "<configuration>
+     		<input>
+         		<net-file value='"$HOME/$proj/$netfiles"'/>
+			<route-files value='"$HOME/$proj/$rout/$i.rou.xml"'/>
+   			<additional-files value='"$HOME/$proj/$poly/$i.poly.xml"'/>
+     		</input>
+		<time>
+			<begin value='"0"'/>
+			<end value='"120"'/>
+			<step-length value='"0.1"'/>
+		</time>
+		 </configuration>" > $sumocfg/$i.sumo.cfg
+
+	echo "sumo.xml files creating ....."
+	sumo -c $HOME/$proj/$sumocfg/$i.sumo.cfg --fcd-output $sumoxml/$i.sumo.xml
+
+	echo "mobility creating with traceExporter"
+	python $SUMO_HOME/tools/traceExporter.py --fcd-input $sumoxml/$i.sumo.xml --ns2config-output $ns2config/config_$i.tcl
+        python $SUMO_HOME/tools/traceExporter.py --fcd-input $sumoxml/$i.sumo.xml --ns2mobility-output $ns2mobility/mobility_$i.tcl
+
+        #append array mobility
+        mobility+=( $ns2mobility/mobility_$i.tcl )
+done

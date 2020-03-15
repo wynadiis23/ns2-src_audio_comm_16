@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Fri Mar 13 16:44:32 2020 by Eclipse SUMO polyconvert Version 1.4.0
+<!-- generated on Sun Mar 15 10:29:35 2020 by Eclipse SUMO polyconvert Version 1.4.0
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/polyconvertConfiguration.xsd">
 
     <input>
-        <net-file value="osmfiles/netfiles/sebudi_edit2.net.xml"/>
+        <net-file value="osmfiles/netfiles/sebudi_edit4.net.xml"/>
         <osm-files value="osmfiles/sebudi.osm"/>
         <type-file value="/usr/share/sumo/data/typemap/osmPolyconvert.typ.xml"/>
     </input>

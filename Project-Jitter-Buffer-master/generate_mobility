@@ -7,7 +7,7 @@ mobility=()
 
 #ganti osm file dengan file osm yang dipakai
 proj=NS/voip/Project-Jitter-Buffer-master
-netfiles=osmfiles/netfiles/sebudi_edit2.net.xml
+netfiles=osmfiles/netfiles/sebudi_edit4.net.xml
 poly=osmfiles/polyfiles
 rout=osmfiles/roufiles
 sumocfg=osmfiles/sumocfg
@@ -26,7 +26,7 @@ do
 	polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
 	#randomTrips.py proses
 	echo "randomTrips proccess"
-	python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $type -a $rerouter -r $rout/$i.rou.xml -e $i -l #ini akan generate n node hingga $i second, 1 node per 1 second, jadi jika ini $i=50, maka 10 node dalam 10 detik 
+	#python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $rerouter -a $type -r $rout/$i.rou.xml -e $i -l #ini akan generate n node hingga $i second, 1 node per 1 second, jadi jika ini $i=50, maka 10 node dalam 10 detik 
 	#dalam 50 detik
 	x=0
 	x=`awk -v var1=1 -v var2=$i 'BEGIN { print  ( var1 / var2 ) }'`
@@ -39,7 +39,7 @@ do
 	echo $round
 	
 	#python $SUMO_HOME/tools/randomTrips.py -n $netfiles -r $rout/$i.rou.xml -e 1 -p 0.02 -l #akan membuat 1/0.02 node dalam 1 detik. 
-	#python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $rerouter -a $type -r $rout/$i.rou.xml -e 1 -p $x -l #akan membuat 1/$x node dalam 1 detik pada file route.
+	python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $rerouter -a $type -r $rout/$i.rou.xml -e 1 -p $x -l #akan membuat 1/$x node dalam 1 detik pada file route.
 	#echo "membuat $round node per 1 detik"
 	sleep 5
 	
@@ -53,7 +53,7 @@ do
      		</input>
 		<time>
 			<begin value='"0"'/>
-			<end value='"300"'/>
+			<end value='"120"'/>
 			<step-length value='"0.1"'/>
 		</time>
 		 </configuration>" > $sumocfg/$i.sumo.cfg

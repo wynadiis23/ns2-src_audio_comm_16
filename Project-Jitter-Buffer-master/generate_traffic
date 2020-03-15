@@ -1,5 +1,5 @@
 #!/bin/bash
-nnode=(50 70) #definisikan jumlah node
+nnode=(25 35 45 55 65 75) #definisikan jumlah node
 traffic=()
 
 

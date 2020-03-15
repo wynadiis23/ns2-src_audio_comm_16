@@ -28,9 +28,9 @@ no_of_forwards 	=	$49;
 
 #if ( start_time[packet_id] == 0 )  { start_time[packet_id] = time; }
 
-if (( state == "s") &&  ( pkt_type == "cbr" ) && ( level == "AGT" ))  { start_time[packet_id] = time; }
+if (( state == "s") &&  ( pkt_type == "udp" ) && ( level == "AGT" ))  { start_time[packet_id] = time; }
 
- if (( state == "r") &&  ( pkt_type == "cbr" ) && ( level == "AGT" )) {  end_time[packet_id] = time;  }
+ if (( state == "r") &&  ( pkt_type == "udp" ) && ( level == "AGT" )) {  end_time[packet_id] = time;  }
  else {  end_time[packet_id] = -1;  }
 
  
