@@ -8,3 +8,4 @@ rm nam/*
 ./generate_mobility
 
 ./script-n
+./awk/calculate
