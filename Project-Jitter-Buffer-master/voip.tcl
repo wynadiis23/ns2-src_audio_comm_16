@@ -36,7 +36,7 @@ set opt(e2et-per)            0.0        ;# Add Packet Error Rate
 
 set opt(voip-bidirectional) 	     "off"        ;# VoIP bidirectional enable switch <on|off>
 set opt(voip-debug)		     "nodebug"	  ;# VoIP debug options - "debug" or "nodebug"
-set opt(voip-model)                  one-to-one   ;# VoIP VAD model #jika one-to-one, maka itu push to talk communication, half dulplex sifatnya. vad juga bisa weibull custom dan exponential
+set opt(voip-model)                  weibull-custom   ;# VoIP VAD model #jika one-to-one, maka itu push to talk communication, half dulplex sifatnya. vad juga bisa weibull custom dan exponential
 set opt(voip-exponential-talk)       1            ;# Average talkspurt period duration, in sec, with exponential VAD model
 set opt(voip-exponential-silence)    1.5          ;# Average silence period duration, in sec, with exponential VAD model
 set opt(voip-codec)                  $opt(codec)	;#G.723.1;# VoIP codec
@@ -417,13 +417,13 @@ proc scenario {} {
         global ns_ opt node_
         
 	set fid 1
-	set start {10.0}
+	set start {30.0}
 	set vNodeS {}
 	set vNodeD {}
 	
 	
 	source vnode.tcl
-	set stop [expr $opt(duration)-5]
+	set stop 90
 	
 		  for { set i 0} { $i < $opt(voipflows)} { incr i } {
 			  create_voip $fid [lindex $start $i] $stop

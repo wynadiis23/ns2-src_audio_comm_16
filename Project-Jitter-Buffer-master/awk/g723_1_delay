@@ -36,7 +36,7 @@ if (( ${#g723_1trace25[@]} )); then
 			awk -f e2e.awk ../trace/$i >> g723_1_delay_25.txt
 		done
 	fi
-	echo "file hasil trace node 50"
+	echo "file hasil trace node 25"
 else
 	echo "Tidak ada file trace dengan node 50"
 fi
