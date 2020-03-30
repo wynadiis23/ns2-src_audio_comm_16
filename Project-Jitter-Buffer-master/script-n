@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
-buff=( optimal )
+buff=( h323 )
 mp=(m)
 #min=(0.1 ) #speed
 #max=(2.1 ) 
 flows=(1) 
-try=(1 ) #banyak replikasi
+try=(1 2 3 4 5 6 7 8 9 10) #banyak replikasi
 codec=(G.711 G.723.1) #banyak codec
-nnode=(25 ) #banyak node
+nnode=(25 35 45 55 65 75) #banyak node
 #trace log
 proj=NS/voip/Project-Jitter-Buffer-master
 trace_log_g_711=$HOME/$proj/trace_log_g_711

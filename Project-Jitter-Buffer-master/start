@@ -8,4 +8,6 @@ rm nam/*
 ./generate_mobility
 
 ./script-n
-./awk/calculate
+cd awk
+./calculate
+#./home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/calculate

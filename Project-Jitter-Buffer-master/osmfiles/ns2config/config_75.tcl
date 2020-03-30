@@ -7,7 +7,7 @@ set opt(stop) 120.0
 
 # set floor size
 set opt(x) 2290.43
-set opt(y) 2975.05
-set opt(min-x) 2048.11
+set opt(y) 2975.06
+set opt(min-x) 2048.16
 set opt(min-y) 2667.46
 
