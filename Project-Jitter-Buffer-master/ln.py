@@ -69,7 +69,7 @@ def main():
 	
 	R.append(rata_R)
 	MOS.append(rata_MOS)
-	with open('Rfactor_'+str(codec)+'_'+str(nnode)+'.csv', 'w', newline='') as myfile:
+	with open('R/Rfactor_'+str(codec)+'_'+str(nnode)+'.csv', 'w', newline='') as myfile:
 		#wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 		#for word in R:
 		#	wr.writerow([word])
