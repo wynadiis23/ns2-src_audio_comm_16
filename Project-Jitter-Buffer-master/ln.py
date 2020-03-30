@@ -20,7 +20,13 @@ R0=94.2
 heav=0
 #cf=0
 #id=0
+tampung_r=0
 R=[]
+tampung_mos=0
+MOS=[]
+
+rata_R=0
+rata_MOS=0
 def main():
 	
 	
@@ -35,7 +41,7 @@ def main():
 	hitung_ie()
 	
 	
-	print(cf)
+	#print(cf)
 	print("ie: ",tampung_ie)
 	print("id: ",tampung_id)
 	count1=0
@@ -51,18 +57,31 @@ def main():
 	if count1 == count2:
 		a=0
 		for x in range(count1):
-			R.append(R0-tampung_id[x]-tampung_ie[x]) #tidak pakai cf
+			tampung_r=R0-tampung_id[x]-tampung_ie[x]
+			tampung_mos=(1+(0.035*tampung_r)+tampung_r*(tampung_r-60)*(100-tampung_r)*0.000007)
+			R.append(tampung_r) #tidak pakai cf
+			MOS.append(tampung_mos)
 			a+=1
+			
+	#mencari rata2 dari mos dan r
+	rata_R = sum(R) / len(R)
+	rata_MOS = sum(MOS) / len(MOS)
+	
+	R.append(rata_R)
+	MOS.append(rata_MOS)
 	with open('Rfactor_'+str(codec)+'_'+str(nnode)+'.csv', 'w', newline='') as myfile:
-		wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-		for word in R:
-			wr.writerow([word])
+		#wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+		#for word in R:
+		#	wr.writerow([word])
+		writer = csv.writer(myfile, delimiter='\t')
+		writer.writerows(zip(R,MOS))
 		
      
 	fcount1.close
 	fcount2.close
 	myfile.close
 	#print(R)
+	#print(MOS)
 	
 ########################
 def read_packetloss(pkt):
@@ -88,7 +107,7 @@ def ie_factor(codec):
 		
 	elif codec == "g723_1":
 		cf=19
-		print("beda")
+		#print("beda")
 		#return cf
 	else:
 		print("codec tidak ditemukan")
