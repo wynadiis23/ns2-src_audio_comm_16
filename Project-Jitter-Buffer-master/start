@@ -8,6 +8,8 @@ rm nam/*
 ./generate_mobility
 
 ./script-n
-cd awk
+cd awk #pindah direktori
 ./calculate
+cd .. #pindah direktori
+./mos_calculate
 #./home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/calculate

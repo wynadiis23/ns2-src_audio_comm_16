@@ -42,8 +42,8 @@ def main():
 	
 	
 	#print(cf)
-	print("ie: ",tampung_ie)
-	print("id: ",tampung_id)
+	#print("ie: ",tampung_ie)
+	#print("id: ",tampung_id)
 	count1=0
 	count2=0
 	#count line in file

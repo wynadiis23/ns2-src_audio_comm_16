@@ -118,7 +118,7 @@ proc finish {} {
         global ns_ simtime file
 	set simtimefile [open time a]
         # print statistics to output file
-        $ns_ stat print
+        #$ns_ stat print
 
         # print out the simulation time
         set simtime [expr [clock seconds] - $simtime]
@@ -467,5 +467,5 @@ scenario
 if { $opt(debug) != "" } {
         printopt
 }
-alive
+#alive
 #$ns_ run

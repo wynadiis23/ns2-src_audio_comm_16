@@ -1,0 +1,13 @@
+#!/bin/bash
+
+nodes=(25 35 45 55 65 75)
+codecs=(g711 g723_1)
+echo `pwd`
+for codec in ${codecs[@]}; do
+   for node in ${nodes[@]}; do
+		echo "calculate MOS for $node $codec"
+		sleep 2
+		python3 ln.py $node $codec
+	done
+done
+#python3 mos_calculate.py
