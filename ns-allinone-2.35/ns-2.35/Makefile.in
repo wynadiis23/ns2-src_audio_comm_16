@@ -292,6 +292,8 @@ OBJ_CC = \
 	pa_aodv/pa_aodv_rtable.o pa_aodv/pa_aodv_rqueue.o \
 	aomdv/aomdv_logs.o aomdv/aomdv.o \
 	aomdv/aomdv_rtable.o aomdv/aomdv_rqueue.o \
+	pa_aomdv/pa_aomdv_logs.o pa_aomdv/pa_aomdv.o \
+	pa_aomdv/pa_aomdv_rtable.o pa_aomdv/pa_aomdv_rqueue.o \
 	puma/puma.o \
 	mdart/mdart_adp.o mdart/mdart_dht.o mdart/mdart_ndp.o \
 	mdart/mdart_neighbor.o mdart/mdart_queue.o mdart/mdart_table.o \

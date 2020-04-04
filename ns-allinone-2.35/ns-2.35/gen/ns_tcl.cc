@@ -1146,6 +1146,11 @@ if {$aomdvonly != -1 } {\n\
 $agent if-queue [$self set ifq_(0)]   ;# ifq between LL and MAC\n\
 }\n\
 \n\
+set pa_aomdvonly [string first \"PA_AOMDV\" [$agent info class]] \n\
+if {$pa_aomdvonly != -1 } {\n\
+$agent if-queue [$self set ifq_(0)]   ;# ifq between LL and MAC\n\
+}\n\
+\n\
 set aodvonly [string first \"AODV\" [$agent info class]] \n\
 if {$aodvonly != -1 } {\n\
 $agent if-queue [$self set ifq_(0)]   ;# ifq between LL and MAC\n\
@@ -3457,7 +3462,8 @@ Smac 	# Sensor-MAC\n\
 TORA 	# routing protocol for ad-hoc networks\n\
 MDART 	# routing protocol for ad-hoc networks\n\
 AOMDV\n\
-PA_AODV	#PA_AODV\n\
+PA_AODV	\n\
+PA_AOMDV\n\
 \n\
 Encap 	# common/encap.cc\n\
 IPinIP 	# IP encapsulation \n\
@@ -4299,6 +4305,11 @@ Agent/AOMDV set sport_   0\n\
 Agent/AOMDV set dport_   0\n\
 Agent/AOMDV set aomdv_prim_alt_path_len_diff_ 1\n\
 Agent/AOMDV set aomdv_max_paths_ 3\n\
+\n\
+Agent/PA_AOMDV set sport_   0\n\
+Agent/PA_AOMDV set dport_   0\n\
+Agent/PA_AOMDV set pa_aomdv_prim_alt_path_len_diff_ 1\n\
+Agent/PA_AOMDV set pa_aomdv_max_paths_ 3\n\
 \n\
 \n\
 Agent instproc attach-e2et { e2et } {\n\
@@ -21194,6 +21205,9 @@ set ragent [$self create-pa_aodv-agent $node]\n\
 AOMDV {\n\
 set ragent [$self create-aomdv-agent $node]\n\
 }\n\
+PA_AOMDV {\n\
+set ragent [$self create-pa_aomdv-agent $node]\n\
+}\n\
 MDART {\n\
 set ragent [$self create-mdart-agent $node]\n\
 }\n\
@@ -21402,6 +21416,13 @@ return $ragent\n\
 \n\
 Simulator instproc create-aomdv-agent { node } {\n\
 set ragent [new Agent/AOMDV [$node node-addr]]\n\
+$self at 0.0 \"$ragent start\"\n\
+$node set ragent_ $ragent\n\
+return $ragent\n\
+}\n\
+\n\
+Simulator instproc create-pa_aomdv-agent { node } {\n\
+set ragent [new Agent/PA_AOMDV [$node node-addr]]\n\
 $self at 0.0 \"$ragent start\"\n\
 $node set ragent_ $ragent\n\
 return $ragent\n\

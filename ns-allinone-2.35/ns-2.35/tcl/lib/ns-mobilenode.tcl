@@ -191,6 +191,12 @@ Node/MobileNode instproc add-target { agent port } {
 	if {$aomdvonly != -1 } {
 		$agent if-queue [$self set ifq_(0)]   ;# ifq between LL and MAC
 	}
+
+	# Special processing for PA_AOMDV
+	set pa_aomdvonly [string first "PA_AOMDV" [$agent info class]] 
+	if {$pa_aomdvonly != -1 } {
+		$agent if-queue [$self set ifq_(0)]   ;# ifq between LL and MAC
+	}
 	
 	# Special processing for AODV
 	set aodvonly [string first "AODV" [$agent info class]] 

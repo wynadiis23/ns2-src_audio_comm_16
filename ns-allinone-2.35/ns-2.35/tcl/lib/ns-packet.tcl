@@ -179,7 +179,10 @@ set protolist {
 	MDART 	# routing protocol for ad-hoc networks
 	# AOMDV patch
 	AOMDV
-	PA_AODV	#PA_AODV
+	PA_AODV	
+	#PA_AODV
+	# PA_AOMDV patch
+	PA_AOMDV
 
 # Other:
 	Encap 	# common/encap.cc

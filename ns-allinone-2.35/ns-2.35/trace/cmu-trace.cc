@@ -53,6 +53,7 @@
 #include <aodv/aodv_packet.h> //AODV
 #include <pa_aodv/pa_aodv_packet.h> //PA_AODV
 #include <aomdv/aomdv_packet.h>
+#include <pa_aomdv/pa_aomdv_packet.h> //PA_AOMDV
 #include <mdart/mdart_packet.h>
 #include <mdart/mdart_function.h>
 #include <cmu-trace.h>
@@ -1178,6 +1179,114 @@ CMUTrace::format_aomdv(Packet *p, int offset)
 	}
 }
 
+// PA_AOMDV patch
+void
+CMUTrace::format_pa_aomdv(Packet *p, int offset)
+{
+	struct hdr_pa_aomdv *ah = HDR_PA_AOMDV(p);
+	struct hdr_pa_aomdv_request *rq = HDR_PA_AOMDV_REQUEST(p);
+	struct hdr_pa_aomdv_reply *rp = HDR_PA_AOMDV_REPLY(p);
+	
+	
+	switch(ah->ah_type) {
+		case PA_AOMDVTYPE_RREQ:
+			
+			if (pt_->tagged()) {
+				sprintf(pt_->buffer() + offset,
+						  "-pa_aomdv:t %x -pa_aomdv:h %d -pa_aomdv:b %d -pa_aomdv:d %d "
+						  "-pa_aomdv:ds %d -pa_aomdv:s %d -pa_aomdv:ss %d "
+						  "-pa_aomdv:c REQUEST ",
+						  rq->rq_type,
+						  rq->rq_hop_count,
+						  rq->rq_bcast_id,
+						  rq->rq_dst,
+						  rq->rq_dst_seqno,
+						  rq->rq_src,
+						  rq->rq_src_seqno);
+			} else if (newtrace_) {
+				
+				sprintf(pt_->buffer() + offset,
+						  "-P pa_aomdv -Pt 0x%x -Ph %d -Pb %d -Pd %d -Pds %d -Ps %d -Pss %d -Pc REQUEST ",
+						  rq->rq_type,
+						  rq->rq_hop_count,
+						  rq->rq_bcast_id,
+						  rq->rq_dst,
+						  rq->rq_dst_seqno,
+						  rq->rq_src,
+						  rq->rq_src_seqno);
+				
+				
+			} else {
+				
+				sprintf(pt_->buffer() + offset,
+						  "[0x%x %d %d [%d %d] [%d %d]] (REQUEST)",
+						  rq->rq_type,
+						  rq->rq_hop_count,
+						  rq->rq_bcast_id,
+						  rq->rq_dst,
+						  rq->rq_dst_seqno,
+						  rq->rq_src,
+						  rq->rq_src_seqno);
+			}
+			break;
+			
+		case PA_AOMDVTYPE_RREP:
+		case PA_AOMDVTYPE_HELLO:
+		case PA_AOMDVTYPE_RERR:
+			
+			if (pt_->tagged()) {
+				sprintf(pt_->buffer() + offset,
+						  "-pa_aomdv:t %x -pa_aomdv:h %d -pa_aomdv:d %d -admov:ds %d "
+						  "-pa_aomdv:l %f -pa_aomdv:c %s ",
+						  rp->rp_type,
+						  rp->rp_hop_count,
+						  rp->rp_dst,
+						  rp->rp_dst_seqno,
+						  rp->rp_lifetime,
+						  rp->rp_type == PA_AOMDVTYPE_RREP ? "REPLY" :
+						  (rp->rp_type == PA_AOMDVTYPE_RERR ? "ERROR" :
+							"HELLO"));
+			} else if (newtrace_) {
+				
+				sprintf(pt_->buffer() + offset,
+						  "-P pa_aomdv -Pt 0x%x -Ph %d -Pd %d -Pds %d -Pl %f -Pc %s ",
+						  rp->rp_type,
+						  rp->rp_hop_count,
+						  rp->rp_dst,
+						  rp->rp_dst_seqno,
+						  rp->rp_lifetime,
+						  rp->rp_type == PA_AOMDVTYPE_RREP ? "REPLY" :
+						  (rp->rp_type == PA_AOMDVTYPE_RERR ? "ERROR" :
+							"HELLO"));
+	        } else {
+				  sprintf(pt_->buffer() + offset,
+							 "[0x%x %d [%d %d] %f] (%s) [%d %d]",
+							 rp->rp_type,
+							 rp->rp_hop_count,
+							 rp->rp_dst,
+							 rp->rp_dst_seqno,
+							 rp->rp_lifetime,
+							 rp->rp_type == AODVTYPE_RREP ? "REPLY" :
+							 (rp->rp_type == AODVTYPE_RERR ? "ERROR" :
+							  "HELLO"),
+							 rp->rp_bcast_id,
+							 rp->rp_first_hop
+							 );
+			  }
+			break;
+			
+		default:
+#ifdef WIN32
+			fprintf(stderr,
+					  "CMUTrace::format_pa_aomdv: invalid AODV packet type\n");
+#else
+			fprintf(stderr,
+					  "%s: invalid PA_AOMDV packet type\n", __FUNCTION__);
+#endif
+			abort();
+	}
+}
+
 void
 CMUTrace::format_mdart(Packet *p, int offset)
 {
@@ -1536,6 +1645,10 @@ void CMUTrace::format(Packet* p, const char *why)
 		// AOMDV patch
 		case PT_AOMDV:
 			format_aomdv(p, offset);
+			break;
+		// PA_AOMDV patch
+		case PT_PA_AOMDV:
+			format_pa_aomdv(p, offset);
 			break;
 		case PT_TORA:
                         format_tora(p, offset);

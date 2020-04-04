@@ -636,6 +636,9 @@ Simulator instproc create-wireless-node args {
 		    AOMDV {
 			    set ragent [$self create-aomdv-agent $node]
 		    }
+			PA_AOMDV {
+			    set ragent [$self create-pa_aomdv-agent $node]
+		    }
 		    MDART {
 			    set ragent [$self create-mdart-agent $node]
 		    }
@@ -874,6 +877,14 @@ Simulator instproc create-pa_aodv-agent { node } {
 # AOMDV patch
 Simulator instproc create-aomdv-agent { node } {
 	set ragent [new Agent/AOMDV [$node node-addr]]
+	$self at 0.0 "$ragent start"
+	$node set ragent_ $ragent
+	return $ragent
+}
+
+# PA_AOMDV patch
+Simulator instproc create-pa_aomdv-agent { node } {
+	set ragent [new Agent/PA_AOMDV [$node node-addr]]
 	$self at 0.0 "$ragent start"
 	$node set ragent_ $ragent
 	return $ragent

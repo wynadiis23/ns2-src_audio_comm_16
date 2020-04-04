@@ -205,8 +205,11 @@ static const packet_t PT_MDART = 72;
 		// PA_AODV
 static const packet_t PT_PA_AODV = 73;
 
+		// PA_AOMDV
+static const packet_t PT_PA_AOMDV = 74;
+
 // insert new packet types here
-static packet_t       PT_NTYPE = 74; // This MUST be the LAST one
+static packet_t       PT_NTYPE = 75; // This MUST be the LAST one
 
 enum packetClass
 {
@@ -415,6 +418,10 @@ public:
 
 		//PA_AODV
 		name_[PT_PA_AODV]="PA_AODV";
+
+		//PA_AOMDV
+		name_[PT_PA_AOMDV]="PA_AOMDV";
+
 		// DCCP
 		name_[PT_DCCP]="DCCP";
 		name_[PT_DCCP_REQ]="DCCP_Request";
@@ -628,6 +635,9 @@ struct hdr_cmn {
 	
 	// AOMDV patch
 	int aomdv_salvage_count_;
+
+	// PA_AOMDV patch
+	int pa_aomdv_salvage_count_;
 	
         // called if pkt can't obtain media or isn't ack'd. not called if
         // droped by a queue

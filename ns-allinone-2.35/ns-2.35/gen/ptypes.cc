@@ -150,6 +150,8 @@ set ptype(mdart) 72\n\
 set pvals(72) MDART\n\
 set ptype(pa_aodv) 73\n\
 set pvals(73) PA_AODV\n\
+set ptype(pa_aomdv) 74\n\
+set pvals(74) PA_AOMDV\n\
 proc ptype2val {str} {\n\
 global ptype\n\
 set str [string tolower $str]\n\
