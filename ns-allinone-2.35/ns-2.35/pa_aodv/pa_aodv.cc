@@ -462,6 +462,7 @@ pa_aodv_rt_entry *rt;
 
   printf("hci: %d\n", hci);
   printf("hcj: %d\n", hcj);
+  hcj=rt->rt_nexthop;
   
  }
 
@@ -574,6 +575,7 @@ void
 PA_AODV::recv(Packet *p, Handler*) {
 struct hdr_cmn *ch = HDR_CMN(p);
 struct hdr_ip *ih = HDR_IP(p);
+pa_aodv_rt_entry *rt, *rtn;
 
  assert(initialized());
  //assert(p->incoming == 0);
@@ -628,10 +630,13 @@ else if(ih->saddr() == index) {
  {
    rt_resolve(p);
    printf("Nilai hci & hcj ketika perbandingan: %d \t %d \t %d \t %d\n", hci, hcj, hci-hcj, index);
-   if(hci-hcj>2)
+   if(hci>2)
    {
-     printf("eh masuk ni bor\n");
-     recvRequest(p);
+     printf("eh masuk ni bor aw\n");
+     //recvRequest(p);
+     //sendRequest(rt->rt_dst); 
+     rt_resolve(p);
+     
    }
  }
  else
@@ -1123,6 +1128,9 @@ pa_aodv_rt_entry *rt = rtable.rt_lookup(dst);
   *  about sending out route requests. 
   */
  printf("\nKIRIM REQUEST ROUTE\n");
+ //hcj=rq->rq_hop_count;
+ //printf("%d", hcj);
+ printf("%d", rt->rt_hops);
  if (rt->rt_flags == RTF_UP) {
    assert(rt->rt_hops != INFINITY2);
    Packet::free((Packet *)p);
@@ -1325,6 +1333,7 @@ struct hdr_cmn *ch = HDR_CMN(p);
 struct hdr_ip *ih = HDR_IP(p);
 struct hdr_pa_aodv_reply *rh = HDR_PA_AODV_REPLY(p);
 
+printf("aku di fungsi sendHello");
 #ifdef DEBUG
 fprintf(stderr, "sending Hello from %d at %.2f\n", index, Scheduler::instance().clock());
 #endif // DEBUG
@@ -1359,7 +1368,7 @@ PA_AODV::recvHello(Packet *p) {
 //struct hdr_ip *ih = HDR_IP(p);
 struct hdr_pa_aodv_reply *rp = HDR_PA_AODV_REPLY(p);
 PA_AODV_Neighbor *nb;
-
+printf("aku di fungsi recvhello skrg");
  nb = nb_lookup(rp->rp_dst);
  if(nb == 0) {
    nb_insert(rp->rp_dst);
@@ -1373,7 +1382,8 @@ PA_AODV_Neighbor *nb;
  * added by adi saputra 10/2/2020
  * inisialisasi hcj as index
  */
- hcj = index;
+  //printf("masuk fungsi recvHello");
+ hcj = rp->rp_hop_count;
  /*
  * commented by adi saputra 10/2/2020
  */
