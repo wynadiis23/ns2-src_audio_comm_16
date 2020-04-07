@@ -737,13 +737,20 @@ PA_AOMDV::recv(Packet *p, Handler*) {
 		}
 	}
 	// Added by Parag Dadhania && John Novatnack to handle broadcasting
-	if ( (u_int32_t)ih->daddr() != IP_BROADCAST)
+	if ( (u_int32_t)ih->daddr() != IP_BROADCAST){
 		rt_resolve(p); 
-	//edit	
-		if (hc_i-hc_j>2){
-			recvRequest(p);}		
-	else
+		//edit
+		printf("hci: %d\n", hc_i);
+		printf("hcj: %d\n", hc_j);
+		printf("masuk1\n");
+			if (hc_i-hc_j>2){
+				printf("masuk2\n");
+				recvRequest(p);
+			}
+	}	
+	else{
 		forward((pa_aomdv_rt_entry*) 0, p, NO_PA_AOMDV_DELAY);
+	}
 }
 
 
@@ -1012,7 +1019,8 @@ PA_AOMDV::recvRequest(Packet *p) {
 				if (rt->rt_advertised_hops == INFINITY) 
 					rt->rt_advertised_hops = rt->path_get_max_hopcount();
 				//edit
-					//hc_i = rp->rp_hop_count;
+					hc_i = rp->rp_hop_count;
+					printf("%d", rp->rp_hop_count);
 				// CHANGE
 				rt->rt_error = true;
 				// CHANGE
@@ -1259,7 +1267,8 @@ Comment: rp_dst is the source of the RREP, or rather the destination of the RREQ
       rp->rp_hop_count = rt->rt_advertised_hops;
       rp->rp_src = index;
 	//edit
-	hc_i = rp->rp_hop_count;
+	//hc_i = rp->rp_hop_count;
+	//printf("%d", rp->rp_hop_count);
 			
       reverse_path->expire = CURRENT_TIME + ACTIVE_ROUTE_TIMEOUT;
       

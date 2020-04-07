@@ -462,6 +462,7 @@ pa_aodv_rt_entry *rt;
 
   printf("hci: %d\n", hci);
   printf("hcj: %d\n", hcj);
+  //printf(rt);
   hcj=rt->rt_last_hop_count;
   
  }
