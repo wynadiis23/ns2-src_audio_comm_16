@@ -1,27 +1,35 @@
 #!/bin/bash
 
-
+routings=(AOMDV PA_AOMDV) #definisikan routing protokol yang digunakan.
 buff=( h323 )
 mp=(m)
 #min=(0.1 ) #speed
 #max=(2.1 ) 
 flows=(1) 
-try=(1 2 3 4 5 6 7 8 9 10) #banyak replikasi
+try=(1 ) #banyak replikasi
 codec=(G.711 G.723.1) #banyak codec
-nnode=(25 35 45 55 65 75) #banyak node
+nnode=(25 35 ) #banyak node
 #trace log
 proj=NS/voip/Project-Jitter-Buffer-master
-trace_log_g_711=$HOME/$proj/trace_log_g_711
-trace_log_g_723_1=$HOME/$proj/trace_log_g_723_1
-trace_log_gsm_amr=$HOME/$proj/trace_log_gsm_amr
-if [[ -f $HOME/$proj/trace_log_g_711 ]] && [[ -f $HOME/$proj/trace_log_g_723_1 ]] && [[ -f $HOME/$proj/trace_log_gsm_amr ]] 
-then
-	echo "tracelog exist, recreating"
-	sleep 2
-	rm $HOME/$proj/trace_log_g_711
-	rm $HOME/$proj/trace_log_g_723_1
-	rm $HOME/$proj/trace_log_gsm_amr
-fi
+for routing in "${routings[@]}"
+do
+	#echo $routing
+	trace_log_g_711=$HOME/$proj/trace_$routing_log_g_711
+	trace_log_g_723_1=$HOME/$proj/trace_$routing_log_g_723_1
+	trace_log_gsm_amr=$HOME/$proj/trace_$routing_log_gsm_amr
+	#echo "$HOME/$proj/trace_${routing}_log_g_711"
+	if [[ -f $HOME/$proj/trace_${routing}_log_g_711 ]] && [[ -f $HOME/$proj/trace_${routing}_log_g_723_1 ]] && [[ -f $HOME/$proj/trace_${routing}_log_gsm_amr ]] 
+	then
+		echo "tracelog exist, recreating"
+		sleep 2
+		rm $HOME/$proj/trace_${routing}_log_g_711
+		rm $HOME/$proj/trace_${routing}_log_g_723_1
+		rm $HOME/$proj/trace_${routing}_log_gsm_amr
+	fi
+done
+
+
+
 count=0
 
 setdest=~/ns-allinone-2.34/ns-2.34/indep-utils/cmu-scen-gen/setdest/setdest
@@ -43,18 +51,18 @@ do
                                                 #do
                                                 for c in "${nnode[@]}"
 						do
-                                                        #for x in "${traffic[@]}"
-                                                        #do
+                                                        for x in "${routings[@]}"
+                                                        do
                                                                 
                                                                         for q in "${flows[@]}"
                                                                         do
                                                                                 echo "##"
-                                                                                echo " #  ns main.tcl $k $w $z $q PA_AODV $c $c mobility # "
+                                                                                echo " #  ns main.tcl replikasi ke-$k $w $z $q $x $c $c mobility # "
                                                                                 echo "##"
-                                                                                ns main.tcl $k $w $z $q AODV $c
+                                                                                ns main.tcl $k $w $z $q $x $c
                                                                         done
                                                                 
-                                                        #done			
+                                                        done			
 							
                                                 done
                                                 #done

@@ -45,7 +45,7 @@ if {[string is double -strict [lindex $argv 0]]} {
 # L O A D L I S T N O D E
 source vnode.tcl
 # S E T O U T F I L E
-set file "outputs/out-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode)-SN_[lindex $vnode1 [expr $opt(try)-1]]-DN_[lindex $vnode2 [expr $opt(try)-1]].output"
+set file "outputs/out-$opt(routing)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode)-SN_[lindex $vnode1 [expr $opt(try)-1]]-DN_[lindex $vnode2 [expr $opt(try)-1]].output"
 
 if {[file exists $file] == 1} {
 	
@@ -130,26 +130,26 @@ $topo load_flatgrid $val(x) $val(y)
 
 #use new trace format
 $ns_ use-newtrace
-set tracefile	[open "trace/voip-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr" w]
+set tracefile	[open "trace/voip-$opt(routing)-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr" w]
 puts [expr $opt(try)-1]
 
 #I N S E R T T R A C E catat trace ke file txt
-set tr_lg "voip-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr"
-set trace_log_g_711 [open trace_log_g_711 a]
-set trace_log_g_723_1 [open trace_log_g_723_1 a]
-set trace_log_gsm_amr [open trace_log_gsm_amr a]
+set tr_lg "voip-$opt(routing)-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr"
+set trace_log_g_711_($opt(routing)) [open trace_$opt(routing)_log_g_711 a]
+set trace_log_g_723_1_($opt(routing)) [open trace_$opt(routing)_log_g_723_1 a]
+set trace_log_gsm_amr_($opt(routing)) [open trace_$opt(routing)_log_gsm_amr a]
 if {$opt(codec) == "G.711"} {
-	puts $trace_log_g_711 "$tr_lg"
+	puts $trace_log_g_711_($opt(routing)) "$tr_lg"
 } elseif {$opt(codec) == "G.723.1"} {
-	puts $trace_log_g_723_1 "$tr_lg"
+	puts $trace_log_g_723_1_($opt(routing)) "$tr_lg"
 } else {
-	puts $trace_log_gsm_amr "$tr_lg"
+	puts $trace_log_gsm_amr_($opt(routing)) "$tr_lg"
 }
 
-close $trace_log_g_711
-close $trace_log_g_723_1
-close $trace_log_gsm_amr
-set namtrace    [open "nam/voip-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].nam" w]
+close $trace_log_g_711_($opt(routing))
+close $trace_log_g_723_1_($opt(routing))
+close $trace_log_gsm_amr_($opt(routing))
+set namtrace    [open "nam/voip-$opt(routing)-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].nam" w]
 $ns_ trace-all $tracefile
 $ns_ namtrace-all-wireless $namtrace $val(x) $val(y)
 
