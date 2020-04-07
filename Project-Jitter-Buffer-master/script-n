@@ -6,7 +6,7 @@ mp=(m)
 #min=(0.1 ) #speed
 #max=(2.1 ) 
 flows=(1) 
-try=(1 ) #banyak replikasi
+try=(1 2) #banyak replikasi
 codec=(G.711 G.723.1) #banyak codec
 nnode=(25 35 ) #banyak node
 #trace log

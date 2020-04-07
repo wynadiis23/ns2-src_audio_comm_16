@@ -5,9 +5,8 @@ import csv
 nnode=sys.argv[1]
 codec=sys.argv[2]
 
-#path
-path_packetloss='/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/'+str(codec)+'_pktloss_'+str(nnode)+'.txt'
-path_delay='/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/'+str(codec)+'_delay_'+str(nnode)+'.txt'
+#routing protokol
+routings=["AOMDV", "PA_AOMDV"]
 
 #variabel
 ndelay=[]
@@ -15,73 +14,88 @@ npktloss=[]
 tampung_ie=[]
 tampung_id=[]
 
-#R0
-R0=94.2
-heav=0
-#cf=0
-#id=0
-tampung_r=0
 R=[]
-tampung_mos=0
 MOS=[]
-
-rata_R=0
-rata_MOS=0
 def main():
 	
-	
-	#print (nnode)
-	
-	read_packetloss(path_packetloss)
-	read_delay(path_delay)
-	#print(npktloss)		
-	#print(ndelay)
-	cf=ie_factor(codec)
-	hitung_id()
-	hitung_ie()
-	
-	
-	#print(cf)
-	#print("ie: ",tampung_ie)
-	#print("id: ",tampung_id)
-	count1=0
-	count2=0
-	#count line in file
-	with open(path_delay, 'r') as fcount1:
-		for line in fcount1:
-			count1+=1
-	with open(path_packetloss, 'r') as fcount2:
-		for line in fcount2:
-			count2+=1
-	
-	if count1 == count2:
-		a=0
-		for x in range(count1):
-			tampung_r=R0-tampung_id[x]-tampung_ie[x]
-			tampung_mos=(1+(0.035*tampung_r)+tampung_r*(tampung_r-60)*(100-tampung_r)*0.000007)
-			R.append(tampung_r) #tidak pakai cf
-			MOS.append(tampung_mos)
-			a+=1
-			
-	#mencari rata2 dari mos dan r
-	rata_R = sum(R) / len(R)
-	rata_MOS = sum(MOS) / len(MOS)
-	
-	R.append(rata_R)
-	MOS.append(rata_MOS)
-	with open('R/Rfactor_'+str(codec)+'_'+str(nnode)+'.csv', 'w', newline='') as myfile:
-		#wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
-		#for word in R:
-		#	wr.writerow([word])
-		writer = csv.writer(myfile, delimiter='\t')
-		writer.writerows(zip(R,MOS))
+	for routing in routings:
+		#path
+		path_packetloss='/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/packetloss/'+str(routing)+'_'+str(codec)+'_pktloss_'+str(nnode)+'.txt'
+		path_delay='/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/delay/'+str(routing)+'_'+str(codec)+'_delay_'+str(nnode)+'.txt'
+
 		
-     
-	fcount1.close
-	fcount2.close
-	myfile.close
-	#print(R)
-	#print(MOS)
+
+		#R0
+		R0=94.2
+		heav=0
+		#cf=0
+		#id=0
+		tampung_r=0
+		
+		tampung_mos=0
+		
+
+		rata_R=0
+		rata_MOS=0
+		#print (nnode)
+		
+		read_packetloss(path_packetloss)
+		read_delay(path_delay)
+		#print(npktloss)		
+		#print(ndelay)
+		cf=ie_factor(codec)
+		hitung_id()
+		hitung_ie()
+		
+		
+		#print(cf)
+		#print("ie: ",tampung_ie)
+		#print("id: ",tampung_id)
+		count1=0
+		count2=0
+		#count line in file
+		with open(path_delay, 'r') as fcount1:
+			for line in fcount1:
+				count1+=1
+		with open(path_packetloss, 'r') as fcount2:
+			for line in fcount2:
+				count2+=1
+		
+		if count1 == count2:
+			a=0
+			for x in range(count1):
+				tampung_r=R0-tampung_id[x]-tampung_ie[x]
+				tampung_mos=(1+(0.035*tampung_r)+tampung_r*(tampung_r-60)*(100-tampung_r)*0.000007)
+				R.append(tampung_r) #tidak pakai cf
+				MOS.append(tampung_mos)
+				a+=1
+				
+		#mencari rata2 dari mos dan r
+		rata_R = sum(R) / len(R)
+		rata_MOS = sum(MOS) / len(MOS)
+		
+		R.append(rata_R)
+		MOS.append(rata_MOS)
+		with open('R/'+str(routing)+'_'+'Rfactor_'+str(codec)+'_'+str(nnode)+'.csv', 'w', newline='') as myfile:
+			#wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
+			#for word in R:
+			#	wr.writerow([word])
+			writer = csv.writer(myfile, delimiter='\t')
+			writer.writerows(zip(R,MOS))
+			
+		#print(R)
+		#print(MOS)
+		ndelay.clear()
+		npktloss.clear()
+		tampung_id.clear()
+		tampung_ie.clear()
+		R.clear()
+		MOS.clear()
+		fcount1.close
+		fcount2.close
+		myfile.close
+			
+	
 	
 ########################
 def read_packetloss(pkt):
