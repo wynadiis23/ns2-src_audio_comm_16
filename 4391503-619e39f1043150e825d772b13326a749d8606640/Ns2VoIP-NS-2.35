@@ -1,0 +1,3481 @@
+
+diff --git a/ns-2.35/tools/timestamper.cc b/ns-2.35/tools/timestamper.cc
+new file mode 100644
+index 0000000..4cf3f2c
+--- /dev/null
++++ b/ns-2.35/tools/timestamper.cc
+@@ -0,0 +1,69 @@
++/* 
++ *  Copyright (C) 2006 Dip. Ing. dell'Informazione, University of Pisa, Italy
++ *  http://info.iet.unipi.it/~cng/ns2measure/ns2measure.html
++ *
++ *  This program is free software; you can redistribute it and/or modify
++ *  it under the terms of the GNU General Public License as published by
++ *  the Free Software Foundation; either version 2 of the License, or
++ *  (at your option) any later version.
++ *
++ *  This program is distributed in the hope that it will be useful,
++ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *  GNU General Public License for more details.
++ *
++ *  You should have received a copy of the GNU General Public License
++ *  along with this program; if not, write to the Free Software
++ *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA, USA
++ */
++
++/* Timestamper connector
++   This code has been developed within the EuQoS project of the EU IST 6th Framework Programme. 
++   The "timestamper" connector sits at the **head** of a link, (at least, provided nothing else is 
++   attached to the head of that link afterwards), and adds a timestamp to packets already marked by
++   an end-to-end tagger only (also see e2e{t,m}.{cc,h} files). If packets have NOT been marked by an 
++   end-to-end tagger, it simply does nothing.
++
++   Giovanni Stea (g.stea@iet.unipi.it), University of Pisa, Italy, June 2005. 
++*/
++
++
++#ifndef ns_timestamper_h
++#define ns_timestamper_h
++
++#include <connector.h>
++#include <packet.h>
++
++class timestamper : public Connector {
++	
++protected:
++	virtual void recv(Packet *, Handler *);
++};
++
++
++void timestamper::recv(Packet *p, Handler *)
++{
++	hdr_cmn *ch=hdr_cmn::access(p);
++	int howmany=ch->e2e_timestamp_no();
++
++	if (howmany>0 && howmany<TSTAMP_NO)
++	// only packets which have ALREADY been timestamped by a sending agent should be considered
++
++	{
++		ch->e2e_timestamp(howmany)=Scheduler::instance().clock();
++		ch->e2e_timestamp_no()++;
++	}
++	target_->recv(p);
++}
++
++
++static class timestamperClass : public TclClass {
++public:
++	timestamperClass() : TclClass ("timestamper") {}
++	TclObject* create(int,const char*const*) {
++		return (new timestamper());
++	}
++}class_timestamper;
++
++
++#endif
+diff --git a/ns-2.35/voip/voip_aggregate.cc b/ns-2.35/voip/voip_aggregate.cc
+new file mode 100644
+index 0000000..11dbd86
+--- /dev/null
++++ b/ns-2.35/voip/voip_aggregate.cc
+@@ -0,0 +1,101 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_aggregate.h>
++#include <voip_frame.h>
++#include <voip_header.h>
++#include <math.h>
++#include <stdio.h>
++
++static class VoipAggregateClass : public TclClass {
++public:
++   VoipAggregateClass() : TclClass("Application/VoipAggregate") {}
++   TclObject* create(int, const char*const*) {
++      return (new VoipAggregate);
++   }
++} class_voip_aggregate;
++
++VoipAggregate::VoipAggregate ()
++{
++        size_        = 0;
++        nframes_     = 0;
++        initialized_ = false;
++        debug_       = false;
++        payload_     = 0;
++        header_      = 0;
++        pending_     = 0;
++        pendingSize_ = 0;
++
++        agent_       = 0;       // base class member
++}
++
++int
++VoipAggregate::command (int argc, const char*const* argv)
++{
++        if ( argc == 2  && strcmp (argv[1], "debug") == 0 ) {
++                debug_ = true;
++                return TCL_OK;
++
++        } else if ( argc == 2  && strcmp (argv[1], "nodebug") == 0 ) {
++                debug_ = false;
++                return TCL_OK;
++
++        } else if ( argc >= 3 && strcmp (argv[1], "size") == 0 ) {
++                size_ = atoi (argv[2]);
++                return TCL_OK;
++
++        } else if ( argc == 3  && strcmp (argv[1], "header") == 0 ) {
++                header_ = (VoipHeader*) TclObject::lookup (argv[2]);
++                return TCL_OK;
++
++        } else if ( argc >= 3 && strcmp (argv[1], "nframes") == 0 ) {
++                nframes_ = atoi (argv[2]);
++                if ( nframes_ == 0 ) {
++                        fprintf (stderr, "Invalid number of aggregated frames '%d'\n",
++                                 nframes_);
++                        return TCL_ERROR;
++                }
++                return TCL_OK;
++        }
++        return Application::command (argc, argv);
++}
++
++void
++VoipAggregate::recv (VoipFrame& frame)
++{
++        if ( debug_ ) fprintf (stderr,
++                "%.9f frame received %d,%d (total %d) timestamp %f\n",
++                        NOW, frame.talkspurt_, frame.frame_, frame.nframes_, frame.timestamp_);
++
++        // Update the number of pending frames.
++        ++pending_;
++
++        // If this is the first frame of the payload, create a new payload.
++        if ( pending_ == 1 ) payload_ = new VoipPayload;
++
++        // Add the frame to the pending payload.
++        (*payload_) += frame;
++
++        // Update the current size of the payload.
++        pendingSize_ += frame.size_;
++
++        // If the payload is full, send the frame to the agent.
++        if ( pending_ == nframes_ || frame.frame_ == ( frame.nframes_ - 1 ) ) {
++
++                // Select the size to be advertised for the payload.
++                unsigned int size = ( size_ == 0 ) ? pendingSize_ : size_;
++
++                if ( header_ ) {
++                        header_->recvPayload( size, payload_ );
++                } else {
++                        // Send the message to the agent.
++                        agent_->sendmsg (size, (AppData*)payload_);
++                }
++
++                // Reset the status variables.
++                payload_ = 0;
++                pending_ = 0;
++                pendingSize_ = 0;
++        }
++}
+diff --git a/ns-2.35/voip/voip_aggregate.h b/ns-2.35/voip/voip_aggregate.h
+new file mode 100644
+index 0000000..243eb00
+--- /dev/null
++++ b/ns-2.35/voip/voip_aggregate.h
+@@ -0,0 +1,69 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_AGGREGATE_H
++#define __NS2_VOIP_AGGREGATE_H
++
++class VoipHeader;
++
++#include <voip_frame.h>
++#include <app.h>
++#include <object.h>
++
++class VoipAggregate : public Application {
++public:
++	//! Create an empty VoIP aggregate object.
++	VoipAggregate ();
++
++	//! Return true if the object is ready to be started.
++	bool initialized () { return initialized_; }
++	
++	//! Tcl interface.
++	/*!
++	 * Tcl commands:
++	 * - $obj debug\n
++	 *   Enable debug to standard error.
++	 * - $obj nodebug\n
++	 *   Disable debug to standard error (default).
++	 * - $obj size $s \n
++	 *   Force the size of the aggregated payload to $s bytes.
++	 * - $obj nframes $n\n
++	 *   Aggregate (at most) $n frames into the same payload.
++	 */
++	virtual int command (int argc, const char*const* argv);
++
++	//! Receive a new frame from the encoder.
++	void recv (VoipFrame& frame);
++
++protected:
++        //! Payload size, in bytes.
++        /*!
++         * If size_ is equal to zero, then the payload size is set to the
++         * sum of the contained frames.
++         */
++        unsigned int size_;
++
++        //! Number of frames to aggregate into a payload.
++        unsigned int nframes_;
++
++        //! Number of pending frames;
++        unsigned int pending_;
++
++        //! Current payload size. Only used when size_ is equal to zero.
++        unsigned int pendingSize_;
++
++        //! Payload waiting to be sent.
++        VoipPayload* payload_;
++
++        //! Pointer to the VoIP Header Module
++        VoipHeader* header_;
++
++        //! True if debug is enabled.
++        bool debug_;
++
++        //! True if the object is ready to produce frames.
++        bool initialized_;
++};
++
++#endif // __NS2_VOIP_AGGREGATE_H
+diff --git a/ns-2.35/voip/voip_bidirectional.cc b/ns-2.35/voip/voip_bidirectional.cc
+new file mode 100644
+index 0000000..00b6f08
+--- /dev/null
++++ b/ns-2.35/voip/voip_bidirectional.cc
+@@ -0,0 +1,365 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_bidirectional.h>
++#include <voip_source.h>
++#include <ranvar.h>
++#include <stdio.h>
++#include <stat.h>
++
++static class VoipBidirectionalClass : public TclClass {
++public:
++   VoipBidirectionalClass() : TclClass("VoipBidirectional") {}
++   TclObject* create(int, const char*const*) {
++      return (new VoipBidirectional);
++   }
++} class_voip_bidirectional;
++
++VoipBidirectional::VoipBidirectional ()
++{
++	source_[0]   = 0;
++	source_[1]   = 0;
++	nsources_    = 0;
++	debug_       = false;
++	talkspurtsList_[0].clear();		
++	talkspurtsList_[1].clear();		
++}
++
++int
++VoipBidirectional::command (int argc, const char*const* argv)
++{
++	if ( argc == 2  && strcmp (argv[1], "debug") == 0 ) {
++		debug_ = true;
++		return TCL_OK;
++
++	} else if ( argc == 2  && strcmp (argv[1], "nodebug") == 0 ) {
++		debug_ = false;
++		return TCL_OK;
++
++	} else if ( argc == 2 && strcmp (argv[1], "start") == 0 ) {
++		if ( ! initialized () ) {
++			fprintf (stderr, "VoIP bidirectional not initialized");
++			return TCL_ERROR;
++		} 
++		if ( nsources_ == 0 ) {
++			fprintf (stderr, "There's nothing to start\n");
++			return TCL_ERROR;
++		}
++		if ( source_[0] ) source_[0]->handle ();
++		if ( source_[1] ) source_[1]->handle ();
++		return TCL_OK;
++	} else if ( argc == 2 && strcmp (argv[1], "stop") == 0 ) {
++		if ( source_[0] ) source_[0]->stop ();
++		if ( source_[1] ) source_[1]->stop ();
++		return TCL_OK;
++
++	} else if ( argc == 3 && strcmp (argv[1], "source") == 0 ) {
++		if ( nsources_ == 2 ) {
++			fprintf (stderr, "You cannot bound more than TWO sources to this object\n");
++			return TCL_ERROR;
++		}
++		source_[nsources_] = (VoipSource*) TclObject::lookup (argv[2]);
++		++nsources_;
++		return TCL_OK;
++
++	}
++	return TCL_ERROR;
++}
++
++static class VoipBidirectionalItuP59Class : public TclClass {
++public:
++   VoipBidirectionalItuP59Class() : TclClass("VoipBidirectionalItuP59") {}
++   TclObject* create(int, const char*const*) {
++      return (new VoipBidirectionalItuP59);
++   }
++} class_voip_bidirectional_itu_p59;
++
++VoipBidirectionalItuP59::VoipBidirectionalItuP59 () :
++	//timer_ (this),
++	singleTalkA_   (1.004),
++	singleTalkB_   (1.004),
++	doubleTalk_    (0.228),
++	mutualSilence_ (0.508)
++{
++	// Nihil.
++}
++
++static class VoipBidirectionalModifiedBradyClass : public TclClass {
++public:
++	VoipBidirectionalModifiedBradyClass() : TclClass("VoipBidirectionalModifiedBrady") {}
++	TclObject* create(int, const char*const*) {
++		return (new VoipBidirectionalModifiedBrady);
++	}
++} class_voip_bidirectional_modified_brady;
++
++VoipBidirectionalModifiedBrady::VoipBidirectionalModifiedBrady ()
++{
++	// Fill transition rate matrix of zero
++	for (int i=0; i<N_STATES; i++ ) {
++		for(int j=0; j<N_STATES; j++) {
++			Q_[i][j] = 0.0;
++		}
++	}
++	// Set transition rates
++	Q_[0][3] = Q_[5][4] =  0.83305;
++	Q_[0][6] = Q_[5][7] =  5.48900;
++	Q_[2][0] = Q_[1][5] =  2.15720;
++	Q_[1][0] = Q_[2][5] =  2.32450;
++	Q_[6][0] = Q_[7][5] = 27.62000;
++	Q_[3][0] = Q_[4][5] =  2.22220;
++	Q_[4][0] = Q_[3][5] =  1.04380;
++	Q_[0][1] = Q_[5][2] = Q_[6][1] = Q_[7][2] = 0.27853;
++
++	double sum;
++	for (int i=0; i<N_STATES; i++) {
++		sum = 0.0;
++		// Calculate
++		for (int j=0; j<N_STATES; j++)
++			sum += Q_[i][j];
++		// Create a Random Variable for each state
++		erv_[i] = new ExponentialRandomVariable ( 1/(sum) );
++		// Fill the Embedded Markov Chain (Jump Chain)
++		for (int j=0; j<N_STATES; j++) 
++			P_[i][j] = Q_[i][j]/sum;
++	}
++	// Start from the state in which A and B are silent and A spoke last
++	state_ = MUTUAL_SILENCE_A_LAST;
++
++	// Initialize the random variable used to determine state transitions
++	uniform_ = new UniformRandomVariable ( 0, 1 );
++
++	A_talkspurt_duration_ = 0.0;
++	B_talkspurt_duration_ = 0.0;
++	A_silence_duration_ = 0.0;
++	B_silence_duration_ = 0.0;
++}
++
++VoipBidirectionalModifiedBrady::State
++VoipBidirectionalModifiedBrady::nextState ( double rn ) {
++	
++	double sum = 0;
++	State newState = TALK_A;
++
++	for (int j=0; j<N_STATES; j++) {
++		sum += P_[state_][j];
++		if ( rn <= sum ) {
++			newState = (State) j;
++			break;
++		}
++	}
++
++	return newState;
++}
++
++void 
++VoipBidirectionalModifiedBrady::next (VoipSource* source, double& talk, double& silence) 
++{
++	int sourceNum;
++	if ( source == source_[0] ) 
++		sourceNum = 0;
++	else if ( source == source_[1] )
++		sourceNum = 1;
++	else {
++		fprintf ( stderr, "%.9f VoipBidirectional::next() Wrong source!\n", NOW);
++		abort();
++	}
++
++	// If the list of talkspurts for this source is empty, update it
++	if ( talkspurtsList_[sourceNum].empty() ) 
++		updateTalkspurtsList();
++
++	// Now at least one pair is present in the list, 
++	// then returns its values and pop it
++	std::pair< double, double >& tmp = talkspurtsList_[sourceNum].front();
++	talk = tmp.first;
++	silence = tmp.second;
++	if ( debug_ )
++		fprintf ( stderr, "%.9f VoipBidirectional::next() " 
++				  "source=%u, talk=%f, silence=%f!\n", 
++				  NOW, sourceNum, talk, silence);
++	talkspurtsList_[sourceNum].pop_front();
++}
++
++void 
++VoipBidirectionalModifiedBrady::updateTalkspurtsList() 
++{
++	// Exit if not initialized	
++	if ( ! initialized () ) {
++		fprintf (stderr, "VoIP bidirectional not initialized");
++		abort ();
++	}
++
++	if ( debug_ ) 
++		fprintf ( stderr, "%.9f updateTalkspurtList()\n", NOW );
++
++	// true if party A has at least a <talk,silence> pair
++	bool flag_A = false;
++	// true if party B has at least a <talk,silence> pair
++	bool flag_B = false;
++
++	do {
++		// Get duration of current status
++		double state_duration = erv_[state_]->value();
++		// Calculate the next state using Jump Matrix
++		State next_state = nextState( uniform_->value() );
++
++		switch ( state_ ) {
++			// Modified Brady model's state 1
++			case TALK_A:
++				// If A begin a talkspurt then it must be 
++				// long at least 15ms
++				if ( next_state == MUTUAL_SILENCE_A_LAST )
++					state_duration += 0.015;
++				break;
++			// Modified Brady model's state 6
++			case TALK_B:
++				// If B begin a talkspurt then it must be
++				// long at least 15ms
++				if ( next_state == MUTUAL_SILENCE_B_LAST ) 
++					state_duration += 0.015;
++				break;
++			// Modified Brady model's state 7
++			case SHORT_SILENCE_A_TALKS:
++			// Modified Brady model's state 8
++			case SHORT_SILENCE_B_TALKS:
++				break;
++			// Modified Brady model's state 4
++			case MUTUAL_SILENCE_A_LAST:
++			// Modified Brady model's state 5
++			case MUTUAL_SILENCE_B_LAST:
++				// Mutual silence duration is at least 200ms
++				state_duration += 0.2;
++				break;
++			// Modified Brady model's state 2
++			case DOUBLE_TALK_A_INTERRUPTED:
++				// If B begin a talkspurt (interrupting A) then
++				// it must be long at least 15ms
++				if ( next_state == TALK_A ) 
++					state_duration += 0.015;
++				break;
++			// Modified Brady model's state 3
++			case DOUBLE_TALK_B_INTERRUPTED:
++				// If A begin a talkspurt (interrupting A) then
++				// it must be long at least 15ms
++				if ( next_state == TALK_B ) 
++					state_duration += 0.015;
++				break;
++			default:
++			       	fprintf ( stderr, "VoipBidirectional: cannot be here!\n" );
++				abort();
++		}
++
++		if ( debug_ ) fprintf (stderr, "%.9f new voip-bidirectional state (%s), duration %f\n",
++				NOW, 
++				(state_ == TALK_A)? "A talk":
++				(state_ == TALK_B)? "B talk":
++				(state_ == MUTUAL_SILENCE_A_LAST)? "Mutual silence, A spoke last":
++				(state_ == MUTUAL_SILENCE_B_LAST)? "Mutual silence, B spoke last":
++				(state_ == SHORT_SILENCE_A_TALKS)? "Short silence while A talks":
++				(state_ == SHORT_SILENCE_B_TALKS)? "Short silence while B talks":
++				(state_ == DOUBLE_TALK_A_INTERRUPTED)? "Double talk, B interrupt A":
++				/*(state_ == DOUBLE_TALK_B_INTERRUPTED)?*/ "Double talk, A interrupt B",
++				state_duration);
++
++		// Construct a lists of talkspurts for A and B 
++		// and collect some statistics useful for debug (if enabled)
++		if ( state_ == TALK_A || 			// 1
++		     state_ == DOUBLE_TALK_A_INTERRUPTED || 	// 2
++		     state_ == DOUBLE_TALK_B_INTERRUPTED) {	// 3
++			// Party A is speaking
++			if ( A_silence_duration_ > 0.0 ) {
++				// End of a silence period (for A) detected
++				// Add a new <talkspurt,silence> pair for A to the list
++				if ( debug_)
++					fprintf( stderr, "%.9f New <Talkspurt,Silence>="
++							 "<%.9f,%.9f> pair for A\n",
++							 NOW, A_talkspurt_duration_, 
++							 A_silence_duration_);
++				talkspurtsList_[0].push_back( make_pair( A_talkspurt_duration_, 
++									 A_silence_duration_ ) );
++				flag_A = true;
++				A_silence_duration_ = 0.0;
++				A_talkspurt_duration_ = 0.0;
++			}
++ 			A_talkspurt_duration_ += state_duration;
++		}
++		else {						// 4,5,6,7,8
++			// Party A is silent
++			A_silence_duration_ += state_duration;
++		}
++
++		if ( state_ == TALK_B || 			// 6
++		     state_ == DOUBLE_TALK_A_INTERRUPTED || 	// 2
++		     state_ == DOUBLE_TALK_B_INTERRUPTED) {	// 3
++			// Party B is speaking
++			if ( B_silence_duration_ > 0.0 ) {
++				// End of a silence period (for A) detected
++				// Add a new <talkspurt,silence> pair for B to the list
++				if ( debug_ )
++					fprintf( stderr, "%.9f New <Talkspurt,Silence>="
++					 		 "<%.9f,%.9f> pair for B\n",
++							 NOW, B_talkspurt_duration_, 
++							 B_silence_duration_);
++				// Do not add a pair to the second party list if only one 
++				// source is attached to the Bidirectional object.
++				if ( nsources_ == 2 ) 
++					talkspurtsList_[1].push_back( make_pair( B_talkspurt_duration_, 
++										 B_silence_duration_ ) );
++				flag_B = true;
++				B_silence_duration_ = 0.0;
++				B_talkspurt_duration_ = 0.0;
++			}
++			B_talkspurt_duration_ += state_duration;
++		}
++		else {						// 1,4,5,7,8
++			// Party B is silent
++			B_silence_duration_ += state_duration;
++		}
++
++	if ( debug_ ) 
++		Stat::put ( "voip_state_duration" , state_, state_duration );
++
++		// Evolve to the new state
++		state_ = next_state;
++
++	} while ( ! (flag_A && flag_B) );
++}
++
++/*
++void
++VoipBidirectional::handle ()
++{
++	if ( ! initialized () ) {
++		fprintf (stderr, "VoIP bidirectional not initialized");
++		abort ();
++	}
++
++	double talk;
++	double silence;
++
++	// If there is a bidirectional module bound to this object
++	// then get the next talkspurt and silence periods from it.
++	if ( bidirectional_ ) {
++		bidirectional_->next (this, talk, silence);
++
++	// Otherwise, draw the talkspurt and silence period duration randomly
++	// from the random variables depending on the source model.
++	} else {
++		talk = talk_->value();
++		silence = silence_->value();
++	}
++
++	if ( debug_ ) fprintf (stderr, "%.9f new talkspurt %f, %f (ID %d)\n",
++		NOW, talk, silence, count_);
++
++	// Tell the encoder that a new talkspurt is to be generated.
++	encoder_->talkspurt (count_, talk);
++
++	// Update the talkspurt counter.
++	++count_;
++
++	// Reschedule this function to be called after the silence period.
++	timer_.start (talk + silence);
++}
++*/
+diff --git a/ns-2.35/voip/voip_bidirectional.h b/ns-2.35/voip/voip_bidirectional.h
+new file mode 100644
+index 0000000..7b55ba9
+--- /dev/null
++++ b/ns-2.35/voip/voip_bidirectional.h
+@@ -0,0 +1,173 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_BIDIRECTIONAL_H
++#define __NS2_VOIP_BIDIRECTIONAL_H
++
++#include <object.h>
++#include <t_timers.h>
++#include <ranvar.h>
++#include <list>
++
++class VoipSource;
++
++class VoipBidirectional : public TclObject {
++public:
++        //! Create an empty VoIP bidirectional module.
++        VoipBidirectional ();
++
++        //! Return true if the object is ready to be started.
++        bool initialized () { return ( nsources_ >= 1 ); } 
++
++        //! Tcl interface.
++        /*!
++         * Tcl commands:
++         * - $obj debug\n
++         *   Enable debug to standard error.
++         * - $obj nodebug\n
++         *   Disable debug to standard error (default).
++	 * - $obj source
++	 *   Link a new voip-source to $obj
++	 * - $obj start
++	 *   Start traffic generation
++	 * - $obj stop
++	 *   Stop traffic generation
++         */
++        virtual int command (int argc, const char*const* argv);
++
++        //! Generate a new talkspurt.
++        virtual void next (VoipSource* source, double& talk, double& silence)
++			  { abort(); }
++
++protected:
++        //! Pointers to the VoIP sources
++        VoipSource* source_[2];
++	//! Current number of sources. When initialized is equal to two.
++	unsigned int nsources_;
++	//! A list of <talkspurt,silence> pairs for each speaking party
++	std::list< std::pair<double, double> > talkspurtsList_[2];
++	//! True if debug is enabled.
++	bool debug_;
++};
++
++/*
++ *  Finite State Machine:
++ *
++ *   /-------------\        p1        /--------------\
++ *  |               | -------------> |                |
++ *  | Single Talk A |       p2       | Mutual silence |
++ *  |               | <------------- |                |
++ *   \-------------/                  \--------------/
++ *     / \     |                        / \      |
++ *      |      |                         |       |
++ *      | 1-p3 | 1-p1                    | 1-p4  | 1-p2
++ *      |      |                         |       |
++ *      |     \ /                        |      \ /
++ *   /-------------\        p3        /--------------\
++ *  |               | -------------> |                |
++ *  | Double Talk   |       p4       | Single Talk B  |
++ *  |               | <------------- |                |
++ *   \-------------/                  \--------------/
++ *
++ *
++ *  E[Single Talk]    = 1.004 s
++ *  E[Double Talk]    = 0.228 s
++ *  E[Mutual Silence] = 0.508 s
++ * 
++ */
++class VoipBidirectionalItuP59 : public VoipBidirectional {
++	enum State { TALK_A, TALK_B, DOUBLE_TALK, MUTUAL_SILENCE };
++
++public:
++	//! Create a default bi-directional source according to ITU-T P.59.
++	VoipBidirectionalItuP59();
++
++	//! Tcl interface.
++	//virtual int command (int argc, const char*const* argv);
++
++	//! Generate a new talkspurt.
++	//virtual void next (VoipSource* source, double& talk, double& silence) {}
++
++protected:
++	//! Timer to schedule talkspurts.
++	//TTimer<VoipBidirectionalItuP59> timer_;
++	//! Random variable for single talk user A.
++	ExponentialRandomVariable singleTalkA_;
++	//! Random variable for single talk user B.
++	ExponentialRandomVariable singleTalkB_;
++	//! Random variable for double talk.
++	ExponentialRandomVariable doubleTalk_;
++	//! Random variable for mutual silence.
++	ExponentialRandomVariable mutualSilence_;
++	
++	//! Current state.
++	State state_;
++
++	//! TODO
++
++};
++
++#define N_STATES 8
++class VoipBidirectionalModifiedBrady : public VoipBidirectional {
++	enum State { TALK_A, 
++		     DOUBLE_TALK_A_INTERRUPTED,
++		     DOUBLE_TALK_B_INTERRUPTED,
++		     MUTUAL_SILENCE_A_LAST,
++		     MUTUAL_SILENCE_B_LAST,
++		     TALK_B,
++		     SHORT_SILENCE_A_TALKS,
++		     SHORT_SILENCE_B_TALKS };
++
++	//! Return the next state of the chain
++	State nextState ( double rn );
++
++public:
++	VoipBidirectionalModifiedBrady ();
++
++	~VoipBidirectionalModifiedBrady () {
++		for (unsigned int i=0; i<N_STATES; i++ ) 
++			delete erv_[i];
++		delete uniform_;
++	}
++	
++	/*!
++	 * Generate a list of talkspurt,silence pairs
++	 * for each speaking party
++	 */
++	void updateTalkspurtsList();
++
++	//! Return the durations of next talkspurt and silence periods
++        virtual void next (VoipSource* source, double& talk, double& silence);
++
++protected:
++	//! Transition rate matrix
++	double Q_[N_STATES][N_STATES];
++	        
++	//! A random variable for each state
++	ExponentialRandomVariable* erv_[N_STATES];
++
++	//! Random variable for state transitions
++	UniformRandomVariable* uniform_;
++
++	//! Embedded Markov Chain (Jump Chain)
++	double P_[N_STATES][N_STATES];
++
++	//! Current state
++	State state_;
++
++	// Talkspurt duration for source A 
++	double A_talkspurt_duration_;
++
++	// Talkspurt duration for source B
++	double B_talkspurt_duration_;
++
++	// Silence duration for source A 
++	double A_silence_duration_;
++
++	// Silence duration for source B
++	double B_silence_duration_;
++	
++};
++
++#endif // __NS2_VOIP_BIDIRECTIONAL_H
+diff --git a/ns-2.35/voip/voip_decoder.cc b/ns-2.35/voip/voip_decoder.cc
+new file mode 100644
+index 0000000..7f13b0d
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder.cc
+@@ -0,0 +1,263 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_decoder.h>
++#include <stat.h>
++#include <math.h>
++#include <stdio.h>
++
++static class VoipDecoderClass : public TclClass {
++public:
++        VoipDecoderClass() : TclClass("Application/VoipDecoder") { }
++        TclObject* create(int, const char*const*) {
++                return (new VoipDecoder);
++        }
++} class_voip_decoder;
++
++VoipDecoder::VoipDecoder () :
++	functor_ (this, &VoipDecoder::collectEnd)
++{
++        debug_       = false;
++        agent_       = 0;
++        id_          = -1;
++        cellId_      = 0;
++        peerId_      = -1;
++
++        // E-Model parameter for GSM AMR 12.2 Kb/s codec.
++        emodel_Ie_ = 5;
++        emodel_Bpl_ = 10;
++        emodel_A_ = 5;
++        emodel_Ro_ = 93.2;
++        mosThreshold_ = 3.0;
++        cellOutageMosThreshold_ = 0.10;
++	cellOutageLossThreshold_ = 0.02;
++
++        firstFrame_ = true;
++        currentFrame_ = 0;
++        currentTalk_ = 0;
++        currentTalkSize_ = 0;
++        delaySum_ = 0;
++        delayNum_ = 0;
++
++	nextDecoder_ = 0;
++
++        Stat::addPostProcessMetric(&functor_);
++}
++
++int
++VoipDecoder::command (int argc, const char*const* argv)
++{
++        if ( argc == 2  && strcmp (argv[1], "debug") == 0 ) {
++                debug_ = true;
++                return TCL_OK;
++
++        } else if ( argc == 2  && strcmp (argv[1], "nodebug") == 0 ) {
++                debug_ = false;
++                return TCL_OK;
++
++	} else if ( argc == 3  && strcmp (argv[1], "next-decoder") == 0 ) {
++		nextDecoder_ = (VoipDecoder*) TclObject::lookup (argv[2]);
++		return TCL_OK;
++
++
++	} else if ( argc == 3 && strcmp ( argv[1], "mos-threshold" ) == 0 ) {
++		mosThreshold_ = atof(argv[2]);
++		if (mosThreshold_ < 0) {
++			fprintf (stderr, "E-Model: Invalid MOS threshold '%f'", 
++					mosThreshold_);
++			return TCL_ERROR;
++		}
++		return TCL_OK;
++
++		} else if ( argc == 3 && strcmp ( argv[1], "cell-mos-threshold" ) == 0 ) {
++			cellOutageMosThreshold_ = atof(argv[2]);
++			if (cellOutageMosThreshold_ < 0 || cellOutageMosThreshold_ > 1.0) {
++				fprintf (stderr, "E-Model: Invalid Cell Outage MOS threshold '%f'", 
++						cellOutageMosThreshold_);
++				return TCL_ERROR;
++			}
++			return TCL_OK;
++	
++	} else if ( argc == 3 && strcmp ( argv[1], "cell-loss-threshold" ) == 0 ) {
++		cellOutageLossThreshold_ = atof(argv[2]);
++		if ( cellOutageLossThreshold_ < 0 || cellOutageLossThreshold_ > 1.0) {
++			fprintf (stderr, "E-Model: Invalid Cell Outage Loss threshold '%f'", 
++					cellOutageLossThreshold_);
++			return TCL_ERROR;
++
++		}
++		return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[1], "id") == 0 ) {
++                id_ = atoi(argv[2]);
++                if (id_ < 0) {
++                        fprintf (stderr, "Invalid id '%d'\n", id_);
++			return TCL_ERROR;
++
++                }
++                return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[1], "cell-id") == 0 ) {
++                cellId_ = atoi(argv[2]);
++                if (cellId_ < 0) {
++                        fprintf (stderr, "Invalid cell id '%d'\n", cellId_);
++                        return TCL_ERROR;
++                }
++                return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[1], "peer-id") == 0 ) {
++                peerId_ = atoi(argv[2]);
++                if (peerId_ < 0) {
++                        fprintf (stderr, "Invalid peer id '%d'\n", peerId_);
++                        return TCL_ERROR;
++                }
++                return TCL_OK;
++
++        } else if ( argc == 4 && strcmp ( argv[1], "emodel" ) == 0 ) {
++                if ( strcmp ( argv[2], "Ie" ) == 0 ) {
++                                emodel_Ie_ = atof(argv[3]);
++                                if (emodel_Ie_ < 0) {
++                                                fprintf (stderr, "E-Model: Invalid Ie '%f'", emodel_Ie_);
++                                                return TCL_ERROR;
++                                }
++
++                } else if ( strcmp ( argv[2], "Bpl" ) == 0 ) {
++                                emodel_Bpl_ = atof(argv[3]);
++                                if (emodel_Bpl_ < 0) {
++                                                fprintf (stderr, "E-Model: Invalid Bpl '%f'", emodel_Bpl_);
++                                                return TCL_ERROR;
++                                }
++
++                } else if ( strcmp ( argv[2], "A" ) == 0 ) {
++                                emodel_A_ = atof(argv[3]);
++                                if (emodel_A_ < 0) {
++                                                fprintf (stderr, "E-Model: Invalid A '%f'", emodel_A_);
++                                                return TCL_ERROR;
++                                }
++
++                } else if ( strcmp ( argv[2], "Ro" ) == 0 ) {
++                                emodel_Ro_ = atof(argv[3]);
++                                if (emodel_Ro_ < 0) {
++                                                fprintf (stderr, "E-Model: Invalid Ro '%f'", emodel_Ro_);
++                                                return TCL_ERROR;
++                                }
++                }
++                        return TCL_OK;
++        }
++
++        // For more detail, please refer to ITU-T Recommendation G.113
++        else if ( argc == 3 && strcmp ( argv[1], "emodel" ) == 0 ) {
++                if ( strcmp ( argv[2], "G.711" ) == 0 ) {
++                        emodel_Ie_ = 0;
++                        emodel_Bpl_ = 4.3;
++                        return TCL_OK;
++
++                } else if ( strcmp ( argv[2], "G.729A" ) == 0 ) {
++                        emodel_Ie_ = 11.0;
++                        emodel_Bpl_ = 19.0;
++                        return TCL_OK;
++
++                } else if ( strcmp ( argv[2], "G.723.1" ) == 0 ) {
++                        emodel_Ie_ = 15.0;
++                        emodel_Bpl_ = 16.1;
++                        return TCL_OK;
++
++                } else if ( strcmp ( argv[2], "GSM.EFR" ) == 0 ) {
++                        emodel_Ie_ = 5.0;
++                        emodel_Bpl_ = 10.0;
++                        return TCL_OK;
++
++                } else if ( strcmp ( argv[2], "GSM.AMR" ) == 0 ) {
++                        // GSM_AMR uses the same value of GSM_EFR
++                        emodel_Ie_ = 5.0;
++                        emodel_Bpl_ = 10.0;
++                        return TCL_OK;
++
++                } else {
++                        fprintf(stderr, "VoipDecoder - Unsupported Codec\n");
++                        return TCL_ERROR;
++                }
++        }
++
++        return Application::command (argc, argv);
++}
++
++void
++VoipDecoder::process_data (int size, AppData* data)
++{
++	VoipPayload* payload = (VoipPayload*) data;
++
++        while ( payload->nframes() > 0 ) {
++                VoipFrame frame(--(*payload));
++		if ( nextDecoder_ != 0 ) nextDecoder_->collectFrame(frame);
++                collectFrame (frame);
++                if ( debug_ ) {
++                        fprintf (stderr, "%.9f payload received", NOW);
++                        fprintf (stderr, " frame %d,%d (total %d) timestamp %f",
++                        frame.talkspurt_, frame.frame_,
++                                frame.nframes_, frame.timestamp_);
++                        fprintf (stderr, "\n");
++                }
++        }
++}
++
++void
++VoipDecoder::collectFrame (VoipFrame& frame)
++{
++	if ( currentTalk_ > frame.talkspurt_ ) return;
++
++        bool newTalkspurt = false;
++        if ( currentTalk_ < frame.talkspurt_ || firstFrame_ ) {
++                collectTalkspurt (currentTalkSize_);
++                currentTalk_     = frame.talkspurt_;
++                currentFrame_    = frame.frame_;
++                currentTalkSize_ = frame.nframes_;
++                delayNum_        = 0;
++                delaySum_        = 0;
++                newTalkspurt     = true;
++        }
++
++        const double delay = NOW - frame.timestamp_;
++        if ( frame.frame_ >= ( currentFrame_ + 1 ) || newTalkspurt || firstFrame_ ) {
++                ++delayNum_;
++                delaySum_ += delay;
++                firstFrame_ = false;
++        }
++        currentFrame_ = frame.frame_;
++}
++
++double
++VoipDecoder::eModel (double delay, double loss)
++{
++	double delayms = 1000 * delay;
++
++	// Compute the Id parameter
++	int u = ( (delayms - 177.3) > 0 ? 1: 0 );
++	double id = 0.0;
++	id = 0.024 * delayms + 0.11 * (delayms - 177.3) * u;
++
++	// Packet loss p in %
++	double p = loss * 100;
++	// Compute the Ie,eff parameter
++	double ie_eff = emodel_Ie_ + (95 - emodel_Ie_) * p / (p + emodel_Bpl_);
++
++	// Compute the R factor
++	double Rfactor = emodel_Ro_ - id - ie_eff + emodel_A_;
++
++	// Compute the MOS value
++	double mos = 0.0;
++
++	if (Rfactor < 0) {
++                mos = 1.0;
++	}
++	else if (Rfactor > 100) {
++                mos = 4.5;
++	}
++	else {
++                mos = 1 + 0.035 * Rfactor + 7 * pow(10, -6) * Rfactor * (Rfactor - 60) * (100 - Rfactor);
++	}
++	mos = ( mos < 1 ) ? 1 : mos;
++
++	return mos;
++}
+diff --git a/ns-2.35/voip/voip_decoder.h b/ns-2.35/voip/voip_decoder.h
+new file mode 100644
+index 0000000..7675ad9
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder.h
+@@ -0,0 +1,131 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_DECODER_H
++#define __NS2_VOIP_DECODER_H
++
++#include <app.h>
++#include <object.h>
++#include <voip_frame.h>
++#include <tfunctor.h>
++
++class VoipDecoder : public Application {
++public:
++	//! Create an empty VoIP source.
++	VoipDecoder ();
++
++	//! Process incoming VoIP payloads.
++	virtual void process_data(int size, AppData* data);
++
++	//! Tcl interface.
++	int command (int argc, const char*const* argv);
++
++protected:
++	//! Collect statistics after playout buffering frame by frame.
++	virtual void collectFrame (VoipFrame& frame);
++	//! Collect statistics after playout buffering talkspurt by talkspurt.
++	virtual void collectTalkspurt (unsigned int nframes) { }
++	//! Collect statistics after playout buffering at the end of simulation.
++	virtual void collectEnd () { }
++
++	//! Compute the Mean Opinion Score (MOS).
++	virtual double eModel (double delay, double loss);
++
++	//! Create a call-back object to manage statistical data collection.
++	TSpecificFunctor<VoipDecoder> functor_;
++
++protected:
++	//! True if debug is enabled.
++	bool debug_;
++
++	//! Statistic Metric ID.
++	int id_;
++	//! Cell Id. The identifier of my cell. Set via Tcl.
++	int cellId_;
++	//! Peer Id. The identifier of my peer. Set via Tcl.
++	int peerId_;
++
++	// :TODO: commentare
++	unsigned int currentFrame_;
++	unsigned int currentTalk_;
++	unsigned int currentTalkSize_;
++	double delaySum_;
++	unsigned int delayNum_;
++	bool firstFrame_;
++
++	//! Transmission Rating Factor Ro Parameters
++	/** The term Ro expresses the basic signal-to-noise ratio 
++	* (received speech level relative to circuit and acoustic 
++	* noise).
++	*/
++	double emodel_Ro_;
++
++        //! Expectation Factor (Advantage Factor)
++
++        /** The factor is representing a "bonus", a tolerance given by
++         *  the users to some technologies or circumstances.
++         *  This value is given in units of impairments, so that it 
++         *  can be directly used in conjunction with other Impairmant 
++         *  Factors.
++         *  - No Unit (units of impairments)
++         *  - Typical range is [0,20].
++         *  <ul>
++         *   <li>  0 - Conventional fixed line PSTN </li>
++         *   <li>  5 - Local area wireless (cordless phone) </li>
++         *   <li> 10 - Wide area wireless (cell phone) </li>
++         *   <li> 20 - Satellite </li>
++         *  </ul>
++	 */
++	double emodel_A_;
++
++	//! Equipment Impairment Factor
++	/** Specific (modern) equipments used in the transmission 
++	*  path, such as ADPCM encoders, compression 
++	*  (G.728, GSM 6.x0) produce distortions causing a decrease 
++	*  of the perceived quality. They cannot be described with 
++	*  the Quantizing Distortion Unit, and have been estimated 
++	*  subjectively.
++	*  This value is given in units of impairments, so that it 
++	*  can be directly used in conjunction with other Impairmant 
++	*  Factors.
++	*  - No Unit (units of impairments)
++	*  - Typical range is [0,50].
++	*/
++	double emodel_Ie_;
++
++	//! Packet Loss Robustness Factor
++	/** Bpl is the robustness of a codec to random packet loss.
++	*/
++	double emodel_Bpl_;
++
++	//! MOS threshold.
++	/** If the MOS of a talkspurt is greater than or equal to this threshold,
++	 * then the perceived quality of that talkspurt is considered to be good.
++	 */
++	double mosThreshold_;
++
++	//! Outage MOS threshold.
++	/** If the ratio between the 'good' talkspurts, according to the MOS
++	 * threshold, and the total number of talkspurts is greater than or equal
++	 * to this threshold, then it is assumed that the user perceives an
++	 * overall good quality.
++	 */
++	double cellOutageMosThreshold_;
++
++	//! Outage Loss threshold.
++	/** If the percentage of loss packets is under
++	 *  this threshold, then it is assumed that the user perceives an
++	 * overall good quality.
++	 */
++	double cellOutageLossThreshold_;
++
++	//! Pointer to the next VoipDecoder
++	/** VoIP frames traverses a chain of decoder
++	 *  in order to collect more statistic types
++	 *  in a single simulation run.
++	 */ 
++	VoipDecoder* nextDecoder_;
++};
++
++#endif // __NS2_VOIP_DECODER_H
+diff --git a/ns-2.35/voip/voip_decoder_80216m.cc b/ns-2.35/voip/voip_decoder_80216m.cc
+new file mode 100644
+index 0000000..1e561dd
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_80216m.cc
+@@ -0,0 +1,78 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_decoder_80216m.h>
++#include <stat.h>
++#include <math.h>
++#include <stdio.h>
++
++static class VoipDecoder80216mClass : public TclClass
++{
++        public:
++                VoipDecoder80216mClass() : TclClass ( "Application/VoipDecoder80216m" ) {}
++                TclObject* create ( int, const char*const* )
++                {
++                        return ( new VoipDecoder80216m );
++                }
++}
++class_voip_decoder_80216m;
++
++VoipDecoder80216m::VoipDecoder80216m ()
++{}
++
++int
++VoipDecoder80216m::command ( int argc, const char*const* argv )
++{
++        return VoipDecoder::command ( argc, argv );
++}
++
++void
++VoipDecoder80216m::collectFrame ( VoipFrame& frame )
++{
++	// If statistic collection is enabled 
++	// Count the number of received frames
++	if ( frame.statActive_ ) {
++		Stat::put("voip_frames_recv",id_,1);
++	}
++}
++
++void
++VoipDecoder80216m::collectEnd ()
++{
++	// calculate cell outage
++	
++	double sent = Stat::get("voip_frames_sent",id_);
++	double recv = Stat::get("voip_frames_recv",id_);
++	
++	if ( ! sent ) return;
++	double loss = (sent-recv)/sent;
++
++	// Is bidirectional enabled ?
++	if ( peerId_ != -1 ) {
++		// Only one speaking party collect statistics about conversation
++		if ( id_ < peerId_ ) return;
++		// If bidirectional is active then calculate cell outage
++		// based on conversations instead that on flows
++		double sent_peer = Stat::get("voip_frames_sent",peerId_);
++		double recv_peer = Stat::get("voip_frames_recv",peerId_);
++
++		if ( ! sent_peer ) return;
++		double loss_peer = (sent_peer-recv_peer)/sent_peer;
++
++		if ( ( loss > cellOutageLossThreshold_ ) || 
++		     ( loss_peer > cellOutageLossThreshold_ ) )  {
++			Stat::put("voip_cell_outage", cellId_ , 1);
++		} else {
++			Stat::put("voip_cell_outage", cellId_ , 0);
++		}
++
++	} else {
++		if ( loss > cellOutageLossThreshold_ ) {
++			Stat::put("voip_cell_outage", cellId_ , 1);
++		} else {
++			Stat::put("voip_cell_outage", cellId_ , 0);
++		}
++	}
++}
++
+diff --git a/ns-2.35/voip/voip_decoder_80216m.h b/ns-2.35/voip/voip_decoder_80216m.h
+new file mode 100644
+index 0000000..317042c
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_80216m.h
+@@ -0,0 +1,29 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_DECODER_80216M_H
++#define __NS2_VOIP_DECODER_80216M_H
++
++#include <voip_decoder.h>
++#include <map>
++#include <vector>
++
++class VoipDecoder80216m : public VoipDecoder {
++public:
++	//! Create an empty VoIP decoder.
++	VoipDecoder80216m ();
++
++	//! Tcl interface.
++	int command (int argc, const char*const* argv);
++
++protected:
++	//! Collect statistics after playout buffering frame by frame.
++	virtual void collectFrame (VoipFrame& frame);
++	//! Collect statistics after playout buffering talkspurt by talkspurt.
++	//void collectTalkspurt (unsigned int nframes);
++	//! Collect statistics after playout buffering at the end of simulation.
++	void collectEnd ();
++};
++
++#endif // __NS2_VOIP_DECODER_80216M_H
+diff --git a/ns-2.35/voip/voip_decoder_atzori.cc b/ns-2.35/voip/voip_decoder_atzori.cc
+new file mode 100644
+index 0000000..77a240b
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_atzori.cc
+@@ -0,0 +1,171 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_decoder_atzori.h>
++#include <stat.h>
++#include <math.h>
++#include <stdio.h>
++
++static class VoipDecoderAtzoriClass : public TclClass
++{
++        public:
++                VoipDecoderAtzoriClass() : TclClass ( "Application/VoipDecoderAtzori" ) {}
++                TclObject* create ( int, const char*const* )
++                {
++                        return ( new VoipDecoderAtzori );
++                }
++}
++class_voip_decoder_atzori;
++
++VoipDecoderAtzori::VoipDecoderAtzori ()
++{
++	endLost_ = 0;
++	endRecv_ = 0;
++	endDelay_ = 0;
++	prevDelay_=0.0;
++}
++
++int
++VoipDecoderAtzori::command ( int argc, const char*const* argv )
++{
++        return VoipDecoder::command ( argc, argv );
++}
++
++void
++VoipDecoderAtzori::collectFrame ( VoipFrame& frame )
++{
++        // Access/add the current talkspurt data.
++        TalkData& talk = talkData_[frame.talkspurt_];
++
++        // If this is the first frame of this talkspurt, then update data.
++        if ( talk.nframes_ == 0 )
++        {
++		talk.statActive_ = Stat::active();
++                talk.nframes_ = frame.nframes_;
++                talk.delay_.resize ( talk.nframes_, -1.0 );
++        }
++
++        // Update the number of received frames.
++        if ( talk.delay_[frame.frame_] < 0 ) ++talk.received_;
++
++        // Add/update the delay sample for the current frame.
++        double delay = NOW - frame.timestamp_;
++        if ( talk.delay_[frame.frame_] < 0 || talk.delay_[frame.frame_] > delay )
++        {
++                talk.delay_[frame.frame_] = delay;
++        }
++
++        if ( talk.nframes_ == talk.received_ )
++        {
++                // If the last frame of this talkspurt has been added, then
++                // compute the measures for this talkspurt.
++                collectTalkspurt ( frame.talkspurt_ );
++
++                // Remove this talkspurt.
++                talkData_.erase ( frame.talkspurt_ );
++        }
++}
++
++void
++VoipDecoderAtzori::collectTalkspurt ( unsigned int nframes )
++{
++	  // Access the current talkspurt data.
++	  TalkData& talk = talkData_[nframes];
++
++	  if ( ! talk.statActive_ ) return;
++
++	  double talkPer =0.0;
++	  double talkReceived =0.0;
++	  
++	  for ( unsigned int i = 0 ; i < talk.nframes_ ; i++ ) 
++	  {
++			if ( talk.delay_[i] < 0 || talk.delay_[i] > prevDelay_ ) {
++				++endLost_;
++				++ talkPer;
++			}
++			else {
++			      endDelay_ += talk.delay_[i] + prevDelay_;
++			      ++endRecv_;
++			      ++ talkReceived;
++		      }
++	  }
++	  
++	  talkPer/=talk.nframes_;
++	  double talkMos = eModel ( prevDelay_, talkPer);
++	    
++	  Stat::put ("voip_playout_talkspurt_delay", id_, prevDelay_);
++	  Stat::put ("voip_playout_talkspurt_per", id_, talkPer );
++	  Stat::put ("voip_mos_distribution", id_, talkMos);
++	  Stat::put ("voip_satisfaction", id_,( talkMos >= mosThreshold_ ) ? 1.0 : 0);
++
++	  
++	  double bestMos  = -1.0;
++	  double bestDelay = 0.0;
++
++	  // Get the optimal value of the delay for this talkspurt.
++	  for ( unsigned int i = 0 ; i < talk.nframes_ ; i++ )
++	  {
++				 double per   = 0;
++				 double delay = talk.delay_[i];
++				 if ( delay < 0 ) continue;
++
++				 // Compute the packet loss with this delay.
++				 for ( unsigned int j = 0 ; j < talk.nframes_ ; j++ )
++				 {
++					 if ( talk.delay_[j] < 0 || talk.delay_[j] > delay ) {
++						 ++per;
++					 }
++				 }
++				 per /= talk.nframes_;
++
++				 double mos = eModel ( delay, per );
++
++				 if ( bestMos < 0 || mos > bestMos )
++				 {
++							bestMos = mos;	
++							bestDelay = delay;
++				 }
++	  }
++	  //storing best playout delay for next talkspurt
++	  prevDelay_=bestDelay;
++}
++
++void
++VoipDecoderAtzori::collectEnd ()
++{
++        unsigned int max = 0;
++        std::map<unsigned int, TalkData>::iterator it;
++        for ( it = talkData_.begin () ; it != talkData_.end () ; ++it )
++        {
++                if ( it == talkData_.begin() || it->first > max )
++                        max = it->first;
++        }
++        talkData_.erase ( max );
++        for ( it = talkData_.begin () ; it != talkData_.end () ; ++it )
++        {
++                collectTalkspurt ( it->first );
++        }
++
++		  // :TODO: add comment
++		  if ( peerId_ == -1 || id_ > peerId_ ) {
++			  if ( Stat::get ("voip_satisfaction", id_) >=
++					    cellOutageMosThreshold_ &&
++				    ( peerId_ == -1 || Stat::get ("voip_satisfaction", peerId_) >=
++					    cellOutageMosThreshold_ ) )
++				  Stat::put ("voip_cell_satisfaction", cellId_, 1.0);
++			  else
++				  Stat::put ("voip_cell_satisfaction", cellId_, 0);
++		  }
++
++	// Calculate MOS based on the entire conversation delay and loss
++	if ( endRecv_ != 0 ) {
++		endDelay_ /= endRecv_;
++		double endPer = ((double) endLost_) / (endLost_ + endRecv_ );
++		double endMos = eModel ( endDelay_ , endPer );
++		Stat::put("voip_mos_conversation", id_, endMos);
++	}
++        // Collect Gloabl metrics
++        // Call the base class collect End function.
++        VoipDecoder::collectEnd();
++}
+diff --git a/ns-2.35/voip/voip_decoder_atzori.h b/ns-2.35/voip/voip_decoder_atzori.h
+new file mode 100644
+index 0000000..9757af9
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_atzori.h
+@@ -0,0 +1,66 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_DECODER_ATZORI_H
++#define __NS2_VOIP_DECODER_ATZORI_H
++
++#include <voip_decoder.h>
++#include <map>
++#include <vector>
++
++class VoipDecoderAtzori : public VoipDecoder {
++public:
++    //! Create an empty VoIP decoder.
++    VoipDecoderAtzori ();
++
++    //! Tcl interface.
++    int command (int argc, const char*const* argv);
++
++protected:
++    //! Collect statistics after playout buffering frame by frame.
++    virtual void collectFrame (VoipFrame& frame);
++    //! Collect statistics after playout buffering talkspurt by talkspurt.
++    void collectTalkspurt (unsigned int nframes);
++    //! Collect statistics after playout buffering at the end of simulation.
++    void collectEnd ();
++
++protected:
++
++    /*
++     * Used for MOS calculation over the entire conversation
++     * rather than for each talkspurt.
++     */
++    //! Counter for lost packets
++    unsigned long endLost_;
++    //! Counter for received packets
++    unsigned long endRecv_;
++    //! per-conversation packet delay
++    double endDelay_;
++    //! previous bestDelay
++    double prevDelay_;
++
++    //! Talkspurt data structure.
++    struct TalkData {
++        //! Delay samples, in seconds.
++        std::vector<double> delay_;
++        //! Number of frames in this talkspurt.
++        unsigned int nframes_;
++        //! Number of frames received so far.
++        unsigned int received_;
++        //! Statistics collection flag
++        bool statActive_;
++
++        //! Create an empty talkspurt data structure.
++        TalkData () {
++            nframes_    = 0;
++            received_   = 0;
++            statActive_ = false;
++        }
++    };
++
++    //! One talkspurt data structure for each talkspurt ID.
++    std::map<unsigned int, TalkData> talkData_;
++};
++
++#endif // __NS2_VOIP_DECODER_ATZORI_H
+diff --git a/ns-2.35/voip/voip_decoder_h323.cc b/ns-2.35/voip/voip_decoder_h323.cc
+new file mode 100644
+index 0000000..f2aafa1
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_h323.cc
+@@ -0,0 +1,411 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_decoder_h323.h>
++#include <stat.h>
++#include <math.h>
++#include <stdio.h>
++
++#define CODEC_PERIOD 0.020
++
++/**How much time must elapse with lower jitter before jitter
++   buffer size is reduced */
++#define DECREASE_JITTER_PERIOD 5000 // milliseconds
++
++/* Percentage of current jitter buffer size that constitutes a "genuinely" smaller
++jitter */
++#define LOWER_JITTER_MAX_PCNT   80
++
++/* Minimum number of packets that constitute a reliable sample for setting a lower
++jitter buffer target */
++#define DECREASE_JITTER_MIN_PACKETS 50
++
++static class VoipDecoderH323Class : public TclClass
++{
++        public:
++                VoipDecoderH323Class() : TclClass ( "Application/VoipDecoderH323" ) {}
++                TclObject* create ( int, const char*const* )
++                {
++                        return ( new VoipDecoderH323 );
++                }
++}
++class_voip_decoder_optimal;
++
++VoipDecoderH323::VoipDecoderH323 ()
++{
++	endLost_ = 0;
++	endRecv_ = 0;
++	endDelay_ = 0;
++	codecTime_=0.0;
++	// dejitter starts from prebuffering
++	prebuffering_=true;
++	
++	consecutiveEarlyPacketStartTime_ = 0;
++	jitterCalcPacketCount_ = 0;
++	jitterCalc_ = 0;
++	
++	minJitterTime_=0.001;
++	maxJitterTime_=0.020;
++	//! \todo - configure from tcl
++	doJitterReductionImmediately_=true;
++	
++	currentJitterTime_=minJitterTime_;
++	targetJitterTime_ = currentJitterTime_;
++}
++
++int
++VoipDecoderH323::command ( int argc, const char*const* argv )
++{
++	if ( argc == 3 && strcmp ( argv[1], "min-jitter" ) == 0 ) {
++		minJitterTime_ = atof(argv[2]);
++		return TCL_OK;
++	} else if ( argc == 3 && strcmp ( argv[1], "max-jitter" ) == 0 ) {
++		maxJitterTime_ = atof(argv[2]);
++		return TCL_OK;
++	}
++        return VoipDecoder::command ( argc, argv );
++}
++
++void
++VoipDecoderH323::collectFrame ( VoipFrame& frame )
++{
++  
++        // Access/add the current talkspurt data.
++        TalkData& talk = talkData_[frame.talkspurt_];
++	
++        // If this is the first frame of this talkspurt, then update data.
++        if ( talk.nframes_ == 0 )
++        {
++		talk.statActive_ = Stat::active();
++                talk.nframes_ = frame.nframes_;
++                talk.timestamp_.resize ( talk.nframes_, -1.0 );
++		talk.tick_.resize ( talk.nframes_, -1.0 );
++        }
++
++        // Update the number of received frames.
++        ++talk.received_;
++
++        // record timestamp and arrival time
++        talk.timestamp_[frame.frame_] = frame.timestamp_;
++	talk.tick_[frame.frame_] =NOW;
++        
++
++        if ( talk.nframes_ == talk.received_ )
++        {
++                // If the last frame of this talkspurt has been added, then
++                // compute the measures for this talkspurt.
++                collectTalkspurt ( frame.talkspurt_ );
++
++                // Remove this talkspurt.
++                talkData_.erase ( frame.talkspurt_ );
++        }
++}
++
++void
++VoipDecoderH323::collectTalkspurt ( unsigned int nframes )
++{
++	  // Access the current talkspurt data.
++	  TalkData& talk = talkData_[nframes];
++
++	  if ( ! talk.statActive_ ) return;
++
++	  double per =0.0;
++	  double delay=-1.0;
++	  // set the codec start of operation at first frame arrival
++	  // all actions that would have been performed while dejitter buffer
++	  // was empty are useless
++	  codecTime_=talk.tick_[0];
++	  for ( ; (codecTime_<=talk.tick_[talk.received_-1]); codecTime_+=CODEC_PERIOD )
++	  {	
++		
++		for (unsigned int i =0 ; i<talk.nframes_;++i)
++		{
++		  if (talk.tick_[i]<=codecTime_)  
++		  {
++		    talk.newest_=i;
++		  }  
++		  else break;
++		}
++		// buffer empty condition
++		if (talk.newest_<0 ) 
++		{
++		    prebuffering_=true;
++		    currentJitterTime_=targetJitterTime_;
++		    continue;
++		}
++		
++		double oldestTimestamp = talk.timestamp_[talk.oldest_];
++		double newestTimestamp = talk.timestamp_[talk.newest_];
++
++// 		 If there is an opportunity (due to silence in the buffer) to implement a desired 
++// 		reduction in the size of the jitter buffer, effect it 
++
++		if (targetJitterTime_ < currentJitterTime_ && (newestTimestamp - oldestTimestamp) < currentJitterTime_ ) 
++		{
++		    currentJitterTime_ = ( targetJitterTime_ > (newestTimestamp - oldestTimestamp)) ?
++                          targetJitterTime_ : (newestTimestamp - oldestTimestamp);
++		
++		}
++		
++		/* See if time for this packet, if our oldest frame is older than the
++		required age, then use it. */
++		
++		if (prebuffering_) 
++		{
++		  // Reset jitter baseline
++		  talk.lastWrite_=-1;
++		  
++		  // If oldest frame has not been in the buffer long enough, don't return anything yet
++		    if ((codecTime_ - talk.tick_[talk.oldest_])  < currentJitterTime_ / 2) 
++		    {
++		      // go ahead in codec "for" time sequence
++		      continue;
++		    }
++		    
++		    //else deactivate prebuffering
++		    prebuffering_=false;
++		}
++		
++		// Detatch oldest packet from the list, put into parking space
++	      
++		talk.currentWrite_ = talk.oldest_;
++		if (talk.oldest_ < talk.newest_)  talk.oldest_ ++;
++		
++		// Calculate the jitter contribution of this frame
++		// - don't count if start of a talk burst
++		if (talk.currentWrite_<=0) 
++		{
++		  talk.lastWrite_ = -1;  
++		}
++		
++		if (talk.lastWrite_ > -1) 
++		{
++		  double thisJitter = 0;
++		
++		  if (talk.timestamp_[talk.currentWrite_]  < talk.timestamp_[talk.lastWrite_] ) 
++		  {
++		    //Not too sure how to handle this situation...
++		    thisJitter = 0;
++		  }
++		  else if (talk.tick_[talk.currentWrite_]  < talk.tick_[talk.lastWrite_]) 
++		  {
++		    //Not too sure how to handle this situation either!
++		    thisJitter = 0;
++		  } else {  
++		      thisJitter = (talk.tick_[talk.currentWrite_] - talk.tick_[talk.lastWrite_] + 
++		      talk.timestamp_[talk.lastWrite_] - talk.timestamp_[talk.currentWrite_]);
++		  }
++		  
++		  if (thisJitter < 0) thisJitter *=(-1);
++		  thisJitter *=2; //currentJitterTime needs to be at least TWICE the maximum jitter
++
++		  if (thisJitter >  currentJitterTime_ * LOWER_JITTER_MAX_PCNT / 100) 
++		  {
++		    targetJitterTime_ = currentJitterTime_;
++	    
++		    consecutiveEarlyPacketStartTime_ = codecTime_;
++		    jitterCalcPacketCount_ = 0;
++		    jitterCalc_ = 0;
++		  } else {
++		    if ( thisJitter >  jitterCalc_ )
++			  jitterCalc_ = thisJitter;
++			  jitterCalcPacketCount_++;
++
++		      //If it's bigger than the target we're currently trying to set, adapt that target.
++		      //Note: this will never make targetJitterTime larger than currentJitterTime due to
++		      //previous if condition
++		      if (thisJitter >  targetJitterTime_ * LOWER_JITTER_MAX_PCNT / 100) 
++		      {
++			targetJitterTime_ = thisJitter * 100 / LOWER_JITTER_MAX_PCNT;
++		      } 
++		  }
++	      }
++	      
++	      // writing here frame to codec, if it is the first one, record here delay
++	      
++	      talk.lastWrite_=talk.currentWrite_;
++	      
++	      if (talk.oldest_ == talk.newest_)
++	      {  // buffer play end.
++		  talk.newest_ = -1;
++		  talk.oldest_ = -1;
++	      }   
++	      else {
++      // 	    talk.oldest_ ->prev = NULL;
++		// If exceeded current jitter buffer time delay
++		if ((talk.timestamp_[talk.newest_] - talk.timestamp_[talk.currentWrite_]) > currentJitterTime_)
++		{
++		    consecutiveEarlyPacketStartTime_ = codecTime_;
++		    jitterCalcPacketCount_ = 0;
++		    jitterCalc_ = 0;
++		    talk.lastWrite_ = -1;
++		    
++		    // If we haven't yet written a frame, we get one free overrun
++		    if (!talk.doneFirstWrite_) 
++		    {
++	      
++			while ((talk.timestamp_[talk.newest_] - talk.timestamp_[talk.currentWrite_]) > currentJitterTime_) 
++			{
++			    // remove current Write frame
++			    talk.currentWrite_ = talk.oldest_;
++			    if (talk.oldest_<=talk.newest_)
++			    {  
++				talk.oldest_++;
++			      // increasing packet error rate due to frame deletion.
++			      per++;
++			    }
++			    if (talk.oldest_>talk.newest_ ) 
++			    {
++			      talk.oldest_= -1;
++			      talk.newest_= -1;
++			      break;
++			    }
++		      }
++	      
++			talk.doneFirstWrite_ = TRUE;
++			if (delay<0) 
++			{
++			    delay=codecTime_-talk.timestamp_[talk.currentWrite_] ;
++			}
++			// continuing the codec main loop
++			continue;
++		}
++		
++	 // See if exceeded maximum jitter buffer time delay, waste them if so
++	  while ((talk.timestamp_[talk.newest_] - talk.timestamp_[talk.currentWrite_]) > maxJitterTime_) 
++	  {
++	      currentJitterTime_ = maxJitterTime_;
++	      // remove current Write frame
++	      talk.currentWrite_ = talk.oldest_;
++	      if (talk.oldest_<=talk.newest_)
++	      {
++		talk.oldest_++; 
++
++	      // increasing packet error rate due to frame deletion.
++	      per++;
++	      }
++	      
++	      if (talk.oldest_>talk.newest_ ) 
++	      {
++		talk.oldest_= -1;
++		talk.newest_= -1;
++		break;
++	      }
++	  }
++	  
++	  
++	  // Now change the jitter time to cope with the new size
++    // unless already set to maxJitterTime
++      if (newestTimestamp - talk.timestamp_[talk.currentWrite_] > currentJitterTime_) 
++          currentJitterTime_ = newestTimestamp - talk.timestamp_[talk.currentWrite_];
++
++      targetJitterTime_ = currentJitterTime_;
++     }
++  }
++  
++  
++  if (( (codecTime_ - consecutiveEarlyPacketStartTime_) > DECREASE_JITTER_PERIOD) &&
++       (jitterCalcPacketCount_ >= DECREASE_JITTER_MIN_PACKETS))
++    {
++      jitterCalc_ = jitterCalc_ * 100 / LOWER_JITTER_MAX_PCNT;
++      if (jitterCalc_ < targetJitterTime_ / 2) jitterCalc_ = targetJitterTime_ / 2;
++      if (jitterCalc_ < minJitterTime_) jitterCalc_ = minJitterTime_;
++      targetJitterTime_ = jitterCalc_;
++      jitterCalc_ = 0;
++      jitterCalcPacketCount_ = 0;
++      consecutiveEarlyPacketStartTime_ = codecTime_;
++    }
++
++
++    /* If using immediate jitter reduction (rather than waiting for silence opportunities)
++  then trash oldest frames as necessary to reduce the size of the jitter buffer */
++  if (targetJitterTime_ < currentJitterTime_ &&
++      doJitterReductionImmediately_ &&
++      talk.newest_ > -1) {
++    while ((talk.timestamp_[talk.newest_] - talk.timestamp_[talk.currentWrite_]) > targetJitterTime_)
++    {
++      // Throw away the newest entries
++      if (talk.newest_>=talk.oldest_)
++      {
++	  talk.newest_--; 
++	  talk.received_--; 
++	  
++	      // increasing packet error rate due to frame deletion.
++	      per++;
++      }      
++      
++      
++      // Reset jitter calculation baseline
++      talk.lastWrite_ = -1;
++      
++
++      
++      if (talk.newest_ < 0) 
++      {
++          talk.oldest_ = -1;
++	  talk.received_= 0;
++          break;
++      }
++    }
++
++    currentJitterTime_ = targetJitterTime_;
++  }
++
++  talk.doneFirstWrite_ = TRUE;
++  if (delay<0) 
++  {
++      delay=codecTime_- talk.timestamp_[talk.currentWrite_];
++  }
++	 
++}// end codec loop
++	 
++	 per/=talk.nframes_;
++	 
++	 double mos = eModel ( delay , per );
++	 
++	 Stat::put ("voip_playout_talkspourt_delay", id_, delay);
++	 Stat::put ("voip_playout_talkspourt_per", id_, per );
++	 Stat::put ("voip_mos_distribution", id_, mos);
++	  Stat::put ("voip_satisfaction", id_,( mos >= mosThreshold_ ) ? 1.0 : 0);
++
++}
++
++void
++VoipDecoderH323::collectEnd ()
++{
++        unsigned int max = 0;
++        std::map<unsigned int, TalkData>::iterator it;
++        for ( it = talkData_.begin () ; it != talkData_.end () ; ++it )
++        {
++                if ( it == talkData_.begin() || it->first > max )
++                        max = it->first;
++        }
++        talkData_.erase ( max );
++        for ( it = talkData_.begin () ; it != talkData_.end () ; ++it )
++        {
++                collectTalkspurt ( it->first );
++        }
++
++		  // :TODO: add comment
++		  if ( peerId_ == -1 || id_ > peerId_ ) {
++			  if ( Stat::get ("voip_satisfaction", id_) >=
++					    cellOutageMosThreshold_ &&
++				    ( peerId_ == -1 || Stat::get ("voip_satisfaction", peerId_) >=
++					    cellOutageMosThreshold_ ) )
++				  Stat::put ("voip_cell_satisfaction", cellId_, 1.0);
++			  else
++				  Stat::put ("voip_cell_satisfaction", cellId_, 0);
++		  }
++
++	// Calculate MOS based on the entire conversation delay and loss
++	if ( endRecv_ != 0 ) {
++		endDelay_ /= endRecv_;
++		double endPer = ((double) endLost_) / (endLost_ + endRecv_ );
++		double endMos = eModel ( endDelay_ , endPer );
++		Stat::put("voip_mos_converstion", id_, endMos);
++	}
++        // Collect Gloabl metrics
++        // Call the base class collect End function.
++        VoipDecoder::collectEnd();
++}
+diff --git a/ns-2.35/voip/voip_decoder_h323.h b/ns-2.35/voip/voip_decoder_h323.h
+new file mode 100644
+index 0000000..c1b04bb
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_h323.h
+@@ -0,0 +1,107 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_DECODER_OPTIMAL_H
++#define __NS2_VOIP_DECODER_OPTIMAL_H
++
++#include <voip_decoder.h>
++#include <map>
++#include <vector>
++
++class VoipDecoderH323 : public VoipDecoder {
++public:
++	//! Create an empty VoIP decoder.
++	VoipDecoderH323 ();
++
++	//! Tcl interface.
++	int command (int argc, const char*const* argv);
++
++protected:
++	//! Collect statistics after playout buffering frame by frame.
++	virtual void collectFrame (VoipFrame& frame);
++	//! Collect statistics after playout buffering talkspurt by talkspurt.
++	void collectTalkspurt (unsigned int nframes);
++	//! Collect statistics after playout buffering at the end of simulation.
++	void collectEnd ();
++
++protected:
++
++	/*
++	 * Used for MOS calculation over the entire conversation
++	 * rather than for each talkspurt.
++	 */
++	//! Counter for lost packets
++	unsigned long endLost_;
++	//! Counter for received packets
++	unsigned long endRecv_;
++	//! per-conversation packet delay
++	double endDelay_;
++	//! decoder time- used in collect talkspurt
++	double codecTime_;
++	
++	//! prebuffering flag
++	bool prebuffering_;
++	
++	//! \todo
++	double minJitterTime_;
++	//! \todo 
++	double maxJitterTime_;
++	//! \todo
++	double currentJitterTime_;
++	//! \todo
++	double targetJitterTime_;
++	//! \todo
++	double consecutiveEarlyPacketStartTime_;
++	//! \todo
++	int jitterCalcPacketCount_;
++	//! \todo
++	double jitterCalc_;
++	
++	//! flag to enable immediate jitter reduction (otherwise jitter reduction is performed on-silence)
++	bool doJitterReductionImmediately_;
++	
++	//! Talkspurt data structure.
++	struct TalkData {
++		//! Timestamps in seconds.
++		std::vector<double> timestamp_;
++		//! arrival times in seconds.
++		std::vector<double> tick_;
++		//! flag to signal first write of the talk
++		bool doneFirstWrite_;
++		//! current frame to send to the decoder
++		int currentWrite_;
++		//! last played out frame
++		int lastWrite_;
++		//! last received frame 
++		int lastRead_;
++		//! oldest frame still to be played out
++		int oldest_;
++		//! newest frame in dejitter buffer
++		int newest_;
++		//! Number of frames in this talkspurt.
++		unsigned int nframes_;
++		//! Number of frames received so far.
++		unsigned int received_;
++		//! Statistics collection flag
++		bool statActive_;
++
++		//! Create an empty talkspurt data structure.
++		TalkData () {
++			doneFirstWrite_ =false;
++			nframes_    = 0;
++			received_   = 0;
++			currentWrite_ =-1;
++			lastRead_   = -1;
++			lastWrite_  = -1;
++			oldest_	    = 0;
++			newest_     = -1;
++			statActive_ = false;
++		}
++	};
++
++	//! One talkspurt data structure for each talkspurt ID.
++	std::map<unsigned int, TalkData> talkData_;
++};
++
++#endif // __NS2_VOIP_DECODER_OPTIMAL_H
+diff --git a/ns-2.35/voip/voip_decoder_optimal.cc b/ns-2.35/voip/voip_decoder_optimal.cc
+new file mode 100644
+index 0000000..1d2e0c3
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_optimal.cc
+@@ -0,0 +1,169 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_decoder_optimal.h>
++#include <stat.h>
++#include <math.h>
++#include <stdio.h>
++
++static class VoipDecoderOptimalClass : public TclClass
++{
++        public:
++                VoipDecoderOptimalClass() : TclClass ( "Application/VoipDecoderOptimal" ) {}
++                TclObject* create ( int, const char*const* )
++                {
++                        return ( new VoipDecoderOptimal );
++                }
++}
++class_voip_decoder_optimal;
++
++VoipDecoderOptimal::VoipDecoderOptimal ()
++{
++	endLost_ = 0;
++	endRecv_ = 0;
++	endDelay_ = 0;
++}
++
++int
++VoipDecoderOptimal::command ( int argc, const char*const* argv )
++{
++        return VoipDecoder::command ( argc, argv );
++}
++
++void
++VoipDecoderOptimal::collectFrame ( VoipFrame& frame )
++{
++        // Access/add the current talkspurt data.
++        TalkData& talk = talkData_[frame.talkspurt_];
++
++        // If this is the first frame of this talkspurt, then update data.
++        if ( talk.nframes_ == 0 )
++        {
++		talk.statActive_ = Stat::active();
++                talk.nframes_ = frame.nframes_;
++                talk.delay_.resize ( talk.nframes_, -1.0 );
++        }
++
++        // Update the number of received frames.
++        if ( talk.delay_[frame.frame_] < 0 ) ++talk.received_;
++
++        // Add/update the delay sample for the current frame.
++        double delay = NOW - frame.timestamp_;
++        if ( talk.delay_[frame.frame_] < 0 || talk.delay_[frame.frame_] > delay )
++        {
++                talk.delay_[frame.frame_] = delay;
++        }
++
++        if ( talk.nframes_ == talk.received_ )
++        {
++                // If the last frame of this talkspurt has been added, then
++                // compute the measures for this talkspurt.
++                collectTalkspurt ( frame.talkspurt_ );
++
++                // Remove this talkspurt.
++                talkData_.erase ( frame.talkspurt_ );
++        }
++}
++
++void
++VoipDecoderOptimal::collectTalkspurt ( unsigned int nframes )
++{
++	  // Access the current talkspurt data.
++	  TalkData& talk = talkData_[nframes];
++
++	  if ( ! talk.statActive_ ) return;
++
++	  double bestMos  = -1.0;
++	  double bestRcvd = 0.0;
++	  double bestDelay = 0.0;
++	  double bestPer = 0.0;
++
++	  // Get the optimal value of the delay for this talkspurt.
++	  for ( unsigned int i = 0 ; i < talk.nframes_ ; i++ )
++	  {
++				 double per   = 0;
++				 double rcvd  = 0;
++				 double delay = talk.delay_[i];
++				 if ( delay < 0 ) continue;
++
++				 // Compute the packet loss with this delay.
++				 for ( unsigned int j = 0 ; j < talk.nframes_ ; j++ )
++				 {
++					 if ( talk.delay_[j] < 0 || talk.delay_[j] > delay ) {
++						 ++per;
++					 }
++					 else {
++					 	++rcvd;
++					 }
++				 }
++				 per /= talk.nframes_;
++
++				 double mos = eModel ( delay, per );
++
++				 if ( bestMos < 0 || mos > bestMos )
++				 {
++							bestMos = mos;
++							bestRcvd = rcvd;
++							bestDelay = delay;
++							bestPer = per;
++				 }
++	  }
++
++	  if ( bestMos > 0 ) {
++		  for ( unsigned int i = 0 ; i < talk.nframes_ ; i++ ) {
++			 if ( talk.delay_[i] < 0 || talk.delay_[i] > bestDelay ) {
++				 ++endLost_;
++			 }
++			 else {
++				endDelay_ += talk.delay_[i] + bestDelay;
++				++endRecv_;
++			 }
++
++		  }
++			Stat::put ("voip_playout_talkspurt_delay", id_, bestDelay);
++			Stat::put ("voip_playout_talkspurt_per", id_, bestPer );
++			Stat::put ("voip_mos_distribution", id_, bestMos);
++			Stat::put ("voip_satisfaction", id_,
++					( bestMos >= mosThreshold_ ) ? 1.0 : 0);
++	  }
++}
++
++void
++VoipDecoderOptimal::collectEnd ()
++{
++        unsigned int max = 0;
++        std::map<unsigned int, TalkData>::iterator it;
++        for ( it = talkData_.begin () ; it != talkData_.end () ; ++it )
++        {
++                if ( it == talkData_.begin() || it->first > max )
++                        max = it->first;
++        }
++        talkData_.erase ( max );
++        for ( it = talkData_.begin () ; it != talkData_.end () ; ++it )
++        {
++                collectTalkspurt ( it->first );
++        }
++
++		  // :TODO: add comment
++		  if ( peerId_ == -1 || id_ > peerId_ ) {
++			  if ( Stat::get ("voip_satisfaction", id_) >=
++					    cellOutageMosThreshold_ &&
++				    ( peerId_ == -1 || Stat::get ("voip_satisfaction", peerId_) >=
++					    cellOutageMosThreshold_ ) )
++				  Stat::put ("voip_cell_satisfaction", cellId_, 1.0);
++			  else
++				  Stat::put ("voip_cell_satisfaction", cellId_, 0);
++		  }
++
++	// Calculate MOS based on the entire conversation delay and loss
++	if ( endRecv_ != 0 ) {
++		endDelay_ /= endRecv_;
++		double endPer = ((double) endLost_) / (endLost_ + endRecv_ );
++		double endMos = eModel ( endDelay_ , endPer );
++		Stat::put("voip_mos_conversation", id_, endMos);
++	}
++        // Collect Gloabl metrics
++        // Call the base class collect End function.
++        VoipDecoder::collectEnd();
++}
+diff --git a/ns-2.35/voip/voip_decoder_optimal.h b/ns-2.35/voip/voip_decoder_optimal.h
+new file mode 100644
+index 0000000..e4d8761
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_optimal.h
+@@ -0,0 +1,64 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_DECODER_OPTIMAL_H
++#define __NS2_VOIP_DECODER_OPTIMAL_H
++
++#include <voip_decoder.h>
++#include <map>
++#include <vector>
++
++class VoipDecoderOptimal : public VoipDecoder {
++public:
++	//! Create an empty VoIP decoder.
++	VoipDecoderOptimal ();
++
++	//! Tcl interface.
++	int command (int argc, const char*const* argv);
++
++protected:
++	//! Collect statistics after playout buffering frame by frame.
++	virtual void collectFrame (VoipFrame& frame);
++	//! Collect statistics after playout buffering talkspurt by talkspurt.
++	void collectTalkspurt (unsigned int nframes);
++	//! Collect statistics after playout buffering at the end of simulation.
++	void collectEnd ();
++
++protected:
++
++	/*
++	 * Used for MOS calculation over the entire conversation
++	 * rather than for each talkspurt.
++	 */
++	//! Counter for lost packets
++	unsigned long endLost_;
++	//! Counter for received packets
++	unsigned long endRecv_;
++	//! per-conversation packet delay
++	double endDelay_;
++
++	//! Talkspurt data structure.
++	struct TalkData {
++		//! Delay samples, in seconds.
++		std::vector<double> delay_;
++		//! Number of frames in this talkspurt.
++		unsigned int nframes_;
++		//! Number of frames received so far.
++		unsigned int received_;
++		//! Statistics collection flag
++		bool statActive_;
++
++		//! Create an empty talkspurt data structure.
++		TalkData () {
++			nframes_    = 0;
++			received_   = 0;
++			statActive_ = false;
++		}
++	};
++
++	//! One talkspurt data structure for each talkspurt ID.
++	std::map<unsigned int, TalkData> talkData_;
++};
++
++#endif // __NS2_VOIP_DECODER_OPTIMAL_H
+diff --git a/ns-2.35/voip/voip_decoder_static.cc b/ns-2.35/voip/voip_decoder_static.cc
+new file mode 100644
+index 0000000..9302cd4
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_static.cc
+@@ -0,0 +1,264 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_decoder_static.h>
++#include <stat.h>
++#include <math.h>
++#include <stdio.h>
++
++static class VoipDecoderStaticClass : public TclClass {
++public:
++        VoipDecoderStaticClass() : TclClass("Application/VoipDecoderStatic") {}
++        TclObject* create(int, const char*const*) {
++                return (new VoipDecoderStatic);
++        }
++} class_voip_decoder_static;
++
++VoipDecoderStatic::VoipDecoderStatic (): timer_(this)
++{
++        bufferOccupancy_ = 0;
++        bufferSize_ = 10;
++        initialDelay_ = 0.005;
++        playoutRate_ = 0.020;
++        talkLength_ = 0;
++        nextFrame_ = 0;
++        currentTalk_ = 0;
++}
++
++void
++VoipDecoderStatic::collectFrame (VoipFrame& frame)
++{
++        if (debug_) {
++                fprintf(stderr, "%.7f Received Frame [%d, %d of %d]\n",NOW, frame.talkspurt_, frame.frame_, frame.nframes_);
++                fprintf(stderr, "\tBuffer Occupancy: %d / %d\n", bufferOccupancy_, bufferSize_);
++        }
++        // Check if the frame belongs to an old talkspurt
++        if ( frame.talkspurt_ < currentTalk_) {
++                // Drop the frame
++                //Stat::put(VOIP_BUFFER_OUT_OF_TIME_DROP, id_, 1.0);
++                return;
++        }
++        // Check if there is space in the buffer and add the VoIP frames.
++        if (bufferOccupancy_ == bufferSize_) {
++                // A new frame is arrived and there is no free space in the
++                // buffer. 
++                // Check if the frame should be added or dropped, if added
++                // drop the first arrived frame in the buffer
++                if ( frame.talkspurt_ == currentTalk_ && frame.frame_ < buffer_.top().frame_  ) {
++                        // Ignore the frame, is too old.
++                        //Stat::put(VOIP_BUFFER_OUT_OF_TIME_DROP, id_, 1.0);
++                        return;
++                }
++                // Drop a frame from the head of the buffer 
++                buffer_.pop();
++                // Now store the packet into the buffer
++                // The bufferOccupancy_ remains the same
++                buffer_.push(frame);
++                // Note that, in this case nextFrame_ is manually set.
++                nextFrame_ = buffer_.top().frame_;
++                // Check if the next frame belongs to a new talkspurt
++                if (currentTalk_ < buffer_.top().talkspurt_) {
++                        collectTalkspurt(talkLength_);
++                        delaySum_ = 0;
++                        delayNum_ = 0;
++                        currentTalk_ = buffer_.top().talkspurt_;
++                        talkLength_ = buffer_.top().nframes_;
++                        nextFrame_ = 0;
++                        // A new talkspurt will begin
++                        // Check if the timer has been set
++                        if ( timer_.idle() ) {
++                                // It should never happen
++                                timer_.start(initialDelay_);
++                        }
++                }
++                //Stat::put(VOIP_BUFFER_OVERFLOW_DROP, id_, 1.0);
++        }
++        else {
++                // Now store the packet into the buffer
++                buffer_.push(frame);
++                bufferOccupancy_++;
++        }
++        // If the buffer was empty, start the playout timer and set the next
++        // sequence number to be played to the sequence number of this packet
++        if (bufferOccupancy_ == 1) {
++                // Check if the playout of this talkspurt has been already
++                // started. If yes, do nothing
++                if ( timer_.idle() ) {
++                        timer_.start( initialDelay_ );
++                        currentTalk_ = frame.talkspurt_;
++                        // Note that, we set the next sample to be played to
++                        // the first sample of the talkspurt.
++                        // In fact, we enter here if and only if the buffer
++                        // was empty and no talkspurt was under playing.
++                        nextFrame_ = 0;
++                        talkLength_ = frame.nframes_;
++                }
++        }
++}
++
++void
++VoipDecoderStatic::handle() 
++{
++        if (debug_) {
++                fprintf (stderr, "%.7f It's time to playout: [%d, %d]\n", NOW, currentTalk_, nextFrame_);
++        }
++        // When playout of a talkspurt is started, a frame is exctracted
++        // from the buffer every period. If no frames are found a loss is
++        // assumed.
++
++        // Drop all the old samples in the buffer
++        if (bufferOccupancy_ > 0) {
++                VoipFrame frame = buffer_.top();
++                while ( frame.frame_ < nextFrame_ ) {
++                        if (debug_) {
++                                fprintf(stderr, "\tFound out-of-time sample [%d, %d]\n", frame.talkspurt_, frame.frame_);
++                        }
++                        buffer_.pop();
++                        bufferOccupancy_ --;
++                        //Stat::put(VOIP_BUFFER_OUT_OF_TIME_DROP, id_, 1.0);
++                        if ( bufferOccupancy_ > 0 ) {
++                                frame = buffer_.top();
++                        }
++                        else {
++                                break;
++                        }
++                }
++        }
++        // If there are still frames in the buffer, try to playout the first
++        // frame
++        if (bufferOccupancy_ > 0) {
++                VoipFrame frame = buffer_.top();
++                // If talkLength_ is equal to zero, it means that no frames
++                // have been received belonging to current talkspurt.
++                if (talkLength_ == 0 && frame.talkspurt_ > currentTalk_) {
++                        // Assume that one or more talkspurts have been not
++                        // received
++                        currentTalk_ = frame.talkspurt_;
++                        nextFrame_ = 0;
++                        talkLength_ = frame.nframes_;
++                }
++                if (debug_) {
++                        fprintf (stderr, "%.7f Handling sample [%d, %d]\n", NOW, frame.talkspurt_, frame.frame_);
++                        fprintf (stderr, "\tExpected frame: [%d, %d]\n", currentTalk_, nextFrame_);
++                }
++                if ( frame.frame_ == nextFrame_ ) {
++                        if (debug_) {
++                                fprintf (stderr, "%.7f Playing sample [%d, %d]\n", NOW, frame.talkspurt_, frame.frame_);
++                        }
++                        // Playout the frame
++                        const double delay = NOW - frame.timestamp_;
++                        //Stat::put (VOIP_FRAME_DELAY, id_, delay);
++                        ++delayNum_;
++                        delaySum_ += delay;
++                        // This assignment assures that if at least one
++                        // frame of a talkspurt is received the talkLength_ 
++                        // contains the length of the talkspurt.
++                        talkLength_ = frame.nframes_;
++                        // Remove the frame from the buffer
++                        buffer_.pop();
++                        bufferOccupancy_--;
++                }
++        }
++        // Update the next frame variable
++        nextFrame_++;
++        // Check if this is the last frame of the talkspurt
++        if ( nextFrame_ == talkLength_ ) {
++                collectTalkspurt(talkLength_);
++                delaySum_ = 0;
++                delayNum_ = 0;
++                nextFrame_ = 0;
++                currentTalk_++;
++                if ( bufferOccupancy_ > 0 ) {
++                        if (buffer_.top().talkspurt_ == currentTalk_) {
++                                talkLength_ = buffer_.top().nframes_;
++                        }
++                        else {
++                                // There are no information about the next
++                                // talkspurt.
++                                // Note that, this means that all the frames
++                                // in the buffer are related to a future
++                                // talkspurts. e.g. the talkspurt after
++                                // the current one.
++                                talkLength_ = 0;
++                        }
++                        // Reschedule the timer for the next talkspurt
++                        timer_.start ( initialDelay_ );
++                }
++                // Otherwise, wait for a new talkspurt before restart
++                // the timer
++                else if (debug_) {
++                        fprintf(stderr, "%.7f The buffer is empty, wait for a new frame\n", NOW);
++                }
++        }
++        else {
++                timer_.start ( playoutRate_ );
++        }
++}
++
++int
++VoipDecoderStatic::command (int argc, const char*const* argv)
++{
++        if ( argc == 3 && strcmp (argv[1], "id") == 0 ) {
++                id_ = atoi(argv[2]);
++                // Initialize some counter metrics
++                //Stat::put(VOIP_BUFFER_OUT_OF_TIME_DROP, id_, 0.0);
++                //Stat::put(VOIP_BUFFER_OVERFLOW_DROP, id_, 0.0);
++                return VoipDecoder::command (argc, argv);
++
++        } else if ( argc == 3 && strcmp ( argv[1], "buffer-size" ) == 0 ) {
++                bufferSize_ = atoi ( argv[2] );
++                if ( bufferSize_ <= 0 ) {
++                        fprintf(stderr, "VoipDecoderStatic: Invalid buffer size: %d\n", bufferSize_);
++                        return TCL_ERROR;
++                }
++                return TCL_OK;
++
++        } else if ( argc == 3 && strcmp ( argv[1], "playout-rate" ) == 0 ) {
++                playoutRate_ = atof ( argv[2] );
++                if ( playoutRate_ <= 0 ) {
++                        fprintf(stderr, "VoipDecoderStatic: Invalid playout rate %f\n", playoutRate_);
++                        return TCL_ERROR;
++                }
++                return TCL_OK;
++
++        } else if ( argc == 3 && strcmp ( argv[1], "initial-delay" ) == 0 ) {
++                initialDelay_ = atof ( argv[2] );
++                if ( playoutRate_ <= 0 ) {
++                        fprintf(stderr, "VoipDecoderStatic: Invalid initial delay %f\n", initialDelay_);
++                        return TCL_ERROR;
++                }
++                return TCL_OK;
++        }
++
++        // For more detail, please refer to ITU-T Recommendation G.113
++        else if ( argc == 3 && strcmp ( argv[1], "emodel" ) == 0 ) {
++                if ( strcmp ( argv[2], "G.711" ) == 0 ) {
++                        playoutRate_ = 0.010;
++                        return VoipDecoder::command(argc, argv);
++
++                } else if ( strcmp ( argv[2], "G.729A_VAD" ) == 0 ) {
++                        playoutRate_ = 0.020;
++                        return VoipDecoder::command(argc, argv);
++
++                } else if ( strcmp ( argv[2], "G.723.1_VAD" ) == 0 ) {
++                        playoutRate_ = 0.030;
++                        return VoipDecoder::command(argc, argv);
++
++                } else if ( strcmp ( argv[2], "GSM.EFR" ) == 0 ) {
++                        playoutRate_ = 0.020;
++                        return VoipDecoder::command(argc, argv);
++
++                } else if ( strcmp ( argv[2], "GSM.AMR" ) == 0 ) {
++                        playoutRate_ = 0.020;
++                        return VoipDecoder::command(argc, argv);
++
++                } else {
++                        fprintf(stderr, "VoipDecoder - Unsupported Codec\n");
++                        return TCL_ERROR;
++                }
++        }
++
++        return VoipDecoder::command (argc, argv);
++}
++
+diff --git a/ns-2.35/voip/voip_decoder_static.h b/ns-2.35/voip/voip_decoder_static.h
+new file mode 100644
+index 0000000..ccb0dd7
+--- /dev/null
++++ b/ns-2.35/voip/voip_decoder_static.h
+@@ -0,0 +1,62 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_DECODER_STATIC_H
++#define __NS2_VOIP_DECODER_STATIC_H
++
++#include <voip_decoder.h>
++
++#include <t_timers.h>
++#include <queue>
++
++
++class VoipDecoderStatic : public VoipDecoder {
++public:
++        //! Create an empty VoIP decoder.
++        VoipDecoderStatic ();
++
++        //! Tcl interface.
++        int command (int argc, const char*const* argv);
++
++        //! Periodic playout timer
++        void handle();
++
++protected:
++        //! Collect statistics after playout buffering frame by frame.
++        void collectFrame (VoipFrame& frame);
++
++protected:
++        //! Frame buffer
++        std::priority_queue< VoipFrame > buffer_;
++
++        //! Next frame to be played out
++        unsigned int nextFrame_;
++
++        //! Length of the current talk (in frames)
++        unsigned int talkLength_;
++
++        //! Playout sample rate (in ms)
++        double playoutRate_;
++
++        //! Playout initial delay
++        /** Delay of the first sample of the talkspurt
++         */
++        double initialDelay_;
++
++        //! Playout buffer size.
++        /** It is expressed in terms of number of VoIP samples, not in
++         *  number of IP Packets!
++         */
++        int bufferSize_;
++
++        //! Current buffer occupancy
++        int bufferOccupancy_;
++
++        //! T_Timer
++        /** The timer is used to manage playout samples
++         */
++        TTimer<VoipDecoderStatic> timer_;
++};
++
++#endif // __NS2_VOIP_DECODER_STATIC_H
+diff --git a/ns-2.35/voip/voip_encoder.cc b/ns-2.35/voip/voip_encoder.cc
+new file mode 100644
+index 0000000..5df1d06
+--- /dev/null
++++ b/ns-2.35/voip/voip_encoder.cc
+@@ -0,0 +1,169 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_encoder.h>
++#include <voip_frame.h>
++#include <voip_aggregate.h>
++#include <voip_header.h>
++#include <stat.h>
++#include <math.h>
++#include <stdio.h>
++
++static class VoipEncoderClass : public TclClass {
++public:
++        VoipEncoderClass() : TclClass("Application/VoipEncoder") {}
++        TclObject* create(int, const char*const*) {
++                return (new VoipEncoder);
++        }
++} class_voip_encoder;
++
++VoipEncoder::VoipEncoder () : timer_ (this)
++{
++    size_           = 0;
++    inter_          = 0;
++    initialized_    = false;
++    debug_          = false;
++    header_         = 0;
++    aggregate_      = 0;
++    agent_          = 0;        // base class member
++}
++
++int
++VoipEncoder::command (int argc, const char*const* argv)
++{
++    if ( argc == 2  && strcmp (argv[1], "debug") == 0 ) {
++        debug_ = true;
++        return TCL_OK;
++
++    } else if ( argc == 2  && strcmp (argv[1], "nodebug") == 0 ) {
++        debug_ = false;
++        return TCL_OK;
++
++    } else if ( argc == 2 && strcmp (argv[1], "inter") == 0 )  {
++        Tcl::instance ().resultf ("%f", inter_);
++        return TCL_OK;
++
++    } else if ( argc == 3  && strcmp (argv[1], "aggregate") == 0 ) {
++        aggregate_ = (VoipAggregate*) TclObject::lookup (argv[2]);
++        return TCL_OK;
++
++    } else if ( argc == 3  && strcmp (argv[1], "header") == 0 ) {
++        header_ = (VoipHeader*) TclObject::lookup (argv[2]);
++        return TCL_OK;
++
++    } else if ( argc == 3 && strcmp (argv[1], "id") == 0 ) {
++        id_ = atoi(argv[2]);
++        if (id_ < 0) {
++            fprintf (stderr, "VoIP Encoder: Invalid id(%d)\n", id_);
++            return TCL_ERROR;
++        }
++        return TCL_OK;
++
++    } else if ( argc >= 3 && strcmp (argv[1], "codec") == 0 ) {
++        if ( argc == 3 && strcmp (argv[2], "G.711") == 0 ) {
++            size_ = 80;
++            inter_ = 0.01;
++            initialized_ = true;
++            return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[2], "GSM.AMR") == 0 ) {
++            size_ = 32;
++            inter_ = 0.02;
++            initialized_ = true;
++            return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[2], "G.729A") == 0 ) {
++            size_ = 20;
++            inter_ = 0.02;
++            initialized_ = true;
++            return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[2], "G.723.1") == 0 ) {
++            size_ = 24;
++            inter_ = 0.03;
++            initialized_ = true;
++            return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[2], "GSM.EFR") == 0 ) {
++            size_ = 32;
++            inter_ = 0.02;
++            initialized_ = true;
++            return TCL_OK;
++        //
++        // Add *here* your codec.
++        //
++        // if ( argc == X && strcmp (argv[2], "X") == 0 ) {
++        // 	return TCL_OK;
++        //
++        } else {
++            fprintf (stderr, "Unknown codec '%s'\n", argv[2]);
++            return TCL_ERROR;
++        }
++        return TCL_OK;
++    }
++    return Application::command (argc, argv);
++}
++
++void
++VoipEncoder::handle (unsigned int count)
++{
++    if ( ! initialized () ) {
++        fprintf (stderr, "VoIP encoder not initialized");
++        abort ();
++    }
++
++    if ( debug_ ) fprintf (stderr,
++        "%.9f new frame (%d bytes) for talkspurt %d, %d to go\n",
++            NOW, size_, count, remaining_[count]);
++
++    // Create a new frame.
++    VoipFrame frame (size_, count,
++        total_[count] - remaining_[count], total_[count]);
++
++    // Count the number of frames sent
++    Stat::put("voip_frames_sent",id_,1);
++
++    // Send the frame to the aggregate object, if present.
++    if ( aggregate_ ) {
++        aggregate_->recv (frame);
++
++    // Otherwise, send it to the agent.
++    } else {
++        // Create a new payload.
++        VoipPayload* payload = new VoipPayload;
++        (*payload) += frame;
++
++        // Send the frame to the header module, if present.
++        if ( header_ ) {
++            header_->recvPayload(size_, payload);
++        } else {
++            // Send out the payload to the agent.
++            agent_->sendmsg (size_, (AppData*)payload);
++        }
++    }
++
++    // Update the remaining frames to be generated.
++    --remaining_[count];
++
++    // If this is not the last frame to generate, re-start the timer.
++    if ( remaining_[count] > 0 ) timer_.add (inter_, count);
++}
++
++void
++VoipEncoder::talkspurt (unsigned int count, double duration)
++{
++    if ( debug_ ) fprintf (stderr,
++        "%.9f flow id %u talkspurt %d start (duration %f)\n",
++            NOW, id_, count, duration);
++
++    unsigned int remaining = (unsigned int) round ( duration / inter_ );
++    if ( remaining == 0 ) remaining = 1;
++
++    // Update the remaining frames to be generated.
++    total_[count] = remaining;
++    remaining_[count] = remaining;
++
++    // Generate the first frame of this talkspurt.
++    handle (count);
++}
+diff --git a/ns-2.35/voip/voip_encoder.h b/ns-2.35/voip/voip_encoder.h
+new file mode 100644
+index 0000000..ff18fc3
+--- /dev/null
++++ b/ns-2.35/voip/voip_encoder.h
+@@ -0,0 +1,87 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_ENCODER_H
++#define __NS2_VOIP_ENCODER_H
++
++#include <app.h>
++#include <object.h>
++#include <t_timers.h>
++#include <map>
++
++class VoipAggregate;
++class VoipHeader;
++
++class VoipEncoder : public Application {
++public:
++        //! Create an empty VoIP source.
++        VoipEncoder ();
++
++        //! Return true if the object is ready to be started.
++        bool initialized () { return initialized_; }
++
++        //! Tcl interface.
++        /*!
++                * Tcl commands:
++                * - $obj debug\n
++                *   Enable debug to standard error.
++                * - $obj nodebug\n
++                *   Disable debug to standard error (default).
++                * - $obj codec $code_type
++                *   Select the codec to be used
++                *   The followinf codecs are actually implemented:
++                *   <ul>
++                *    <li>
++                *     G.711 - (64kbps): 80 bytes VoIP frame, 100 frames per second.
++                *    </li>
++                *    <li>
++                *     GSM AMR - (12.2kbps): 32 bytes VoIP frame, 50 frames per second.
++                *              Note that, 244 bits payload, 4 bit padding, 1 byte EOF
++                *    </li>
++                *   </ul>
++                */
++        virtual int command (int argc, const char*const* argv);
++
++        //! Produce frames for a new talkspurt.
++        void talkspurt (unsigned int count, double duration);
++
++        //! Generate a new talkspurt.
++        void handle (unsigned int count);
++
++protected:
++        //! Timer to schedule frames.
++        /*!
++                * The timer is called at the beginning of each talkspurt.
++                */
++        TMultiTimer<VoipEncoder, unsigned int> timer_;
++
++        //! Frame size, in bytes.
++        unsigned int size_;
++
++        //! Interval between two consecutive frames, in seconds.
++        double inter_;
++
++        //! Number of remaining frames to generate for a given talkspurt.
++        std::map<unsigned int, unsigned int> remaining_;
++
++        //! Number of frames to generate for a given talkspurt.
++        std::map<unsigned int, unsigned int> total_;
++
++        //! Statistic Metric ID
++        int id_;
++
++        //! Aggregate object, if present.
++        VoipAggregate* aggregate_;
++
++        //! Pointer to the VoIP Header Module, if present
++        VoipHeader* header_;
++
++        //! True if debug is enabled.
++        bool debug_;
++
++        //! True if the object is ready to produce frames.
++        bool initialized_;
++};
++
++#endif // __NS2_VOIP_ENCODER_H
+diff --git a/ns-2.35/voip/voip_frame.h b/ns-2.35/voip/voip_frame.h
+new file mode 100644
+index 0000000..c050495
+--- /dev/null
++++ b/ns-2.35/voip/voip_frame.h
+@@ -0,0 +1,96 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_FRAME_H
++#define __NS2_VOIP_FRAME_H
++
++#include <ns-process.h>
++#include <object.h>
++#include <list>
++#include <stat.h>
++
++struct VoipFrame {
++        //! Talkspurt identifier.
++        unsigned int talkspurt_;
++        //! Frame identifier within talkspurt.
++        unsigned int frame_;
++        //! Number of frames in this talkspurt.
++        unsigned int nframes_;
++        //! Size, in bytes of this frame.
++        unsigned int size_;
++        //! Frame generation timestamp, in seconds.
++        double timestamp_;
++	//! Statistics collection flag
++	bool statActive_;
++
++        //! Create an empty VoIP frame.
++        VoipFrame (unsigned int size = 0,
++                   unsigned int talkspurt = 0,
++                   unsigned int frame = 0,
++                   unsigned int nframes = 0) {
++                size_ = size;
++                talkspurt_ = talkspurt;
++                frame_ = frame;
++                nframes_ = nframes;
++                timestamp_ = NOW;
++		statActive_ = Stat::active();
++        }
++
++        //! Stric weak ordering among VoIP frames
++        bool operator<(const VoipFrame& frame) const {
++                if ( talkspurt_ > frame.talkspurt_ ) {
++                        return true;
++                }
++                else if ( talkspurt_ == frame.talkspurt_ && frame_ > frame.frame_ ) {
++                        return true;
++                }
++                return false;
++        }
++};
++
++struct VoipPayload : public AppData {
++public:
++        typedef std::list<VoipFrame> List;
++
++        //! Create a VoIP payload with no frames.
++        VoipPayload () : AppData (VOIP_DATA) { nframes_ = 0; }
++        //! Copy constructor.
++        VoipPayload (VoipPayload& p) : AppData (p) {
++                nframes_ = p.nframes_;
++                frames_ = p.frames_;
++        }
++
++        //! Deallocate the payload.
++        ~VoipPayload () { }
++
++        //! Add a VoIP frame.
++        void operator+= (const VoipFrame& frame) {
++                frames_.push_back (frame);
++                ++nframes_;
++        }
++        //! Pop the first VoIP frame and return it.
++        VoipFrame operator-- () {
++                if ( nframes_ == 0 ) abort ();
++                VoipFrame first = frames_.front();
++                frames_.pop_front ();
++                --nframes_;
++                return first;
++        }
++        //! Get the number of frames.
++        unsigned int nframes () { return nframes_; }
++
++        //! Return the memory occupancy (required by the base class).
++        int size() const { return sizeof(VoipPayload); }
++
++        //! Copy this object (required by the base class).
++        AppData* copy() { return (new VoipPayload(*this)); }
++
++private:
++        //! Number of VoIP frames contained into this payload.
++        unsigned int nframes_;
++        //! List of VoIP frames contained into this payload.
++        List frames_;
++};
++
++#endif // __NS2_VOIP_FRAME_H
+diff --git a/ns-2.35/voip/voip_header.cc b/ns-2.35/voip/voip_header.cc
+new file mode 100644
+index 0000000..da034ab
+--- /dev/null
++++ b/ns-2.35/voip/voip_header.cc
+@@ -0,0 +1,65 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_header.h>
++#include <stdio.h>
++
++static class VoipHeaderClass : public TclClass {
++        public:
++                VoipHeaderClass() : TclClass("Application/VoipHeader") {}
++                TclObject* create(int, const char*const*) {
++                        return (new VoipHeader);
++                }
++} class_voip_header;
++
++VoipHeader::VoipHeader()
++{
++        debug_           = false;
++        initialized_     = false;
++        compression_     = false;
++        size_            = 40;
++
++        agent_           = 0;        // base class member
++}
++
++int
++VoipHeader::command (int argc, const char*const* argv)
++{
++        if ( argc == 2  && strcmp (argv[1], "debug") == 0 ) {
++                debug_ = true;
++                return TCL_OK;
++
++        } else if ( argc == 2  && strcmp (argv[1], "nodebug") == 0 ) {
++                debug_ = false;
++                return TCL_OK;
++
++        } else if ( argc == 2  && strcmp (argv[1], "compression") == 0 ) {
++                compression_ = true;
++                size_ = 6;
++                return TCL_OK;
++
++	} else if ( argc == 3  && strcmp (argv[1], "compression") == 0 ) {
++				compression_ = true;
++				size_ = atoi(argv[2]);
++				return TCL_OK;
++
++        } else if ( argc == 2  && strcmp (argv[1], "nocompression") == 0 ) {
++                compression_ = false;
++                size_ = 40;
++                return TCL_OK;
++
++        } else if ( argc == 2  && strcmp (argv[1], "algorithm") == 0 ) {
++                fprintf(stderr, "Header Compression Algorithm. To Be Implemented\n");
++                return TCL_ERROR;
++        }
++
++        return Application::command (argc, argv);
++}
++
++void 
++VoipHeader::recvPayload (int size, VoipPayload* data)
++{
++        int payloadSize = size_ + size;
++	agent_->sendmsg(payloadSize, (AppData*)data);
++}
+diff --git a/ns-2.35/voip/voip_header.h b/ns-2.35/voip/voip_header.h
+new file mode 100644
+index 0000000..4bb15d4
+--- /dev/null
++++ b/ns-2.35/voip/voip_header.h
+@@ -0,0 +1,55 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_HEADER_H
++#define __NS2_VOIP_HEADER_H
++
++#include <voip_frame.h>
++
++#include <app.h>
++#include <object.h>
++
++class VoipHeader : public Application {
++public:
++        //! Create an empty VoIP Header.
++        VoipHeader ();
++
++        //! Do Nothing
++        ~VoipHeader() { }
++
++        //! Return true if the object is ready to be started.
++        bool initialized () { return initialized_; }
++
++        //! Tcl interface.
++        /*!
++         * Tcl commands:
++         * - $obj debug\n
++         *   Enable debug to standard error.
++         * - $obj nodebug\n
++         *   Disable debug to standard error (default).
++         */
++        virtual int command (int argc, const char*const* argv);
++
++        //! Produce frames for a new talkspurt.
++        void recvPayload (int noBytes, VoipPayload* data);
++
++protected:
++
++        //! True if debug is enabled.
++        bool debug_;
++
++        //! True if the object is ready to produce frames.
++        bool initialized_;
++
++        //! True if header compression is enabled.
++        // This variable will allow us to implement new header
++        // compression policy based on real compression algorithms. 
++        // Currently this variable is not used.
++        bool compression_;
++
++        //! Header size (RTP + UDP + IP) in bytes
++        unsigned int size_;
++};
++
++#endif // __NS2_VOIP_HEADER_H
+diff --git a/ns-2.35/voip/voip_source.cc b/ns-2.35/voip/voip_source.cc
+new file mode 100644
+index 0000000..cc0de45
+--- /dev/null
++++ b/ns-2.35/voip/voip_source.cc
+@@ -0,0 +1,187 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#include <voip_source.h>
++#include <voip_encoder.h>
++#include <voip_bidirectional.h>
++#include <ranvar.h>
++#include <stdio.h>
++
++#include <stat.h>
++
++static class VoipSourceClass : public TclClass {
++public:
++    VoipSourceClass() : TclClass("VoipSource") { }
++    TclObject* create(int, const char*const*) {
++        return (new VoipSource);
++    }
++} class_voip_source;
++
++VoipSource::VoipSource () : timer_(this), talk1_(1.423, 0.824), silence1_(0.899, 1.089)
++{
++    encoder_        = 0;
++    talk_           = 0;
++    silence_        = 0;
++    count_          = 0;
++    debug_          = false;
++    stat_           = false;
++    fid_            = 0;
++    bidirectional_  = 0;
++}
++
++int
++VoipSource::command (int argc, const char*const* argv)
++{
++    if ( argc == 3  && strcmp (argv[1], "stat") == 0 ) {
++        stat_ = true;
++        fid_ = atoi(argv[2]);
++        return TCL_OK;
++        
++    } else if ( argc == 2  && strcmp (argv[1], "debug") == 0 ) {
++        debug_ = true;
++        return TCL_OK;
++
++    } else if ( argc == 2  && strcmp (argv[1], "nodebug") == 0 ) {
++        debug_ = false;
++        return TCL_OK;
++
++    } else if ( argc == 2  && strcmp (argv[1], "start") == 0 ) {
++        handle ();
++        return TCL_OK;
++
++    } else if ( argc == 2  && strcmp (argv[1], "stop") == 0 ) {
++        stop ();
++        return TCL_OK;
++
++    } else if ( argc == 3 && strcmp (argv[1], "encoder") == 0 ) {
++        encoder_ = (VoipEncoder*) TclObject::lookup (argv[2]);
++        return TCL_OK;
++
++    } else if ( argc == 3 && strcmp (argv[1], "bidirectional") == 0 ) {
++        bidirectional_ = (VoipBidirectional*) TclObject::lookup (argv[2]);
++        return TCL_OK;
++
++    } else if ( argc >= 3 && strcmp (argv[1], "model") == 0 ) {
++        if ( argc == 5 && strcmp (argv[2], "exponential") == 0 ) {
++
++            // Retrieve and check input parameters from Tcl.
++            double talk = atof (argv[3]);
++            double silence = atof (argv[4]);
++            if ( talk <= 0 || silence <= 0 ) {
++                fprintf (stderr, "Invalid exponential parameters talk '%f', silence '%f'\n", talk, silence);
++                return TCL_ERROR;
++            }
++
++            // Create and initialize the random variables
++            // to schedule talkspurts and silence periods.
++            //! \todo
++            //! Andrea: Dynamic cast seems to introduce some strange
++            //! behaviour! CHECK CHECK CHECK.
++            talk_ = new ExponentialRandomVariable;
++            dynamic_cast<ExponentialRandomVariable*>(talk_)->setavg (talk);
++            silence_ = new ExponentialRandomVariable;
++            dynamic_cast<ExponentialRandomVariable*>(silence_)->setavg (silence);
++            return TCL_OK;
++
++            //
++            // Add *here* your VoIP source model.
++            //
++            // if ( argc == X && strcmp (argv[2], "X") == 0 ) {
++            // 	return TCL_OK;
++            //
++        } else if ( argc == 3 && strcmp (argv[2], "one-to-one") == 0 ) {
++            // Retrieve and check input parameters from Tcl.
++            // Create and initialize the random variables
++            // to schedule talkspurts and silence periods.
++            talk_ = new WeibullRandomVariable(1.423, 0.824);
++            silence_ = new WeibullRandomVariable(0.899, 1.089);
++            return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[2], "many-to-many") == 0 ) {
++            // Retrieve and check input parameters from Tcl.
++            // Create and initialize the random variables
++            // to schedule talkspurts and silence periods.
++            talk_ = new WeibullRandomVariable(2.184, 0.435);
++            silence_ = new WeibullRandomVariable(3.093, 0.450);
++            return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[2], "one-to-many") == 0 ) {
++            // Retrieve and check input parameters from Tcl.
++            // Create and initialize the random variables
++            // to schedule talkspurts and silence periods.
++            talk_ = new WeibullRandomVariable(23.952, 1.278);
++            silence_ = new WeibullRandomVariable(3.941, 0.820);
++            return TCL_OK;
++
++        } else if ( argc == 3 && strcmp (argv[2], "many-to-one") == 0 ) {
++            // Retrieve and check input parameters from Tcl.
++            // Create and initialize the random variables
++            // to schedule talkspurts and silence periods.
++            talk_ = new WeibullRandomVariable(3.342, 0.732);
++            silence_ = new WeibullRandomVariable(44.267, 0.432);
++            return TCL_OK;
++
++        } else if ( argc == 7 && strcmp (argv[2], "weibull-custom") == 0 ) {
++            talk_    = new WeibullRandomVariable( atof(argv[3]), atof(argv[4]) );
++            silence_ = new WeibullRandomVariable( atof(argv[5]), atof(argv[6]) );
++            return TCL_OK;
++	    } else {
++		    fprintf (stderr, "Unknown VoIP source model '%s'\n", argv[2]);
++            return TCL_ERROR;
++        }
++	    return TCL_OK;
++    }
++    return TCL_ERROR;
++}
++
++void
++VoipSource::handle ()
++{
++    if ( ! initialized () ) {
++        fprintf (stderr, "VoIP source not initialized");
++        abort ();
++    }
++
++    double talk    = 0.0;
++    double silence = 0.0;
++
++    // If there is a bidirectional module bound to this object
++    // then get the next talkspurt and silence periods from it.
++    if ( bidirectional_ ) {
++        bidirectional_->next (this, talk, silence);
++
++    // Otherwise, draw the talkspurt and silence period duration randomly
++    // from the random variables depending on the source model.
++    } else {
++        talk = talk_->value();
++        silence = silence_->value();
++    }
++
++    if ( debug_ ) fprintf (stderr, "%.9f new talkspurt %f, %f (ID %d)\n",
++            NOW, talk, silence, count_);
++
++	if ( talk > 0.0 ) {
++        // Tell the encoder that a new talkspurt is to be generated.
++        encoder_->talkspurt (count_, talk);
++
++	    // Update the talkspurt counter.
++        ++count_;
++		// Collect some statistics useful for debug purposes
++		if ( stat_ )
++        {
++			Stat::put ("voip_talkspurt_duration", 0, talk );
++            //Stat::put (VOIP_DUR_FID_TALK, fid_, talk);
++        }
++	}
++
++	// Collect some statistics useful for debug purposes
++	if ( silence > 0.0 && stat_ )
++    {
++		Stat::put ("voip_silence_duration", 0, silence );
++        Stat::put ("voip_dur_fid_silence", fid_, silence);
++    }
++    
++    // Reschedule this function to be called after the silence period.
++    timer_.start (talk + silence);
++}
+diff --git a/ns-2.35/voip/voip_source.h b/ns-2.35/voip/voip_source.h
+new file mode 100644
+index 0000000..9d41b31
+--- /dev/null
++++ b/ns-2.35/voip/voip_source.h
+@@ -0,0 +1,85 @@
++/*
++ * TODO: INSERT LICENSE HERE
++ */
++
++#ifndef __NS2_VOIP_SOURCE_H
++#define __NS2_VOIP_SOURCE_H
++
++#include <object.h>
++#include <t_timers.h>
++
++#include <ranvar.h>
++
++class VoipEncoder;
++class RandomVariable;
++
++class VoipBidirectional;
++
++class VoipSource : public TclObject {
++public:
++    //! Create an empty VoIP source.
++    VoipSource ();
++
++    //! Return true if the object is ready to be started.
++    bool initialized () {
++        return ( encoder_ && talk_ && silence_ ) || bidirectional_; }
++
++    //! Tcl interface.
++    /*!
++         * Tcl commands:
++         * - $obj debug\n
++         *   Enable debug to standard error.
++         * - $obj nodebug\n
++         *   Disable debug to standard error (default).
++         * - $obj start\n
++         *   Start the first talkspurt generated by this VoIP source.
++         * - $obj stop\n
++         *   Do not generate any more talkspurts until resumed.
++         * - $obj model exponential T S\n
++         *   Draw the talkspurt and silence periods randomly from two
++         *   exponential distributions with average T and S, respectively.
++         * - $obj encoder $enc\n
++         *   Bind the VoIP encoder $enc to this object $obj.
++         * - $obj bidirectional $bidir\n
++         *   Bind the VoIP bidirectional module $bidir to this object $obj.
++         */
++    virtual int command (int argc, const char*const* argv);
++
++    //! Generate a new talkspurt.
++    void handle ();
++
++    //! Stops talkspurts generation
++    void stop () {
++        timer_.stop ();
++    }
++
++protected:
++    //! Timer to schedule talkspurts.
++    /*!
++        * The timer is first started via a Tcl command.
++        */
++    TTimer<VoipSource> timer_;
++    //! Pointer to the encoder application.
++    VoipEncoder* encoder_;
++
++    //! Pointer to the bidirectional module, if present.
++    VoipBidirectional* bidirectional_;
++
++    //! Random variable for talkspurt durations.
++    RandomVariable* talk_;
++
++    //! Random variable for silence durations.
++    RandomVariable* silence_;
++
++    WeibullRandomVariable talk1_;
++    WeibullRandomVariable silence1_;
++
++    //! Talkspurt counter.
++    unsigned int count_;
++    //! True if debug is enabled.
++    bool debug_;
++    bool stat_;
++    int fid_;
++};
++
++#endif // __NS2_VOIP_SOURCE_H

@@ -4,13 +4,14 @@ routings=(AOMDV PA_AOMDV) #definisikan routing protokol yang digunakan.
 buff=( h323 )
 mp=(m)
 #min=(0.1 ) #speed
-#max=(2.1 ) 
-flows=(1) 
+#max=(2.1 )
+flows=(1)
 try=(1 2) #banyak replikasi
 codec=(G.711 G.723.1) #banyak codec
 nnode=(25 35 ) #banyak node
 #trace log
-proj=NS/voip/Project-Jitter-Buffer-master
+#proj=NS/voip/Project-Jitter-Buffer-master
+proj=`pwd`
 for routing in "${routings[@]}"
 do
 	#echo $routing
@@ -28,11 +29,9 @@ do
 	fi
 done
 
-
-
 count=0
 
-setdest=~/ns-allinone-2.34/ns-2.34/indep-utils/cmu-scen-gen/setdest/setdest
+#setdest=~/ns-allinone-2.34/ns-2.34/indep-utils/cmu-scen-gen/setdest/setdest
 
 #####
 

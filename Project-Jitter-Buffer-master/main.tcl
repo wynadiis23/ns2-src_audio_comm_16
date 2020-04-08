@@ -45,10 +45,12 @@ if {[string is double -strict [lindex $argv 0]]} {
 # L O A D L I S T N O D E
 source vnode.tcl
 # S E T O U T F I L E
-set file "outputs/out-$opt(routing)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode)-SN_[lindex $vnode1 [expr $opt(try)-1]]-DN_[lindex $vnode2 [expr $opt(try)-1]].output"
+set systemTime [clock seconds]
+set nowTime $systemTime
+set file "outputs/out-$opt(routing)-T$opt(try)-B$opt(buffer)-C$opt(codec)-V$opt(voipflows)-R$opt(routing)-N$opt(nnode)-Mmobility_$opt(nnode)-SN_[lindex $vnode1 [expr $opt(try)-1]]-DN_[lindex $vnode2 [expr $opt(try)-1]]-$nowTime.output"
 
+puts "# Check $file"
 if {[file exists $file] == 1} {
-	
 	puts "# Output file exists! SKIPPING SIMULATION!"
 	puts ""
 	set skip [open file_skip a]
