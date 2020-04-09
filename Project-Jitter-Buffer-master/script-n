@@ -4,15 +4,11 @@ routings=(AOMDV PA_AOMDV) #definisikan routing protokol yang digunakan.
 buff=( h323 )
 mp=(m)
 #min=(0.1 ) #speed
-<<<<<<< HEAD
-#max=(2.1 ) 
-flows=(1) 
-try=(1 2 3 4 5 6 7 8 9 10) #banyak replikasi
-=======
+
 #max=(2.1 )
 flows=(1)
-try=(1 2) #banyak replikasi
->>>>>>> 756cd480eeec55df547f0e49a69f2c188d460e8f
+try=(1 ) #banyak replikasi
+
 codec=(G.711 G.723.1) #banyak codec
 nnode=(25 35 45 55 65 75) #banyak node
 #trace log
@@ -21,17 +17,17 @@ proj=`pwd`
 for routing in "${routings[@]}"
 do
 	#echo $routing
-	trace_log_g_711=$HOME/$proj/trace_$routing_log_g_711
-	trace_log_g_723_1=$HOME/$proj/trace_$routing_log_g_723_1
-	trace_log_gsm_amr=$HOME/$proj/trace_$routing_log_gsm_amr
+	trace_log_g_711=$proj/trace_$routing_log_g_711
+	trace_log_g_723_1=$proj/trace_$routing_log_g_723_1
+	trace_log_gsm_amr=$proj/trace_$routing_log_gsm_amr
 	#echo "$HOME/$proj/trace_${routing}_log_g_711"
-	if [[ -f $HOME/$proj/trace_${routing}_log_g_711 ]] && [[ -f $HOME/$proj/trace_${routing}_log_g_723_1 ]] && [[ -f $HOME/$proj/trace_${routing}_log_gsm_amr ]] 
+	if [[ -f $proj/trace_${routing}_log_g_711 ]] && [[ -f $proj/trace_${routing}_log_g_723_1 ]] && [[ -f $proj/trace_${routing}_log_gsm_amr ]] 
 	then
 		echo "tracelog exist, recreating"
 		sleep 2
-		rm $HOME/$proj/trace_${routing}_log_g_711
-		rm $HOME/$proj/trace_${routing}_log_g_723_1
-		rm $HOME/$proj/trace_${routing}_log_gsm_amr
+		rm $proj/trace_${routing}_log_g_711
+		rm $proj/trace_${routing}_log_g_723_1
+		rm $proj/trace_${routing}_log_gsm_amr
 	fi
 done
 
