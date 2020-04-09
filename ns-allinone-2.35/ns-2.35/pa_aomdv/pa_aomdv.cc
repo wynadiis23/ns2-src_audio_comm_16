@@ -743,10 +743,10 @@ PA_AOMDV::recv(Packet *p, Handler*) {
 		printf("hci: %d\n", hc_i);
 		printf("hcj: %d\n", hc_j);
 		printf("masuk1\n");
-			if (hc_i-hc_j>2){
-				printf("masuk2\n");
-				recvRequest(p);
-			}
+		if (hc_i-hc_j>2){
+			printf("masuk2\n");
+			recvRequest(p);
+		}
 	}	
 	else{
 		forward((pa_aomdv_rt_entry*) 0, p, NO_PA_AOMDV_DELAY);
