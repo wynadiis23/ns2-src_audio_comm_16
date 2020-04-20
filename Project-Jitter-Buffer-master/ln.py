@@ -23,7 +23,8 @@ def main():
 		path_packetloss='/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/packetloss/'+str(routing)+'_'+str(codec)+'_pktloss_'+str(nnode)+'.txt'
 		path_delay='/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/delay/'+str(routing)+'_'+str(codec)+'_delay_'+str(nnode)+'.txt'
 
-		
+		print(str(routing)+" "+str(codec)+" "+str(nnode))
+		#print(path_delay)
 
 		#R0
 		R0=94.2

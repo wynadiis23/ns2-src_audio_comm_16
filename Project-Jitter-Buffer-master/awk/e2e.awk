@@ -41,13 +41,19 @@ END {
 # For End to End Delay
 
 for ( i in end_time ) {
+ #printf("%d\n", start_time[i]);
  start = start_time[i];
  end = end_time[i];
  packet_duration = end - start;
  if ( packet_duration > 0 )  { sum += packet_duration; recvnum++; }
 }
  
+#printf("%f\n", sum);
+#printf("%f\n", recvnum);
 delay=sum/recvnum;
 #printf("%.9f ms\n", delay);
-printf("%.2f\n", delay);
+printf("%.2f\n", delay*1000); #in milisecond
+#printf("%.2f\n", start);
+#printf("%.2f\n", end);
+#printf("%.2f\n", packet_duration);
 }

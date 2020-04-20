@@ -740,11 +740,11 @@ PA_AOMDV::recv(Packet *p, Handler*) {
 	if ( (u_int32_t)ih->daddr() != IP_BROADCAST){
 		rt_resolve(p); 
 		//edit
-		printf("hci: %d\n", hc_i);
-		printf("hcj: %d\n", hc_j);
-		printf("masuk1\n");
+		// printf("hci: %d\n", hc_i);
+		// printf("hcj: %d\n", hc_j);
+		// printf("masuk1\n");
 		if (hc_i-hc_j>2){
-			printf("masuk2\n");
+			// printf("masuk2\n");
 			recvRequest(p);
 		}
 	}	

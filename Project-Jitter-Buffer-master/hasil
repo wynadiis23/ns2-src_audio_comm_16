@@ -1,0 +1,25 @@
+/home/adisaputra/NS/voip/Project-Jitter-Buffer-master
+calculate MOS for 25 g711
+python3 ln.py 25 g711
+calculate MOS for 35 g711
+python3 ln.py 35 g711
+calculate MOS for 45 g711
+python3 ln.py 45 g711
+calculate MOS for 55 g711
+python3 ln.py 55 g711
+calculate MOS for 65 g711
+python3 ln.py 65 g711
+calculate MOS for 75 g711
+python3 ln.py 75 g711
+calculate MOS for 25 g723_1
+python3 ln.py 25 g723_1
+calculate MOS for 35 g723_1
+python3 ln.py 35 g723_1
+calculate MOS for 45 g723_1
+python3 ln.py 45 g723_1
+calculate MOS for 55 g723_1
+python3 ln.py 55 g723_1
+calculate MOS for 65 g723_1
+python3 ln.py 65 g723_1
+calculate MOS for 75 g723_1
+python3 ln.py 75 g723_1

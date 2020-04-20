@@ -3,6 +3,7 @@
 rm outputs/*
 rm trace/*
 rm nam/*
+rm R/*
 
 #generate mobility
 #./generate_mobility

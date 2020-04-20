@@ -63,6 +63,27 @@ if {[file exists $file] == 1} {
 	exec touch $file
 }
 
+#	x y config
+if {$opt(nnode) == 25} {
+	source osmfiles/ns2config/config_25.tcl
+	puts $opt(x)
+	puts $opt(y)
+} elseif {$opt(nnode) == 35} {
+	source osmfiles/ns2config/config_35.tcl
+} elseif {$opt(nnode) == 45} {
+	source osmfiles/ns2config/config_45.tcl
+} elseif {$opt(nnode) == 55} {
+	source osmfiles/ns2config/config_55.tcl
+} elseif {$opt(nnode) == 65} {
+	source osmfiles/ns2config/config_65.tcl
+} elseif {$opt(nnode) == 75} {
+	source osmfiles/ns2config/config_75.tcl
+} else {
+	puts "# tidak ada file traffic!!"
+	exit 0
+}
+
+
 set val(chan)       Channel/WirelessChannel
 set val(prop)       Propagation/TwoRayGround
 set val(netif)      Phy/WirelessPhy
@@ -70,8 +91,8 @@ set val(mac)        Mac/802_11
 set val(ifq)        Queue/DropTail/PriQueue
 set val(ll)         LL
 set val(ant)        Antenna/OmniAntenna
-set val(x)              4594  
-set val(y)              4864 
+set val(x)              [expr $opt(x)+10]
+set val(y)              [expr $opt(y)+10]
 set val(ifqlen)         50 
 set val(seed)           5.0
 set val(adhocRouting)   $opt(routing)
@@ -82,21 +103,10 @@ set val(stop)           120
 #set val(sc)            	"../setdest/setdest-m-$opt(speed)-$opt(try).tcl";# 
 set val(vip)		"./voip.tcl"
 #set val(mob)	"./$opt(mobility)"
+puts $val(x)
+puts $val(y)
 
-#	R O U T I N G config
-if {$opt(routing) == "OLSR" } {
-        Agent/OLSR set use_mac_    true
-        #Agent/OLSR set debug_             true    
-        #Agent/OLSR set willingness 3
-        Agent/OLSR set hello_ival_ 10
-        Agent/OLSR set tc_ival_    25
-}
 
-if {$opt(routing) == "DSR" } {
-        set val(ifq) CMUPriQueue
-}
-
-#	T R A F F I C config
 if {$opt(nnode) == 25} {
 	set val(mob) "./osmfiles/mobility/mobility_25.tcl"
 	set val(cp) "./traffic-25.tcl"
