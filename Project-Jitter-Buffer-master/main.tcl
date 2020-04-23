@@ -143,7 +143,8 @@ $topo load_flatgrid $val(x) $val(y)
 #use new trace format
 $ns_ use-newtrace
 set tracefile	[open "trace/voip-$opt(routing)-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr" w]
-puts [expr $opt(try)-1]
+#replikasi ke
+puts [expr $opt(try)] 
 
 #I N S E R T T R A C E catat trace ke file txt
 set tr_lg "voip-$opt(routing)-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr"
@@ -185,7 +186,7 @@ $ns_ node-config -adhocRouting $val(adhocRouting) \
                  -movementTrace OFF 
 
 
-for {set i 0} {$i < $val(nn) } {incr i} {
+for {set i 1} {$i <= $val(nn) } {incr i} { #ubah mulai node dari node 1 hingga node ke val nn
 	set node_($i) [$ns_ node]	
 	$node_($i) random-motion 0
 	#Without random motion
@@ -198,7 +199,7 @@ puts "Loading VoIP Scenario File..."
 source $val(vip)
 
 
-for {set i 0} {$i < $val(nn)} {incr i} {
+for {set i 1} {$i <= $val(nn)} {incr i} { #ubah mulai node dari node 1 hingga node ke val nn
     $ns_ at $val(stop).0 "$node_($i) reset";
     $ns_ initial_node_pos $node_($i) 20
 }
