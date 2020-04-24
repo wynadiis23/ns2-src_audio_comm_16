@@ -32,9 +32,9 @@ if {[string is double -strict [lindex $argv 0]]} {
 	set opt(buffer) 	[lindex $argv 1] ;# Buffer type
 	set opt(codec) 		[lindex $argv 2] ;# Codec used
 	set opt(voipflows) 	[lindex $argv 3] ;# Number of correlated VoIP flows
-	#set opt(bgtraffic)	[lindex $argv 5] ;# Background traffic rate
 	set opt(routing)	[lindex $argv 4] ;# Routing algorithms	
 	set opt(nnode)		[lindex $argv 5] ;# Jumlah node
+	set opt(bgtraffic)	[lindex $argv 6] ;# Background traffic rate
 	#set opt(mobility)	[lindex $argv 8] ;# mobility files
 
 } else {
@@ -79,7 +79,7 @@ if {$opt(nnode) == 25} {
 } elseif {$opt(nnode) == 75} {
 	source osmfiles/ns2config/config_75.tcl
 } else {
-	puts "# tidak ada file traffic!!"
+	puts "# tidak ada file configurasi sumo!!"
 	exit 0
 }
 
@@ -109,27 +109,49 @@ puts $val(y)
 
 if {$opt(nnode) == 25} {
 	set val(mob) "./osmfiles/mobility/mobility_25.tcl"
-	set val(cp) "./traffic-25.tcl"
+	#set val(cp) "./traffic-25.tcl"
 } elseif {$opt(nnode) == 35} {
 	set val(mob) "./osmfiles/mobility/mobility_35.tcl"
-	set val(cp) "./traffic-35.tcl"
+	#set val(cp) "./traffic-35.tcl"
 } elseif {$opt(nnode) == 45} {
 	set val(mob) "./osmfiles/mobility/mobility_45.tcl"
-	set val(cp) "./traffic-45.tcl"
+	#set val(cp) "./traffic-45.tcl"
 } elseif {$opt(nnode) == 55} {
 	set val(mob) "./osmfiles/mobility/mobility_55.tcl"
-	set val(cp) "./traffic-55.tcl"
+	#set val(cp) "./traffic-55.tcl"
 } elseif {$opt(nnode) == 65} {
 	set val(mob) "./osmfiles/mobility/mobility_65.tcl"
-	set val(cp) "./traffic-65.tcl"
+	#set val(cp) "./traffic-65.tcl"
 } elseif {$opt(nnode) == 75} {
 	set val(mob) "./osmfiles/mobility/mobility_75.tcl"
-	set val(cp) "./traffic-75.tcl"
+	#set val(cp) "./traffic-75.tcl"
 } else {
-	puts "# tidak ada file traffic!!"
+	puts "# tidak ada file pergerakan/mobility!!"
 	exit 0
 }
 
+if {$opt(bgtraffic) == "on"} {
+	if {$opt(nnode) == 25} {
+		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-25.tcl"
+	} elseif {$opt(nnode) == 35} {
+		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-35.tcl"
+	} elseif {$opt(nnode) == 45} {
+		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-45.tcl"
+	} elseif {$opt(nnode) == 55} {
+		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-55.tcl"
+	} elseif {$opt(nnode) == 65} {
+		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-65.tcl"
+	} elseif {$opt(nnode) == 75} {
+		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-75.tcl"
+	} else {
+		puts "# tidak ada file traffic!!"
+		exit 0
+	}
+	puts "simulasi menggunakan background traffic"
+	puts $val(cp)
+} else {
+	puts "simulasi tidak menggunakan background traffic"
+}
 
 
 
@@ -186,20 +208,20 @@ $ns_ node-config -adhocRouting $val(adhocRouting) \
                  -movementTrace OFF 
 
 
-for {set i 1} {$i <= $val(nn) } {incr i} { #ubah mulai node dari node 1 hingga node ke val nn
+for {set i 0} {$i < $val(nn) } {incr i} { 
 	set node_($i) [$ns_ node]	
 	$node_($i) random-motion 0
 	#Without random motion
 	}
-puts "Loading connection pattern..."
-source $val(cp)
+#puts "Loading connection pattern..."
+#source $val(cp)
 puts "Loading scenario file..."
 source $val(mob)
 puts "Loading VoIP Scenario File..."
 source $val(vip)
 
 
-for {set i 1} {$i <= $val(nn)} {incr i} { #ubah mulai node dari node 1 hingga node ke val nn
+for {set i 0} {$i < $val(nn)} {incr i} { #ubah mulai node dari node 1 hingga node ke val nn
     $ns_ at $val(stop).0 "$node_($i) reset";
     $ns_ initial_node_pos $node_($i) 20
 }
