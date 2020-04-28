@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "calculation for delay and packetloss for every codec, node and replication"
+sleep 2
+./g711_delay
+./g711_packetloss
+./g723_1_delay
+./g723_1_packetloss

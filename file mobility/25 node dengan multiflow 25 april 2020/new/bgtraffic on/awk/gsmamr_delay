@@ -1,0 +1,59 @@
+#!/bin/bash
+# Inisialisasi array untuk masing2 node trace
+gsmamrtrace50=()
+gsmamrtrace70=()
+
+
+gsmamrtrace50+=( `awk '/50/' ../trace_log_gsm_amr` )
+gsmamrtrace70+=( `awk '/70/' ../trace_log_gsm_amr` )
+
+if (( ${#gsmamrtrace50[@]} )); then
+	echo "isi bosque"
+	if [[ -f gsmamrhasil50.txt ]]
+	then
+		rm gsmamrhasil50.txt
+		for i in "${gsmamrtrace50[@]}"
+		do
+			echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+			awk -f e2e.awk ../trace/$i >> gsmamrhasil50.txt
+		
+		done
+	else
+		for i in "${gsmamrtrace50[@]}"
+		do
+			#echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+			awk -f e2e.awk ../trace/$i >> gsmamrhasil50.txt
+		done
+	fi
+	echo "file hasil trace node 50"
+else
+	echo "Tidak ada file trace dengan node 50"
+fi
+
+if (( ${#gsmamrtrace70[@]} )); then
+	echo "isi bosque"
+	if [[ -f gsmamrhasil70.txt ]]
+	then
+		rm gsmamrhasil70.txt
+		for i in "${gsmamrtrace70[@]}"
+		do
+			echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+			awk -f e2e.awk ../trace/$i >> gsmamrhasil70.txt
+		
+		done
+	else
+		for i in "${gsmamrtrace70[@]}"
+		do
+			#echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+			awk -f e2e.awk ../trace/$i >> gsmamrhasil70.txt
+		done
+	fi
+	echo "file hasil trace node 70"
+else
+	echo "Tidak ada file trace dengan node 70"
+fi
+

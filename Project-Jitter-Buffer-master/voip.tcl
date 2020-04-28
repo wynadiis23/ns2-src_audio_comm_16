@@ -421,16 +421,36 @@ proc scenario {} {
 	set vNodeS {}
 	set vNodeD {}
 	
+	 
 	
-	source vnode.tcl
+	#check jumlah flow
+	if { $opt(voipflows) > 1 } {
+		#multiple flow
+		source vnode_n.tcl
+	} else {
+		#single flow
+		source vnode.tcl
+	}
+	
+	puts "ini opt try di voip.tcl $opt(try)"
 	set stop 90
 	
 		  for { set i 0} { $i < $opt(voipflows)} { incr i } {
 			  create_voip $fid [lindex $start $i] $stop
 			  #set f [create_udp $node_(2) $node_(3) $fid "voip"]
-			  set f [create_udp $node_([lindex $vnode1 [expr $opt(try)-1]]) $node_([lindex $vnode2 [expr $opt(try)-1]]) $fid "voip"]
-			  puts [lindex $vnode1 [expr $opt(try)-1]]
-			  puts [lindex $vnode2 [expr $opt(try)-1]]
+			  #check jumlah flow
+			  if { $opt(voipflows) > 1 } {
+				  #multiple flow setting untuk node sumber dan tujuan
+				  set f [create_udp $node_([lindex $vnode1 $i]) $node_([lindex $vnode2 $i]) $fid "voip"]
+			  } else {
+			      # s i n g l e f l o w
+			      set f [create_udp $node_([lindex $vnode1 [expr $opt(try)-1]]) $node_([lindex $vnode2 [expr $opt(try)-1]]) $fid "voip"]
+			  }
+			   
+			  puts [lindex $vnode1 $i]
+			  $node_([lindex $vnode1 $i]) label "snode->n([lindex $vnode2 $i])"
+			  puts [lindex $vnode2 $i]
+			  $node_([lindex $vnode2 $i]) label "dnode<-n([lindex $vnode1 $i])"
 			  if {$opt(voip-bidirectional) != "off"} {
 			      ;# create the opposite dir correlated flow
 			      create_voip [expr $fid+1] [lindex $start $i] $stop

@@ -1,0 +1,243 @@
+#!/bin/bash
+#inisialisasi masing2 trace file
+routings=(AOMDV PA_AOMDV) #definisikan routing protokol dari simulasi
+
+for routing in "${routings[@]}"
+do
+
+	g723_1trace25=()
+	g723_1trace35=()
+	g723_1trace45=()
+	g723_1trace55=()
+	g723_1trace65=()
+	g723_1trace75=()
+	#g723_1trace50=()
+	#g723_1trace70=()
+
+	g723_1trace25+=( `awk '/-25-/' ../trace_${routing}_log_g_723_1` )
+	g723_1trace35+=( `awk '/-35-/' ../trace_${routing}_log_g_723_1` )
+	g723_1trace45+=( `awk '/-45-/' ../trace_${routing}_log_g_723_1` )
+	g723_1trace55+=( `awk '/-55-/' ../trace_${routing}_log_g_723_1` )
+	g723_1trace65+=( `awk '/-65-/' ../trace_${routing}_log_g_723_1` )
+	g723_1trace75+=( `awk '/-75-/' ../trace_${routing}_log_g_723_1` )
+	#g723_1trace50+=( `awk '/50/' ../trace_log_g_723_1` )
+	#g723_1trace70+=( `awk '/70/' ../trace_log_g_723_1` )
+
+	echo "************calculate packetloss for $routing g723.1 codec*************"
+	sleep 3
+	if (( ${#g723_1trace25[@]} )); then
+		echo "isi bosque"
+		if [[ -f packetloss/${routing}_g723_1_pktloss_25.txt ]]
+		then
+			rm packetloss/${routing}_g723_1_pktloss_25.txt
+			for i in "${g723_1trace25[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=25 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_25.txt
+			
+			done
+		else
+			for i in "${g723_1trace25[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=25 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_25.txt
+			done
+		fi
+		echo "file hasil trace node 25"
+	else
+		echo "Tidak ada file trace dengan node 25"
+	fi
+
+	if (( ${#g723_1trace35[@]} )); then
+		echo "isi bosque"
+		if [[ -f packetloss/${routing}_g723_1_pktloss_35.txt ]]
+		then
+			rm packetloss/${routing}_g723_1_pktloss_35.txt
+			for i in "${g723_1trace35[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=35 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_35.txt
+			
+			done
+		else
+			for i in "${g723_1trace35[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=35 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_35.txt
+			done
+		fi
+		echo "file hasil trace node 35"
+	else
+		echo "Tidak ada file trace dengan node 35"
+	fi
+
+	if (( ${#g723_1trace45[@]} )); then
+		echo "isi bosque"
+		if [[ -f packetloss/$routing_${routing}_g723_1_pktloss_45.txt ]]
+		then
+			rm packetloss/${routing}_g723_1_pktloss_45.txt
+			for i in "${g723_1trace45[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=45 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_45.txt
+			
+			done
+		else
+			for i in "${g723_1trace45[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=45 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_45.txt
+			done
+		fi
+		echo "file hasil trace node 45"
+	else
+		echo "Tidak ada file trace dengan node 45"
+	fi
+
+	if (( ${#g723_1trace55[@]} )); then
+		echo "isi bosque"
+		if [[ -f packetloss/${routing}_g723_1_pktloss_55.txt ]]
+		then
+			rm packetloss/${routing}_g723_1_pktloss_55.txt
+			for i in "${g723_1trace55[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=55 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_55.txt
+			
+			done
+		else
+			for i in "${g723_1trace55[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=55 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_55.txt
+			done
+		fi
+		echo "file hasil trace node 55"
+	else
+		echo "Tidak ada file trace dengan node 55"
+	fi
+
+	if (( ${#g723_1trace65[@]} )); then
+		echo "isi bosque"
+		if [[ -f packetloss/${routing}_g723_1_pktloss_65.txt ]]
+		then
+			rm packetloss/${routing}_g723_1_pktloss_65.txt
+			for i in "${g723_1trace65[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=65 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_65.txt
+			
+			done
+		else
+			for i in "${g723_1trace65[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=65 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_65.txt
+			done
+		fi
+		echo "file hasil trace node 65"
+	else
+		echo "Tidak ada file trace dengan node 65"
+	fi
+
+	if (( ${#g723_1trace75[@]} )); then
+		echo "isi bosque"
+		if [[ -f packetloss/${routing}_g723_1_pktloss_75.txt ]]
+		then
+			rm packetloss/${routing}_g723_1_pktloss_75.txt
+			for i in "${g723_1trace75[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=75 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_75.txt
+			
+			done
+		else
+			for i in "${g723_1trace75[@]}"
+			do
+				echo $i
+				#hasil+=( `awk -f e2e.awk ../trace/$i` )
+				#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+				awk -v node=75 -f packetloss.awk ../trace/$i >> packetloss/${routing}_g723_1_pktloss_75.txt
+			done
+		fi
+		echo "file hasil trace node 75"
+	else
+		echo "Tidak ada file trace dengan node 75"
+	fi
+
+done
+#if (( ${#g723_1trace50[@]} )); then
+#	echo "isi bosque"
+#	if [[ -f g723_1_pktloss_50.txt ]]
+#	then
+#		rm g723_1_pktloss_50.txt
+#		for i in "${g723_1trace50[@]}"
+#		do
+#			echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+            #usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+#			awk -v node=50 -f packetloss.awk ../trace/$i >> g723_1_pktloss_50.txt
+		
+#		done
+#	else
+#		for i in "${g723_1trace50[@]}"
+#		do
+#			echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+            #usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+#			awk -v node=50 -f packetloss.awk ../trace/$i >> g723_1_pktloss_50.txt
+#		done
+#	fi
+#	echo "file hasil trace node 50"
+#else
+#	echo "Tidak ada file trace dengan node 50"
+#fi
+
+#if (( ${#g723_1trace70[@]} )); then
+#	echo "isi bosque"
+#	if [[ -f g723_1_pktloss_70.txt ]]
+#	then
+#		rm g723_1_pktloss_70.txt
+#		for i in "${g723_1trace70[@]}"
+#		do
+#			echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+			#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+#			awk -v node=70 -f packetloss.awk ../trace/$i >> g723_1_pktloss_70.txt
+		
+#		done
+#	else
+#		for i in "${g723_1trace70[@]}"
+#		do
+#			echo $i
+			#hasil+=( `awk -f e2e.awk ../trace/$i` )
+			#usage awk -v node=jumnode -f packetloss.awk tracefile >> hasil
+#			awk -v node=70 -f packetloss.awk ../trace/$i >> g723_1_pktloss_70.txt
+#		done
+#	fi
+#	echo "file hasil trace node 70"
+#else
+#	echo "Tidak ada file trace dengan node 70"
+#fi

@@ -6,7 +6,7 @@ rm nam/*
 rm R/*
 
 #generate mobility
-#./generate_mobility
+./generate_mobility
 
 ./script-n
 cd awk #pindah direktori

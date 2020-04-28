@@ -1,0 +1,5272 @@
+tracelog exist, recreating
+tracelog exist, recreating
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_1-DN_24-1587722996.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/1-24-new-traffic-25.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+24
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_1-DN_24-1587722998.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/1-24-new-traffic-25.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+24
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_1-DN_34-1587723000.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/1-34-new-traffic-35.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+34
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_1-DN_34-1587723003.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/1-34-new-traffic-35.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+34
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_1-DN_44-1587723006.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/1-44-new-traffic-45.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+44
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_1-DN_44-1587723009.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/1-44-new-traffic-45.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+44
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_1-DN_54-1587723013.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/1-54-new-traffic-55.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+54
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_1-DN_54-1587723019.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/1-54-new-traffic-55.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+54
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_1-DN_64-1587723024.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/1-64-new-traffic-65.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+64
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_1-DN_64-1587723030.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/1-64-new-traffic-65.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+64
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_1-DN_74-1587723037.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/1-74-new-traffic-75.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+74
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_1-DN_74-1587723045.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/1-74-new-traffic-75.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+74
+Starting Simulation...
+run duration: 8 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_1-DN_24-1587723055.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/1-24-new-traffic-25.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+24
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_1-DN_24-1587723057.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/1-24-new-traffic-25.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+24
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_1-DN_34-1587723059.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/1-34-new-traffic-35.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+34
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_1-DN_34-1587723061.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/1-34-new-traffic-35.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+34
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_1-DN_44-1587723064.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/1-44-new-traffic-45.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+44
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_1-DN_44-1587723067.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/1-44-new-traffic-45.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+44
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_1-DN_54-1587723071.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/1-54-new-traffic-55.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+54
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_1-DN_54-1587723075.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/1-54-new-traffic-55.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+54
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_1-DN_64-1587723080.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/1-64-new-traffic-65.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+64
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_1-DN_64-1587723086.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/1-64-new-traffic-65.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+64
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T1-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_1-DN_74-1587723092.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/1-74-new-traffic-75.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+74
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-1 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T1-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_1-DN_74-1587723100.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/1-74-new-traffic-75.tcl
+1
+Loading scenario file...
+Loading VoIP Scenario File...
+1
+74
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_2-DN_23-1587723108.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/2-23-new-traffic-25.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+23
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_2-DN_23-1587723110.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/2-23-new-traffic-25.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+23
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_2-DN_33-1587723113.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/2-33-new-traffic-35.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+33
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_2-DN_33-1587723115.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/2-33-new-traffic-35.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+33
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_2-DN_43-1587723118.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/2-43-new-traffic-45.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+43
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_2-DN_43-1587723122.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/2-43-new-traffic-45.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+43
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_2-DN_53-1587723125.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/2-53-new-traffic-55.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+53
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_2-DN_53-1587723130.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/2-53-new-traffic-55.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+53
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_2-DN_63-1587723135.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/2-63-new-traffic-65.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+63
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_2-DN_63-1587723141.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/2-63-new-traffic-65.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+63
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_2-DN_73-1587723148.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/2-73-new-traffic-75.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+73
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_2-DN_73-1587723157.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/2-73-new-traffic-75.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+73
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_2-DN_23-1587723166.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/2-23-new-traffic-25.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+23
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_2-DN_23-1587723168.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/2-23-new-traffic-25.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+23
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_2-DN_33-1587723170.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/2-33-new-traffic-35.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+33
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_2-DN_33-1587723173.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/2-33-new-traffic-35.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+33
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_2-DN_43-1587723176.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/2-43-new-traffic-45.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+43
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_2-DN_43-1587723180.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/2-43-new-traffic-45.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+43
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_2-DN_53-1587723185.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/2-53-new-traffic-55.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+53
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_2-DN_53-1587723190.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/2-53-new-traffic-55.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+53
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_2-DN_63-1587723195.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/2-63-new-traffic-65.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+63
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_2-DN_63-1587723201.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/2-63-new-traffic-65.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+63
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T2-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_2-DN_73-1587723206.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/2-73-new-traffic-75.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+73
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-2 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T2-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_2-DN_73-1587723214.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/2-73-new-traffic-75.tcl
+2
+Loading scenario file...
+Loading VoIP Scenario File...
+2
+73
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_3-DN_22-1587723222.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/3-22-new-traffic-25.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+22
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_3-DN_22-1587723225.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/3-22-new-traffic-25.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+22
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_3-DN_32-1587723227.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/3-32-new-traffic-35.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+32
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_3-DN_32-1587723230.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/3-32-new-traffic-35.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+32
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_3-DN_42-1587723233.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/3-42-new-traffic-45.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+42
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_3-DN_42-1587723236.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/3-42-new-traffic-45.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+42
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_3-DN_52-1587723240.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/3-52-new-traffic-55.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+52
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_3-DN_52-1587723245.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/3-52-new-traffic-55.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+52
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_3-DN_62-1587723250.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/3-62-new-traffic-65.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+62
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_3-DN_62-1587723256.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/3-62-new-traffic-65.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+62
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_3-DN_72-1587723263.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/3-72-new-traffic-75.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+72
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_3-DN_72-1587723271.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/3-72-new-traffic-75.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+72
+Starting Simulation...
+run duration: 8 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_3-DN_22-1587723281.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/3-22-new-traffic-25.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+22
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_3-DN_22-1587723283.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/3-22-new-traffic-25.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+22
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_3-DN_32-1587723285.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/3-32-new-traffic-35.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+32
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_3-DN_32-1587723288.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/3-32-new-traffic-35.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+32
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_3-DN_42-1587723290.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/3-42-new-traffic-45.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+42
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_3-DN_42-1587723294.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/3-42-new-traffic-45.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+42
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_3-DN_52-1587723298.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/3-52-new-traffic-55.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+52
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_3-DN_52-1587723302.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/3-52-new-traffic-55.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+52
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_3-DN_62-1587723308.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/3-62-new-traffic-65.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+62
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_3-DN_62-1587723314.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/3-62-new-traffic-65.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+62
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T3-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_3-DN_72-1587723320.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/3-72-new-traffic-75.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+72
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-3 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T3-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_3-DN_72-1587723328.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/3-72-new-traffic-75.tcl
+3
+Loading scenario file...
+Loading VoIP Scenario File...
+3
+72
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_4-DN_21-1587723336.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/4-21-new-traffic-25.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+21
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_4-DN_21-1587723338.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/4-21-new-traffic-25.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+21
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_4-DN_31-1587723340.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/4-31-new-traffic-35.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+31
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_4-DN_31-1587723344.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/4-31-new-traffic-35.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+31
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_4-DN_41-1587723347.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/4-41-new-traffic-45.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+41
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_4-DN_41-1587723350.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/4-41-new-traffic-45.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+41
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_4-DN_51-1587723354.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/4-51-new-traffic-55.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+51
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_4-DN_51-1587723359.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/4-51-new-traffic-55.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+51
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_4-DN_61-1587723364.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/4-61-new-traffic-65.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+61
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_4-DN_61-1587723371.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/4-61-new-traffic-65.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+61
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_4-DN_71-1587723378.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/4-71-new-traffic-75.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+71
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_4-DN_71-1587723387.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/4-71-new-traffic-75.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+71
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_4-DN_21-1587723396.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/4-21-new-traffic-25.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+21
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_4-DN_21-1587723398.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/4-21-new-traffic-25.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+21
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_4-DN_31-1587723400.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/4-31-new-traffic-35.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+31
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_4-DN_31-1587723403.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/4-31-new-traffic-35.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+31
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_4-DN_41-1587723406.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/4-41-new-traffic-45.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+41
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_4-DN_41-1587723409.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/4-41-new-traffic-45.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+41
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_4-DN_51-1587723412.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/4-51-new-traffic-55.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+51
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_4-DN_51-1587723417.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/4-51-new-traffic-55.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+51
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_4-DN_61-1587723422.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/4-61-new-traffic-65.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+61
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_4-DN_61-1587723429.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/4-61-new-traffic-65.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+61
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T4-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_4-DN_71-1587723435.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/4-71-new-traffic-75.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+71
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-4 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T4-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_4-DN_71-1587723443.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/4-71-new-traffic-75.tcl
+4
+Loading scenario file...
+Loading VoIP Scenario File...
+4
+71
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_5-DN_20-1587723451.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/5-20-new-traffic-25.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+20
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_5-DN_20-1587723453.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/5-20-new-traffic-25.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+20
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_5-DN_30-1587723455.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/5-30-new-traffic-35.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+30
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_5-DN_30-1587723458.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/5-30-new-traffic-35.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+30
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_5-DN_40-1587723461.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/5-40-new-traffic-45.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+40
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_5-DN_40-1587723465.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/5-40-new-traffic-45.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+40
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_5-DN_50-1587723469.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/5-50-new-traffic-55.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+50
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_5-DN_50-1587723474.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/5-50-new-traffic-55.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+50
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_5-DN_60-1587723479.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/5-60-new-traffic-65.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+60
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_5-DN_60-1587723486.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/5-60-new-traffic-65.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+60
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_5-DN_70-1587723492.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/5-70-new-traffic-75.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+70
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_5-DN_70-1587723500.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/5-70-new-traffic-75.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+70
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_5-DN_20-1587723509.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/5-20-new-traffic-25.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+20
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_5-DN_20-1587723511.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/5-20-new-traffic-25.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+20
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_5-DN_30-1587723513.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/5-30-new-traffic-35.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+30
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_5-DN_30-1587723515.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/5-30-new-traffic-35.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+30
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_5-DN_40-1587723518.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/5-40-new-traffic-45.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+40
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_5-DN_40-1587723521.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/5-40-new-traffic-45.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+40
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_5-DN_50-1587723525.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/5-50-new-traffic-55.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+50
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_5-DN_50-1587723530.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/5-50-new-traffic-55.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+50
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_5-DN_60-1587723534.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/5-60-new-traffic-65.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+60
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_5-DN_60-1587723540.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/5-60-new-traffic-65.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+60
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T5-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_5-DN_70-1587723546.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/5-70-new-traffic-75.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+70
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-5 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T5-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_5-DN_70-1587723554.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/5-70-new-traffic-75.tcl
+5
+Loading scenario file...
+Loading VoIP Scenario File...
+5
+70
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_6-DN_19-1587723562.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/6-19-new-traffic-25.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+19
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_6-DN_19-1587723564.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/6-19-new-traffic-25.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+19
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_6-DN_29-1587723566.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/6-29-new-traffic-35.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+29
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_6-DN_29-1587723571.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/6-29-new-traffic-35.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+29
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_6-DN_39-1587723573.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/6-39-new-traffic-45.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+39
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_6-DN_39-1587723577.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/6-39-new-traffic-45.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+39
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_6-DN_49-1587723582.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/6-49-new-traffic-55.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+49
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_6-DN_49-1587723587.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/6-49-new-traffic-55.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+49
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_6-DN_59-1587723592.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/6-59-new-traffic-65.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+59
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_6-DN_59-1587723599.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/6-59-new-traffic-65.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+59
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_6-DN_69-1587723605.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/6-69-new-traffic-75.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+69
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_6-DN_69-1587723614.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/6-69-new-traffic-75.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+69
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_6-DN_19-1587723623.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/6-19-new-traffic-25.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+19
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_6-DN_19-1587723626.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/6-19-new-traffic-25.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+19
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_6-DN_29-1587723627.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/6-29-new-traffic-35.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+29
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_6-DN_29-1587723630.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/6-29-new-traffic-35.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+29
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_6-DN_39-1587723633.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/6-39-new-traffic-45.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+39
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_6-DN_39-1587723637.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/6-39-new-traffic-45.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+39
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_6-DN_49-1587723640.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/6-49-new-traffic-55.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+49
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_6-DN_49-1587723645.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/6-49-new-traffic-55.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+49
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_6-DN_59-1587723649.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/6-59-new-traffic-65.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+59
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_6-DN_59-1587723655.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/6-59-new-traffic-65.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+59
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T6-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_6-DN_69-1587723661.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/6-69-new-traffic-75.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+69
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-6 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T6-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_6-DN_69-1587723669.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/6-69-new-traffic-75.tcl
+6
+Loading scenario file...
+Loading VoIP Scenario File...
+6
+69
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_7-DN_18-1587723678.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/7-18-new-traffic-25.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+18
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_7-DN_18-1587723680.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/7-18-new-traffic-25.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+18
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_7-DN_28-1587723682.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/7-28-new-traffic-35.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+28
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_7-DN_28-1587723685.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/7-28-new-traffic-35.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+28
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_7-DN_38-1587723688.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/7-38-new-traffic-45.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+38
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_7-DN_38-1587723691.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/7-38-new-traffic-45.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+38
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_7-DN_48-1587723695.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/7-48-new-traffic-55.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+48
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_7-DN_48-1587723701.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/7-48-new-traffic-55.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+48
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_7-DN_58-1587723706.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/7-58-new-traffic-65.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+58
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_7-DN_58-1587723712.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/7-58-new-traffic-65.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+58
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_7-DN_68-1587723719.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/7-68-new-traffic-75.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+68
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_7-DN_68-1587723728.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/7-68-new-traffic-75.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+68
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_7-DN_18-1587723737.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/7-18-new-traffic-25.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+18
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_7-DN_18-1587723739.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/7-18-new-traffic-25.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+18
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_7-DN_28-1587723741.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/7-28-new-traffic-35.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+28
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_7-DN_28-1587723744.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/7-28-new-traffic-35.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+28
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_7-DN_38-1587723747.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/7-38-new-traffic-45.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+38
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_7-DN_38-1587723750.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/7-38-new-traffic-45.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+38
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_7-DN_48-1587723753.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/7-48-new-traffic-55.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+48
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_7-DN_48-1587723759.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/7-48-new-traffic-55.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+48
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_7-DN_58-1587723763.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/7-58-new-traffic-65.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+58
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_7-DN_58-1587723770.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/7-58-new-traffic-65.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+58
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T7-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_7-DN_68-1587723776.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/7-68-new-traffic-75.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+68
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-7 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T7-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_7-DN_68-1587723784.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/7-68-new-traffic-75.tcl
+7
+Loading scenario file...
+Loading VoIP Scenario File...
+7
+68
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_8-DN_17-1587723792.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/8-17-new-traffic-25.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+17
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_8-DN_17-1587723794.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/8-17-new-traffic-25.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+17
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_8-DN_27-1587723796.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/8-27-new-traffic-35.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+27
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_8-DN_27-1587723799.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/8-27-new-traffic-35.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+27
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_8-DN_37-1587723802.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/8-37-new-traffic-45.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+37
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_8-DN_37-1587723806.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/8-37-new-traffic-45.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+37
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_8-DN_47-1587723810.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/8-47-new-traffic-55.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+47
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_8-DN_47-1587723816.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/8-47-new-traffic-55.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+47
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_8-DN_57-1587723821.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/8-57-new-traffic-65.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+57
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_8-DN_57-1587723828.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/8-57-new-traffic-65.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+57
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_8-DN_67-1587723835.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/8-67-new-traffic-75.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+67
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_8-DN_67-1587723844.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/8-67-new-traffic-75.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+67
+Starting Simulation...
+run duration: 8 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_8-DN_17-1587723853.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/8-17-new-traffic-25.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+17
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_8-DN_17-1587723855.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/8-17-new-traffic-25.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+17
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_8-DN_27-1587723857.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/8-27-new-traffic-35.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+27
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_8-DN_27-1587723859.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/8-27-new-traffic-35.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+27
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_8-DN_37-1587723862.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/8-37-new-traffic-45.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+37
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_8-DN_37-1587723865.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/8-37-new-traffic-45.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+37
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_8-DN_47-1587723869.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/8-47-new-traffic-55.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+47
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_8-DN_47-1587723874.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/8-47-new-traffic-55.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+47
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_8-DN_57-1587723878.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/8-57-new-traffic-65.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+57
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_8-DN_57-1587723884.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/8-57-new-traffic-65.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+57
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T8-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_8-DN_67-1587723891.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/8-67-new-traffic-75.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+67
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-8 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T8-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_8-DN_67-1587723899.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/8-67-new-traffic-75.tcl
+8
+Loading scenario file...
+Loading VoIP Scenario File...
+8
+67
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_9-DN_16-1587723907.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/9-16-new-traffic-25.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+16
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_9-DN_16-1587723909.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/9-16-new-traffic-25.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+16
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_9-DN_26-1587723911.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/9-26-new-traffic-35.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+26
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_9-DN_26-1587723914.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/9-26-new-traffic-35.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+26
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_9-DN_36-1587723917.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/9-36-new-traffic-45.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+36
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_9-DN_36-1587723921.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/9-36-new-traffic-45.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+36
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_9-DN_46-1587723925.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/9-46-new-traffic-55.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+46
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_9-DN_46-1587723930.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/9-46-new-traffic-55.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+46
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_9-DN_56-1587723935.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/9-56-new-traffic-65.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+56
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_9-DN_56-1587723941.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/9-56-new-traffic-65.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+56
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_9-DN_66-1587723948.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/9-66-new-traffic-75.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+66
+Starting Simulation...
+run duration: 8 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_9-DN_66-1587723958.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/9-66-new-traffic-75.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+66
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_9-DN_16-1587723967.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/9-16-new-traffic-25.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+16
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_9-DN_16-1587723969.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/9-16-new-traffic-25.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+16
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_9-DN_26-1587723971.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/9-26-new-traffic-35.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+26
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_9-DN_26-1587723974.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/9-26-new-traffic-35.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+26
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_9-DN_36-1587723977.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/9-36-new-traffic-45.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+36
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_9-DN_36-1587723981.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/9-36-new-traffic-45.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+36
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_9-DN_46-1587723984.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/9-46-new-traffic-55.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+46
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_9-DN_46-1587723989.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/9-46-new-traffic-55.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+46
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_9-DN_56-1587723995.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/9-56-new-traffic-65.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+56
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_9-DN_56-1587724001.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/9-56-new-traffic-65.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+56
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T9-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_9-DN_66-1587724007.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/9-66-new-traffic-75.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+66
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-9 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T9-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_9-DN_66-1587724015.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/9-66-new-traffic-75.tcl
+9
+Loading scenario file...
+Loading VoIP Scenario File...
+9
+66
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.711-V1-RAOMDV-N25-Mmobility_25-SN_10-DN_15-1587724024.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/10-15-new-traffic-25.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+15
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.711-V1-RPA_AOMDV-N25-Mmobility_25-SN_10-DN_15-1587724026.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/10-15-new-traffic-25.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+15
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.711-V1-RAOMDV-N35-Mmobility_35-SN_10-DN_25-1587724028.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/10-25-new-traffic-35.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+25
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.711-V1-RPA_AOMDV-N35-Mmobility_35-SN_10-DN_25-1587724031.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/10-25-new-traffic-35.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+25
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.711-V1-RAOMDV-N45-Mmobility_45-SN_10-DN_35-1587724034.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/10-35-new-traffic-45.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+35
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.711-V1-RPA_AOMDV-N45-Mmobility_45-SN_10-DN_35-1587724039.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/10-35-new-traffic-45.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+35
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.711-V1-RAOMDV-N55-Mmobility_55-SN_10-DN_45-1587724042.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/10-45-new-traffic-55.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+45
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.711-V1-RPA_AOMDV-N55-Mmobility_55-SN_10-DN_45-1587724047.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/10-45-new-traffic-55.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+45
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.711-V1-RAOMDV-N65-Mmobility_65-SN_10-DN_55-1587724052.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/10-55-new-traffic-65.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+55
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.711-V1-RPA_AOMDV-N65-Mmobility_65-SN_10-DN_55-1587724060.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/10-55-new-traffic-65.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+55
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.711-V1-RAOMDV-N75-Mmobility_75-SN_10-DN_65-1587724066.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/10-65-new-traffic-75.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+65
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.711 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.711-V1-RPA_AOMDV-N75-Mmobility_75-SN_10-DN_65-1587724075.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/10-65-new-traffic-75.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+65
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.723.1-V1-RAOMDV-N25-Mmobility_25-SN_10-DN_15-1587724084.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/10-15-new-traffic-25.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+15
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 PA_AOMDV 25 25 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.723.1-V1-RPA_AOMDV-N25-Mmobility_25-SN_10-DN_15-1587724086.output
+The output file does not exist. Cont. w/ Sim
+2290.44
+2975.06
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/25/10-15-new-traffic-25.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+15
+Starting Simulation...
+run duration: 0 s
+num_nodes is set 25
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.723.1-V1-RAOMDV-N35-Mmobility_35-SN_10-DN_25-1587724088.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/10-25-new-traffic-35.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+25
+Starting Simulation...
+run duration: 1 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 PA_AOMDV 35 35 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.723.1-V1-RPA_AOMDV-N35-Mmobility_35-SN_10-DN_25-1587724091.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/35/10-25-new-traffic-35.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+25
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 35
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.723.1-V1-RAOMDV-N45-Mmobility_45-SN_10-DN_35-1587724094.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/10-35-new-traffic-45.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+35
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 PA_AOMDV 45 45 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.723.1-V1-RPA_AOMDV-N45-Mmobility_45-SN_10-DN_35-1587724097.output
+The output file does not exist. Cont. w/ Sim
+2300.4099999999999
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/45/10-35-new-traffic-45.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+35
+Starting Simulation...
+run duration: 2 s
+num_nodes is set 45
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.723.1-V1-RAOMDV-N55-Mmobility_55-SN_10-DN_45-1587724101.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/10-45-new-traffic-55.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+45
+Starting Simulation...
+run duration: 4 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 PA_AOMDV 55 55 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.723.1-V1-RPA_AOMDV-N55-Mmobility_55-SN_10-DN_45-1587724106.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/55/10-45-new-traffic-55.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+45
+Starting Simulation...
+run duration: 3 s
+num_nodes is set 55
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.723.1-V1-RAOMDV-N65-Mmobility_65-SN_10-DN_55-1587724110.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/10-55-new-traffic-65.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+55
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 PA_AOMDV 65 65 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.723.1-V1-RPA_AOMDV-N65-Mmobility_65-SN_10-DN_55-1587724117.output
+The output file does not exist. Cont. w/ Sim
+2300.4200000000001
+2985.0700000000002
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/65/10-55-new-traffic-65.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+55
+Starting Simulation...
+run duration: 5 s
+num_nodes is set 65
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-AOMDV-T10-Bh323-CG.723.1-V1-RAOMDV-N75-Mmobility_75-SN_10-DN_65-1587724123.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/10-65-new-traffic-75.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+65
+Starting Simulation...
+run duration: 7 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+##
+ #  ns main.tcl replikasi ke-10 h323 G.723.1 1 PA_AOMDV 75 75 mobility background traffic on # 
+##
+# Check outputs/out-PA_AOMDV-T10-Bh323-CG.723.1-V1-RPA_AOMDV-N75-Mmobility_75-SN_10-DN_65-1587724131.output
+The output file does not exist. Cont. w/ Sim
+2300.4400000000001
+2985.0599999999999
+simulasi menggunakan background traffic
+background traffic source ./BTraffic/75/10-65-new-traffic-75.tcl
+10
+Loading scenario file...
+Loading VoIP Scenario File...
+10
+65
+Starting Simulation...
+run duration: 6 s
+num_nodes is set 75
+channel.cc:sendUp - Calc highestAntennaZ_ and distCST_
+highestAntennaZ_ = 1.5,  distCST_ = 550.0
+calculation for delay and packetloss for every codec, node and replication
+*******calculate delay for AOMDV g711 codec**********
+isi bosque
+voip-AOMDV-G.711-25-T1-Node1-24.tr
+voip-AOMDV-G.711-25-T2-Node2-23.tr
+voip-AOMDV-G.711-25-T3-Node3-22.tr
+voip-AOMDV-G.711-25-T4-Node4-21.tr
+voip-AOMDV-G.711-25-T5-Node5-20.tr
+voip-AOMDV-G.711-25-T6-Node6-19.tr
+voip-AOMDV-G.711-25-T7-Node7-18.tr
+voip-AOMDV-G.711-25-T8-Node8-17.tr
+voip-AOMDV-G.711-25-T9-Node9-16.tr
+voip-AOMDV-G.711-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-AOMDV-G.711-35-T1-Node1-34.tr
+voip-AOMDV-G.711-35-T2-Node2-33.tr
+voip-AOMDV-G.711-35-T3-Node3-32.tr
+voip-AOMDV-G.711-35-T4-Node4-31.tr
+voip-AOMDV-G.711-35-T5-Node5-30.tr
+voip-AOMDV-G.711-35-T6-Node6-29.tr
+voip-AOMDV-G.711-35-T7-Node7-28.tr
+voip-AOMDV-G.711-35-T8-Node8-27.tr
+voip-AOMDV-G.711-35-T9-Node9-26.tr
+voip-AOMDV-G.711-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-AOMDV-G.711-45-T1-Node1-44.tr
+voip-AOMDV-G.711-45-T2-Node2-43.tr
+voip-AOMDV-G.711-45-T3-Node3-42.tr
+voip-AOMDV-G.711-45-T4-Node4-41.tr
+voip-AOMDV-G.711-45-T5-Node5-40.tr
+voip-AOMDV-G.711-45-T6-Node6-39.tr
+voip-AOMDV-G.711-45-T7-Node7-38.tr
+voip-AOMDV-G.711-45-T8-Node8-37.tr
+voip-AOMDV-G.711-45-T9-Node9-36.tr
+voip-AOMDV-G.711-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-AOMDV-G.711-55-T1-Node1-54.tr
+voip-AOMDV-G.711-55-T2-Node2-53.tr
+voip-AOMDV-G.711-55-T3-Node3-52.tr
+voip-AOMDV-G.711-55-T4-Node4-51.tr
+voip-AOMDV-G.711-55-T5-Node5-50.tr
+voip-AOMDV-G.711-55-T6-Node6-49.tr
+voip-AOMDV-G.711-55-T7-Node7-48.tr
+voip-AOMDV-G.711-55-T8-Node8-47.tr
+voip-AOMDV-G.711-55-T9-Node9-46.tr
+voip-AOMDV-G.711-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-AOMDV-G.711-65-T1-Node1-64.tr
+voip-AOMDV-G.711-65-T2-Node2-63.tr
+voip-AOMDV-G.711-65-T3-Node3-62.tr
+voip-AOMDV-G.711-65-T4-Node4-61.tr
+voip-AOMDV-G.711-65-T5-Node5-60.tr
+voip-AOMDV-G.711-65-T6-Node6-59.tr
+voip-AOMDV-G.711-65-T7-Node7-58.tr
+voip-AOMDV-G.711-65-T8-Node8-57.tr
+voip-AOMDV-G.711-65-T9-Node9-56.tr
+voip-AOMDV-G.711-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-AOMDV-G.711-75-T1-Node1-74.tr
+voip-AOMDV-G.711-75-T2-Node2-73.tr
+voip-AOMDV-G.711-75-T3-Node3-72.tr
+voip-AOMDV-G.711-75-T4-Node4-71.tr
+voip-AOMDV-G.711-75-T5-Node5-70.tr
+voip-AOMDV-G.711-75-T6-Node6-69.tr
+voip-AOMDV-G.711-75-T7-Node7-68.tr
+voip-AOMDV-G.711-75-T8-Node8-67.tr
+voip-AOMDV-G.711-75-T9-Node9-66.tr
+voip-AOMDV-G.711-75-T10-Node10-65.tr
+file hasil trace node 75
+Tidak ada file trace dengan node 50
+Tidak ada file trace dengan node 70
+*******calculate delay for PA_AOMDV g711 codec**********
+isi bosque
+voip-PA_AOMDV-G.711-25-T1-Node1-24.tr
+voip-PA_AOMDV-G.711-25-T2-Node2-23.tr
+voip-PA_AOMDV-G.711-25-T3-Node3-22.tr
+voip-PA_AOMDV-G.711-25-T4-Node4-21.tr
+voip-PA_AOMDV-G.711-25-T5-Node5-20.tr
+voip-PA_AOMDV-G.711-25-T6-Node6-19.tr
+voip-PA_AOMDV-G.711-25-T7-Node7-18.tr
+voip-PA_AOMDV-G.711-25-T8-Node8-17.tr
+voip-PA_AOMDV-G.711-25-T9-Node9-16.tr
+voip-PA_AOMDV-G.711-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-PA_AOMDV-G.711-35-T1-Node1-34.tr
+voip-PA_AOMDV-G.711-35-T2-Node2-33.tr
+voip-PA_AOMDV-G.711-35-T3-Node3-32.tr
+voip-PA_AOMDV-G.711-35-T4-Node4-31.tr
+voip-PA_AOMDV-G.711-35-T5-Node5-30.tr
+voip-PA_AOMDV-G.711-35-T6-Node6-29.tr
+voip-PA_AOMDV-G.711-35-T7-Node7-28.tr
+voip-PA_AOMDV-G.711-35-T8-Node8-27.tr
+voip-PA_AOMDV-G.711-35-T9-Node9-26.tr
+voip-PA_AOMDV-G.711-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-PA_AOMDV-G.711-45-T1-Node1-44.tr
+voip-PA_AOMDV-G.711-45-T2-Node2-43.tr
+voip-PA_AOMDV-G.711-45-T3-Node3-42.tr
+voip-PA_AOMDV-G.711-45-T4-Node4-41.tr
+voip-PA_AOMDV-G.711-45-T5-Node5-40.tr
+voip-PA_AOMDV-G.711-45-T6-Node6-39.tr
+voip-PA_AOMDV-G.711-45-T7-Node7-38.tr
+voip-PA_AOMDV-G.711-45-T8-Node8-37.tr
+voip-PA_AOMDV-G.711-45-T9-Node9-36.tr
+voip-PA_AOMDV-G.711-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-PA_AOMDV-G.711-55-T1-Node1-54.tr
+voip-PA_AOMDV-G.711-55-T2-Node2-53.tr
+voip-PA_AOMDV-G.711-55-T3-Node3-52.tr
+voip-PA_AOMDV-G.711-55-T4-Node4-51.tr
+voip-PA_AOMDV-G.711-55-T5-Node5-50.tr
+voip-PA_AOMDV-G.711-55-T6-Node6-49.tr
+voip-PA_AOMDV-G.711-55-T7-Node7-48.tr
+voip-PA_AOMDV-G.711-55-T8-Node8-47.tr
+voip-PA_AOMDV-G.711-55-T9-Node9-46.tr
+voip-PA_AOMDV-G.711-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-PA_AOMDV-G.711-65-T1-Node1-64.tr
+voip-PA_AOMDV-G.711-65-T2-Node2-63.tr
+voip-PA_AOMDV-G.711-65-T3-Node3-62.tr
+voip-PA_AOMDV-G.711-65-T4-Node4-61.tr
+voip-PA_AOMDV-G.711-65-T5-Node5-60.tr
+voip-PA_AOMDV-G.711-65-T6-Node6-59.tr
+voip-PA_AOMDV-G.711-65-T7-Node7-58.tr
+voip-PA_AOMDV-G.711-65-T8-Node8-57.tr
+voip-PA_AOMDV-G.711-65-T9-Node9-56.tr
+voip-PA_AOMDV-G.711-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-PA_AOMDV-G.711-75-T1-Node1-74.tr
+voip-PA_AOMDV-G.711-75-T2-Node2-73.tr
+voip-PA_AOMDV-G.711-75-T3-Node3-72.tr
+voip-PA_AOMDV-G.711-75-T4-Node4-71.tr
+voip-PA_AOMDV-G.711-75-T5-Node5-70.tr
+voip-PA_AOMDV-G.711-75-T6-Node6-69.tr
+voip-PA_AOMDV-G.711-75-T7-Node7-68.tr
+voip-PA_AOMDV-G.711-75-T8-Node8-67.tr
+voip-PA_AOMDV-G.711-75-T9-Node9-66.tr
+voip-PA_AOMDV-G.711-75-T10-Node10-65.tr
+file hasil trace node 75
+Tidak ada file trace dengan node 50
+Tidak ada file trace dengan node 70
+*************calculate packetloss for AOMDV g711 codec************
+isi bosque
+voip-AOMDV-G.711-25-T1-Node1-24.tr
+voip-AOMDV-G.711-25-T2-Node2-23.tr
+voip-AOMDV-G.711-25-T3-Node3-22.tr
+voip-AOMDV-G.711-25-T4-Node4-21.tr
+voip-AOMDV-G.711-25-T5-Node5-20.tr
+voip-AOMDV-G.711-25-T6-Node6-19.tr
+voip-AOMDV-G.711-25-T7-Node7-18.tr
+voip-AOMDV-G.711-25-T8-Node8-17.tr
+voip-AOMDV-G.711-25-T9-Node9-16.tr
+voip-AOMDV-G.711-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-AOMDV-G.711-35-T1-Node1-34.tr
+voip-AOMDV-G.711-35-T2-Node2-33.tr
+voip-AOMDV-G.711-35-T3-Node3-32.tr
+voip-AOMDV-G.711-35-T4-Node4-31.tr
+voip-AOMDV-G.711-35-T5-Node5-30.tr
+voip-AOMDV-G.711-35-T6-Node6-29.tr
+voip-AOMDV-G.711-35-T7-Node7-28.tr
+voip-AOMDV-G.711-35-T8-Node8-27.tr
+voip-AOMDV-G.711-35-T9-Node9-26.tr
+voip-AOMDV-G.711-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-AOMDV-G.711-45-T1-Node1-44.tr
+voip-AOMDV-G.711-45-T2-Node2-43.tr
+voip-AOMDV-G.711-45-T3-Node3-42.tr
+voip-AOMDV-G.711-45-T4-Node4-41.tr
+voip-AOMDV-G.711-45-T5-Node5-40.tr
+voip-AOMDV-G.711-45-T6-Node6-39.tr
+voip-AOMDV-G.711-45-T7-Node7-38.tr
+voip-AOMDV-G.711-45-T8-Node8-37.tr
+voip-AOMDV-G.711-45-T9-Node9-36.tr
+voip-AOMDV-G.711-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-AOMDV-G.711-55-T1-Node1-54.tr
+voip-AOMDV-G.711-55-T2-Node2-53.tr
+voip-AOMDV-G.711-55-T3-Node3-52.tr
+voip-AOMDV-G.711-55-T4-Node4-51.tr
+voip-AOMDV-G.711-55-T5-Node5-50.tr
+voip-AOMDV-G.711-55-T6-Node6-49.tr
+voip-AOMDV-G.711-55-T7-Node7-48.tr
+voip-AOMDV-G.711-55-T8-Node8-47.tr
+voip-AOMDV-G.711-55-T9-Node9-46.tr
+voip-AOMDV-G.711-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-AOMDV-G.711-65-T1-Node1-64.tr
+voip-AOMDV-G.711-65-T2-Node2-63.tr
+voip-AOMDV-G.711-65-T3-Node3-62.tr
+voip-AOMDV-G.711-65-T4-Node4-61.tr
+voip-AOMDV-G.711-65-T5-Node5-60.tr
+voip-AOMDV-G.711-65-T6-Node6-59.tr
+voip-AOMDV-G.711-65-T7-Node7-58.tr
+voip-AOMDV-G.711-65-T8-Node8-57.tr
+voip-AOMDV-G.711-65-T9-Node9-56.tr
+voip-AOMDV-G.711-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-AOMDV-G.711-75-T1-Node1-74.tr
+voip-AOMDV-G.711-75-T2-Node2-73.tr
+voip-AOMDV-G.711-75-T3-Node3-72.tr
+voip-AOMDV-G.711-75-T4-Node4-71.tr
+voip-AOMDV-G.711-75-T5-Node5-70.tr
+voip-AOMDV-G.711-75-T6-Node6-69.tr
+voip-AOMDV-G.711-75-T7-Node7-68.tr
+voip-AOMDV-G.711-75-T8-Node8-67.tr
+voip-AOMDV-G.711-75-T9-Node9-66.tr
+voip-AOMDV-G.711-75-T10-Node10-65.tr
+file hasil trace node 75
+*************calculate packetloss for PA_AOMDV g711 codec************
+isi bosque
+voip-PA_AOMDV-G.711-25-T1-Node1-24.tr
+voip-PA_AOMDV-G.711-25-T2-Node2-23.tr
+voip-PA_AOMDV-G.711-25-T3-Node3-22.tr
+voip-PA_AOMDV-G.711-25-T4-Node4-21.tr
+voip-PA_AOMDV-G.711-25-T5-Node5-20.tr
+voip-PA_AOMDV-G.711-25-T6-Node6-19.tr
+voip-PA_AOMDV-G.711-25-T7-Node7-18.tr
+voip-PA_AOMDV-G.711-25-T8-Node8-17.tr
+voip-PA_AOMDV-G.711-25-T9-Node9-16.tr
+voip-PA_AOMDV-G.711-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-PA_AOMDV-G.711-35-T1-Node1-34.tr
+voip-PA_AOMDV-G.711-35-T2-Node2-33.tr
+voip-PA_AOMDV-G.711-35-T3-Node3-32.tr
+voip-PA_AOMDV-G.711-35-T4-Node4-31.tr
+voip-PA_AOMDV-G.711-35-T5-Node5-30.tr
+voip-PA_AOMDV-G.711-35-T6-Node6-29.tr
+voip-PA_AOMDV-G.711-35-T7-Node7-28.tr
+voip-PA_AOMDV-G.711-35-T8-Node8-27.tr
+voip-PA_AOMDV-G.711-35-T9-Node9-26.tr
+voip-PA_AOMDV-G.711-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-PA_AOMDV-G.711-45-T1-Node1-44.tr
+voip-PA_AOMDV-G.711-45-T2-Node2-43.tr
+voip-PA_AOMDV-G.711-45-T3-Node3-42.tr
+voip-PA_AOMDV-G.711-45-T4-Node4-41.tr
+voip-PA_AOMDV-G.711-45-T5-Node5-40.tr
+voip-PA_AOMDV-G.711-45-T6-Node6-39.tr
+voip-PA_AOMDV-G.711-45-T7-Node7-38.tr
+voip-PA_AOMDV-G.711-45-T8-Node8-37.tr
+voip-PA_AOMDV-G.711-45-T9-Node9-36.tr
+voip-PA_AOMDV-G.711-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-PA_AOMDV-G.711-55-T1-Node1-54.tr
+voip-PA_AOMDV-G.711-55-T2-Node2-53.tr
+voip-PA_AOMDV-G.711-55-T3-Node3-52.tr
+voip-PA_AOMDV-G.711-55-T4-Node4-51.tr
+voip-PA_AOMDV-G.711-55-T5-Node5-50.tr
+voip-PA_AOMDV-G.711-55-T6-Node6-49.tr
+voip-PA_AOMDV-G.711-55-T7-Node7-48.tr
+voip-PA_AOMDV-G.711-55-T8-Node8-47.tr
+voip-PA_AOMDV-G.711-55-T9-Node9-46.tr
+voip-PA_AOMDV-G.711-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-PA_AOMDV-G.711-65-T1-Node1-64.tr
+voip-PA_AOMDV-G.711-65-T2-Node2-63.tr
+voip-PA_AOMDV-G.711-65-T3-Node3-62.tr
+voip-PA_AOMDV-G.711-65-T4-Node4-61.tr
+voip-PA_AOMDV-G.711-65-T5-Node5-60.tr
+voip-PA_AOMDV-G.711-65-T6-Node6-59.tr
+voip-PA_AOMDV-G.711-65-T7-Node7-58.tr
+voip-PA_AOMDV-G.711-65-T8-Node8-57.tr
+voip-PA_AOMDV-G.711-65-T9-Node9-56.tr
+voip-PA_AOMDV-G.711-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-PA_AOMDV-G.711-75-T1-Node1-74.tr
+voip-PA_AOMDV-G.711-75-T2-Node2-73.tr
+voip-PA_AOMDV-G.711-75-T3-Node3-72.tr
+voip-PA_AOMDV-G.711-75-T4-Node4-71.tr
+voip-PA_AOMDV-G.711-75-T5-Node5-70.tr
+voip-PA_AOMDV-G.711-75-T6-Node6-69.tr
+voip-PA_AOMDV-G.711-75-T7-Node7-68.tr
+voip-PA_AOMDV-G.711-75-T8-Node8-67.tr
+voip-PA_AOMDV-G.711-75-T9-Node9-66.tr
+voip-PA_AOMDV-G.711-75-T10-Node10-65.tr
+file hasil trace node 75
+************calculate delay for AOMDV g723.1 codec**********
+isi bosque
+voip-AOMDV-G.723.1-25-T1-Node1-24.tr
+voip-AOMDV-G.723.1-25-T2-Node2-23.tr
+voip-AOMDV-G.723.1-25-T3-Node3-22.tr
+voip-AOMDV-G.723.1-25-T4-Node4-21.tr
+voip-AOMDV-G.723.1-25-T5-Node5-20.tr
+voip-AOMDV-G.723.1-25-T6-Node6-19.tr
+voip-AOMDV-G.723.1-25-T7-Node7-18.tr
+voip-AOMDV-G.723.1-25-T8-Node8-17.tr
+voip-AOMDV-G.723.1-25-T9-Node9-16.tr
+voip-AOMDV-G.723.1-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-AOMDV-G.723.1-35-T1-Node1-34.tr
+voip-AOMDV-G.723.1-35-T2-Node2-33.tr
+voip-AOMDV-G.723.1-35-T3-Node3-32.tr
+voip-AOMDV-G.723.1-35-T4-Node4-31.tr
+voip-AOMDV-G.723.1-35-T5-Node5-30.tr
+voip-AOMDV-G.723.1-35-T6-Node6-29.tr
+voip-AOMDV-G.723.1-35-T7-Node7-28.tr
+voip-AOMDV-G.723.1-35-T8-Node8-27.tr
+voip-AOMDV-G.723.1-35-T9-Node9-26.tr
+voip-AOMDV-G.723.1-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-AOMDV-G.723.1-45-T1-Node1-44.tr
+voip-AOMDV-G.723.1-45-T2-Node2-43.tr
+voip-AOMDV-G.723.1-45-T3-Node3-42.tr
+voip-AOMDV-G.723.1-45-T4-Node4-41.tr
+voip-AOMDV-G.723.1-45-T5-Node5-40.tr
+voip-AOMDV-G.723.1-45-T6-Node6-39.tr
+voip-AOMDV-G.723.1-45-T7-Node7-38.tr
+voip-AOMDV-G.723.1-45-T8-Node8-37.tr
+voip-AOMDV-G.723.1-45-T9-Node9-36.tr
+voip-AOMDV-G.723.1-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-AOMDV-G.723.1-55-T1-Node1-54.tr
+voip-AOMDV-G.723.1-55-T2-Node2-53.tr
+voip-AOMDV-G.723.1-55-T3-Node3-52.tr
+voip-AOMDV-G.723.1-55-T4-Node4-51.tr
+voip-AOMDV-G.723.1-55-T5-Node5-50.tr
+voip-AOMDV-G.723.1-55-T6-Node6-49.tr
+voip-AOMDV-G.723.1-55-T7-Node7-48.tr
+voip-AOMDV-G.723.1-55-T8-Node8-47.tr
+voip-AOMDV-G.723.1-55-T9-Node9-46.tr
+voip-AOMDV-G.723.1-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-AOMDV-G.723.1-65-T1-Node1-64.tr
+voip-AOMDV-G.723.1-65-T2-Node2-63.tr
+voip-AOMDV-G.723.1-65-T3-Node3-62.tr
+voip-AOMDV-G.723.1-65-T4-Node4-61.tr
+voip-AOMDV-G.723.1-65-T5-Node5-60.tr
+voip-AOMDV-G.723.1-65-T6-Node6-59.tr
+voip-AOMDV-G.723.1-65-T7-Node7-58.tr
+voip-AOMDV-G.723.1-65-T8-Node8-57.tr
+voip-AOMDV-G.723.1-65-T9-Node9-56.tr
+voip-AOMDV-G.723.1-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-AOMDV-G.723.1-75-T1-Node1-74.tr
+voip-AOMDV-G.723.1-75-T2-Node2-73.tr
+voip-AOMDV-G.723.1-75-T3-Node3-72.tr
+voip-AOMDV-G.723.1-75-T4-Node4-71.tr
+voip-AOMDV-G.723.1-75-T5-Node5-70.tr
+voip-AOMDV-G.723.1-75-T6-Node6-69.tr
+voip-AOMDV-G.723.1-75-T7-Node7-68.tr
+voip-AOMDV-G.723.1-75-T8-Node8-67.tr
+voip-AOMDV-G.723.1-75-T9-Node9-66.tr
+voip-AOMDV-G.723.1-75-T10-Node10-65.tr
+file hasil trace node 75
+Tidak ada file trace dengan node 50
+Tidak ada file trace dengan node 70
+************calculate delay for PA_AOMDV g723.1 codec**********
+isi bosque
+voip-PA_AOMDV-G.723.1-25-T1-Node1-24.tr
+voip-PA_AOMDV-G.723.1-25-T2-Node2-23.tr
+voip-PA_AOMDV-G.723.1-25-T3-Node3-22.tr
+voip-PA_AOMDV-G.723.1-25-T4-Node4-21.tr
+voip-PA_AOMDV-G.723.1-25-T5-Node5-20.tr
+voip-PA_AOMDV-G.723.1-25-T6-Node6-19.tr
+voip-PA_AOMDV-G.723.1-25-T7-Node7-18.tr
+voip-PA_AOMDV-G.723.1-25-T8-Node8-17.tr
+voip-PA_AOMDV-G.723.1-25-T9-Node9-16.tr
+voip-PA_AOMDV-G.723.1-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-PA_AOMDV-G.723.1-35-T1-Node1-34.tr
+voip-PA_AOMDV-G.723.1-35-T2-Node2-33.tr
+voip-PA_AOMDV-G.723.1-35-T3-Node3-32.tr
+voip-PA_AOMDV-G.723.1-35-T4-Node4-31.tr
+voip-PA_AOMDV-G.723.1-35-T5-Node5-30.tr
+voip-PA_AOMDV-G.723.1-35-T6-Node6-29.tr
+voip-PA_AOMDV-G.723.1-35-T7-Node7-28.tr
+voip-PA_AOMDV-G.723.1-35-T8-Node8-27.tr
+voip-PA_AOMDV-G.723.1-35-T9-Node9-26.tr
+voip-PA_AOMDV-G.723.1-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-PA_AOMDV-G.723.1-45-T1-Node1-44.tr
+voip-PA_AOMDV-G.723.1-45-T2-Node2-43.tr
+voip-PA_AOMDV-G.723.1-45-T3-Node3-42.tr
+voip-PA_AOMDV-G.723.1-45-T4-Node4-41.tr
+voip-PA_AOMDV-G.723.1-45-T5-Node5-40.tr
+voip-PA_AOMDV-G.723.1-45-T6-Node6-39.tr
+voip-PA_AOMDV-G.723.1-45-T7-Node7-38.tr
+voip-PA_AOMDV-G.723.1-45-T8-Node8-37.tr
+voip-PA_AOMDV-G.723.1-45-T9-Node9-36.tr
+voip-PA_AOMDV-G.723.1-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-PA_AOMDV-G.723.1-55-T1-Node1-54.tr
+voip-PA_AOMDV-G.723.1-55-T2-Node2-53.tr
+voip-PA_AOMDV-G.723.1-55-T3-Node3-52.tr
+voip-PA_AOMDV-G.723.1-55-T4-Node4-51.tr
+voip-PA_AOMDV-G.723.1-55-T5-Node5-50.tr
+voip-PA_AOMDV-G.723.1-55-T6-Node6-49.tr
+voip-PA_AOMDV-G.723.1-55-T7-Node7-48.tr
+voip-PA_AOMDV-G.723.1-55-T8-Node8-47.tr
+voip-PA_AOMDV-G.723.1-55-T9-Node9-46.tr
+voip-PA_AOMDV-G.723.1-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-PA_AOMDV-G.723.1-65-T1-Node1-64.tr
+voip-PA_AOMDV-G.723.1-65-T2-Node2-63.tr
+voip-PA_AOMDV-G.723.1-65-T3-Node3-62.tr
+voip-PA_AOMDV-G.723.1-65-T4-Node4-61.tr
+voip-PA_AOMDV-G.723.1-65-T5-Node5-60.tr
+voip-PA_AOMDV-G.723.1-65-T6-Node6-59.tr
+voip-PA_AOMDV-G.723.1-65-T7-Node7-58.tr
+voip-PA_AOMDV-G.723.1-65-T8-Node8-57.tr
+voip-PA_AOMDV-G.723.1-65-T9-Node9-56.tr
+voip-PA_AOMDV-G.723.1-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-PA_AOMDV-G.723.1-75-T1-Node1-74.tr
+voip-PA_AOMDV-G.723.1-75-T2-Node2-73.tr
+voip-PA_AOMDV-G.723.1-75-T3-Node3-72.tr
+voip-PA_AOMDV-G.723.1-75-T4-Node4-71.tr
+voip-PA_AOMDV-G.723.1-75-T5-Node5-70.tr
+voip-PA_AOMDV-G.723.1-75-T6-Node6-69.tr
+voip-PA_AOMDV-G.723.1-75-T7-Node7-68.tr
+voip-PA_AOMDV-G.723.1-75-T8-Node8-67.tr
+voip-PA_AOMDV-G.723.1-75-T9-Node9-66.tr
+voip-PA_AOMDV-G.723.1-75-T10-Node10-65.tr
+file hasil trace node 75
+Tidak ada file trace dengan node 50
+Tidak ada file trace dengan node 70
+************calculate packetloss for AOMDV g723.1 codec*************
+isi bosque
+voip-AOMDV-G.723.1-25-T1-Node1-24.tr
+voip-AOMDV-G.723.1-25-T2-Node2-23.tr
+voip-AOMDV-G.723.1-25-T3-Node3-22.tr
+voip-AOMDV-G.723.1-25-T4-Node4-21.tr
+voip-AOMDV-G.723.1-25-T5-Node5-20.tr
+voip-AOMDV-G.723.1-25-T6-Node6-19.tr
+voip-AOMDV-G.723.1-25-T7-Node7-18.tr
+voip-AOMDV-G.723.1-25-T8-Node8-17.tr
+voip-AOMDV-G.723.1-25-T9-Node9-16.tr
+voip-AOMDV-G.723.1-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-AOMDV-G.723.1-35-T1-Node1-34.tr
+voip-AOMDV-G.723.1-35-T2-Node2-33.tr
+voip-AOMDV-G.723.1-35-T3-Node3-32.tr
+voip-AOMDV-G.723.1-35-T4-Node4-31.tr
+voip-AOMDV-G.723.1-35-T5-Node5-30.tr
+voip-AOMDV-G.723.1-35-T6-Node6-29.tr
+voip-AOMDV-G.723.1-35-T7-Node7-28.tr
+voip-AOMDV-G.723.1-35-T8-Node8-27.tr
+voip-AOMDV-G.723.1-35-T9-Node9-26.tr
+voip-AOMDV-G.723.1-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-AOMDV-G.723.1-45-T1-Node1-44.tr
+voip-AOMDV-G.723.1-45-T2-Node2-43.tr
+voip-AOMDV-G.723.1-45-T3-Node3-42.tr
+voip-AOMDV-G.723.1-45-T4-Node4-41.tr
+voip-AOMDV-G.723.1-45-T5-Node5-40.tr
+voip-AOMDV-G.723.1-45-T6-Node6-39.tr
+voip-AOMDV-G.723.1-45-T7-Node7-38.tr
+voip-AOMDV-G.723.1-45-T8-Node8-37.tr
+voip-AOMDV-G.723.1-45-T9-Node9-36.tr
+voip-AOMDV-G.723.1-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-AOMDV-G.723.1-55-T1-Node1-54.tr
+voip-AOMDV-G.723.1-55-T2-Node2-53.tr
+voip-AOMDV-G.723.1-55-T3-Node3-52.tr
+voip-AOMDV-G.723.1-55-T4-Node4-51.tr
+voip-AOMDV-G.723.1-55-T5-Node5-50.tr
+voip-AOMDV-G.723.1-55-T6-Node6-49.tr
+voip-AOMDV-G.723.1-55-T7-Node7-48.tr
+voip-AOMDV-G.723.1-55-T8-Node8-47.tr
+voip-AOMDV-G.723.1-55-T9-Node9-46.tr
+voip-AOMDV-G.723.1-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-AOMDV-G.723.1-65-T1-Node1-64.tr
+voip-AOMDV-G.723.1-65-T2-Node2-63.tr
+voip-AOMDV-G.723.1-65-T3-Node3-62.tr
+voip-AOMDV-G.723.1-65-T4-Node4-61.tr
+voip-AOMDV-G.723.1-65-T5-Node5-60.tr
+voip-AOMDV-G.723.1-65-T6-Node6-59.tr
+voip-AOMDV-G.723.1-65-T7-Node7-58.tr
+voip-AOMDV-G.723.1-65-T8-Node8-57.tr
+voip-AOMDV-G.723.1-65-T9-Node9-56.tr
+voip-AOMDV-G.723.1-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-AOMDV-G.723.1-75-T1-Node1-74.tr
+voip-AOMDV-G.723.1-75-T2-Node2-73.tr
+voip-AOMDV-G.723.1-75-T3-Node3-72.tr
+voip-AOMDV-G.723.1-75-T4-Node4-71.tr
+voip-AOMDV-G.723.1-75-T5-Node5-70.tr
+voip-AOMDV-G.723.1-75-T6-Node6-69.tr
+voip-AOMDV-G.723.1-75-T7-Node7-68.tr
+voip-AOMDV-G.723.1-75-T8-Node8-67.tr
+voip-AOMDV-G.723.1-75-T9-Node9-66.tr
+voip-AOMDV-G.723.1-75-T10-Node10-65.tr
+file hasil trace node 75
+************calculate packetloss for PA_AOMDV g723.1 codec*************
+isi bosque
+voip-PA_AOMDV-G.723.1-25-T1-Node1-24.tr
+voip-PA_AOMDV-G.723.1-25-T2-Node2-23.tr
+voip-PA_AOMDV-G.723.1-25-T3-Node3-22.tr
+voip-PA_AOMDV-G.723.1-25-T4-Node4-21.tr
+voip-PA_AOMDV-G.723.1-25-T5-Node5-20.tr
+voip-PA_AOMDV-G.723.1-25-T6-Node6-19.tr
+voip-PA_AOMDV-G.723.1-25-T7-Node7-18.tr
+voip-PA_AOMDV-G.723.1-25-T8-Node8-17.tr
+voip-PA_AOMDV-G.723.1-25-T9-Node9-16.tr
+voip-PA_AOMDV-G.723.1-25-T10-Node10-15.tr
+file hasil trace node 25
+isi bosque
+voip-PA_AOMDV-G.723.1-35-T1-Node1-34.tr
+voip-PA_AOMDV-G.723.1-35-T2-Node2-33.tr
+voip-PA_AOMDV-G.723.1-35-T3-Node3-32.tr
+voip-PA_AOMDV-G.723.1-35-T4-Node4-31.tr
+voip-PA_AOMDV-G.723.1-35-T5-Node5-30.tr
+voip-PA_AOMDV-G.723.1-35-T6-Node6-29.tr
+voip-PA_AOMDV-G.723.1-35-T7-Node7-28.tr
+voip-PA_AOMDV-G.723.1-35-T8-Node8-27.tr
+voip-PA_AOMDV-G.723.1-35-T9-Node9-26.tr
+voip-PA_AOMDV-G.723.1-35-T10-Node10-25.tr
+file hasil trace node 35
+isi bosque
+voip-PA_AOMDV-G.723.1-45-T1-Node1-44.tr
+voip-PA_AOMDV-G.723.1-45-T2-Node2-43.tr
+voip-PA_AOMDV-G.723.1-45-T3-Node3-42.tr
+voip-PA_AOMDV-G.723.1-45-T4-Node4-41.tr
+voip-PA_AOMDV-G.723.1-45-T5-Node5-40.tr
+voip-PA_AOMDV-G.723.1-45-T6-Node6-39.tr
+voip-PA_AOMDV-G.723.1-45-T7-Node7-38.tr
+voip-PA_AOMDV-G.723.1-45-T8-Node8-37.tr
+voip-PA_AOMDV-G.723.1-45-T9-Node9-36.tr
+voip-PA_AOMDV-G.723.1-45-T10-Node10-35.tr
+file hasil trace node 45
+isi bosque
+voip-PA_AOMDV-G.723.1-55-T1-Node1-54.tr
+voip-PA_AOMDV-G.723.1-55-T2-Node2-53.tr
+voip-PA_AOMDV-G.723.1-55-T3-Node3-52.tr
+voip-PA_AOMDV-G.723.1-55-T4-Node4-51.tr
+voip-PA_AOMDV-G.723.1-55-T5-Node5-50.tr
+voip-PA_AOMDV-G.723.1-55-T6-Node6-49.tr
+voip-PA_AOMDV-G.723.1-55-T7-Node7-48.tr
+voip-PA_AOMDV-G.723.1-55-T8-Node8-47.tr
+voip-PA_AOMDV-G.723.1-55-T9-Node9-46.tr
+voip-PA_AOMDV-G.723.1-55-T10-Node10-45.tr
+file hasil trace node 55
+isi bosque
+voip-PA_AOMDV-G.723.1-65-T1-Node1-64.tr
+voip-PA_AOMDV-G.723.1-65-T2-Node2-63.tr
+voip-PA_AOMDV-G.723.1-65-T3-Node3-62.tr
+voip-PA_AOMDV-G.723.1-65-T4-Node4-61.tr
+voip-PA_AOMDV-G.723.1-65-T5-Node5-60.tr
+voip-PA_AOMDV-G.723.1-65-T6-Node6-59.tr
+voip-PA_AOMDV-G.723.1-65-T7-Node7-58.tr
+voip-PA_AOMDV-G.723.1-65-T8-Node8-57.tr
+voip-PA_AOMDV-G.723.1-65-T9-Node9-56.tr
+voip-PA_AOMDV-G.723.1-65-T10-Node10-55.tr
+file hasil trace node 65
+isi bosque
+voip-PA_AOMDV-G.723.1-75-T1-Node1-74.tr
+voip-PA_AOMDV-G.723.1-75-T2-Node2-73.tr
+voip-PA_AOMDV-G.723.1-75-T3-Node3-72.tr
+voip-PA_AOMDV-G.723.1-75-T4-Node4-71.tr
+voip-PA_AOMDV-G.723.1-75-T5-Node5-70.tr
+voip-PA_AOMDV-G.723.1-75-T6-Node6-69.tr
+voip-PA_AOMDV-G.723.1-75-T7-Node7-68.tr
+voip-PA_AOMDV-G.723.1-75-T8-Node8-67.tr
+voip-PA_AOMDV-G.723.1-75-T9-Node9-66.tr
+voip-PA_AOMDV-G.723.1-75-T10-Node10-65.tr
+file hasil trace node 75
+/home/adisaputra/NS/voip/Project-Jitter-Buffer-master
+calculate MOS for 25 g711
+AOMDV g711 25
+PA_AOMDV g711 25
+calculate MOS for 35 g711
+AOMDV g711 35
+PA_AOMDV g711 35
+calculate MOS for 45 g711
+AOMDV g711 45
+PA_AOMDV g711 45
+calculate MOS for 55 g711
+AOMDV g711 55
+PA_AOMDV g711 55
+calculate MOS for 65 g711
+AOMDV g711 65
+PA_AOMDV g711 65
+calculate MOS for 75 g711
+AOMDV g711 75
+PA_AOMDV g711 75
+calculate MOS for 25 g723_1
+AOMDV g723_1 25
+PA_AOMDV g723_1 25
+calculate MOS for 35 g723_1
+AOMDV g723_1 35
+PA_AOMDV g723_1 35
+calculate MOS for 45 g723_1
+AOMDV g723_1 45
+PA_AOMDV g723_1 45
+calculate MOS for 55 g723_1
+AOMDV g723_1 55
+PA_AOMDV g723_1 55
+calculate MOS for 65 g723_1
+AOMDV g723_1 65
+PA_AOMDV g723_1 65
+calculate MOS for 75 g723_1
+AOMDV g723_1 75
+PA_AOMDV g723_1 75

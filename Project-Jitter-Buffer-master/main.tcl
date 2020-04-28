@@ -42,8 +42,20 @@ if {[string is double -strict [lindex $argv 0]]} {
 	getopt $argc $argv
 	
 }
+
+
+		
 # L O A D L I S T N O D E
-source vnode.tcl
+if { $opt(voipflows) > 1} {
+	#multiple flow
+	source vnode_n.tcl
+} else {
+	#single flow
+	source vnode.tcl
+}
+#ubah ke yang baru untuk 5 flow
+
+
 # S E T O U T F I L E
 set systemTime [clock seconds]
 set nowTime $systemTime
@@ -130,27 +142,37 @@ if {$opt(nnode) == 25} {
 	exit 0
 }
 
+#  U N T U K M U L T I P L E  F L O W I N G A T   U B A H BACKGROUND TRAFFICNYA BOSQU
+# SINGLE FLOW MENGGUNAKAN 1/5 DARI NNODE UNTUK BACKGROUND TRAFFIC
 if {$opt(bgtraffic) == "on"} {
 	if {$opt(nnode) == 25} {
-		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-25.tcl"
+		#set val(cp) "./BTraffic/25/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-25.tcl"
+		set val(cp) "./BTraffic/n_btraffic_25.tcl"
 	} elseif {$opt(nnode) == 35} {
-		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-35.tcl"
+		set val(cp) "./BTraffic/n_btraffic_35.tcl"
+		#set val(cp) "./BTraffic/35/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-35.tcl"
 	} elseif {$opt(nnode) == 45} {
-		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-45.tcl"
+		set val(cp) "./BTraffic/n_btraffic_45.tcl"
+		#set val(cp) "./BTraffic/45/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-45.tcl"
 	} elseif {$opt(nnode) == 55} {
-		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-55.tcl"
+		set val(cp) "./BTraffic/n_btraffic_55.tcl"
+		#set val(cp) "./BTraffic/55/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-55.tcl"
 	} elseif {$opt(nnode) == 65} {
-		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-65.tcl"
+		set val(cp) "./BTraffic/n_btraffic_65.tcl"
+		#set val(cp) "./BTraffic/65/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-65.tcl"
 	} elseif {$opt(nnode) == 75} {
-		set val(cp) "./BTraffic/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-75.tcl"
+		set val(cp) "./BTraffic/n_btraffic_75.tcl"
+		#set val(cp) "./BTraffic/75/[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]]-new-traffic-75.tcl"
 	} else {
 		puts "# tidak ada file traffic!!"
 		exit 0
 	}
 	puts "simulasi menggunakan background traffic"
-	puts $val(cp)
+	puts "background traffic source $val(cp)"
+	
 } else {
 	puts "simulasi tidak menggunakan background traffic"
+	set val(cp) "bgtraffic_off"
 }
 
 
@@ -167,6 +189,12 @@ $ns_ use-newtrace
 set tracefile	[open "trace/voip-$opt(routing)-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr" w]
 #replikasi ke
 puts [expr $opt(try)] 
+
+# s e t c o l o r
+$ns_ color 0 red
+$ns_ color 1 green
+$ns_ color 2 blue
+
 
 #I N S E R T T R A C E catat trace ke file txt
 set tr_lg "voip-$opt(routing)-$opt(codec)-$opt(nnode)-T$opt(try)-Node[lindex $vnode1 [expr $opt(try)-1]]-[lindex $vnode2 [expr $opt(try)-1]].tr"
@@ -213,8 +241,12 @@ for {set i 0} {$i < $val(nn) } {incr i} {
 	$node_($i) random-motion 0
 	#Without random motion
 	}
-#puts "Loading connection pattern..."
-#source $val(cp)
+
+#$node_(1) color red
+if {$opt(bgtraffic) == "on"} {
+	puts "Loading connection pattern..."
+	source $val(cp)
+}
 puts "Loading scenario file..."
 source $val(mob)
 puts "Loading VoIP Scenario File..."
