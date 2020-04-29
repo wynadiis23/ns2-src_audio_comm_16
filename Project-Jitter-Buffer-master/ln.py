@@ -61,16 +61,24 @@ def main():
 		with open(path_packetloss, 'r') as fcount2:
 			for line in fcount2:
 				count2+=1
-		
+		print(tampung_id)
+		#print(count2)
 		if count1 == count2:
 			a=0
 			for x in range(count1):
 				tampung_r=R0-tampung_id[x]-tampung_ie[x]
-				tampung_mos=(1+(0.035*tampung_r)+tampung_r*(tampung_r-60)*(100-tampung_r)*0.000007)
+				
+				if tampung_r < 0:
+					tampung_r = 0
+				elif tampung_r > 100:
+					tampung_r = 100
+				
+				tampung_mos=(1+(0.035*tampung_r)+tampung_r*(tampung_r-60)*(100-tampung_r)*0.000007)	
 				R.append(tampung_r) #tidak pakai cf
 				MOS.append(tampung_mos)
 				a+=1
-				
+		
+		#print(R)
 		#mencari rata2 dari mos dan r
 		rata_R = sum(R) / len(R)
 		rata_MOS = sum(MOS) / len(MOS)

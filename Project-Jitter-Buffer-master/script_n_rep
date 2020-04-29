@@ -1,0 +1,78 @@
+#!/bin/bash
+
+
+#################################
+	#SCRIPT UNTUK NODE YANG SOURCE DAN DESTINATIONNYA DIEM
+#################################
+
+routings=(AOMDV PA_AOMDV) #definisikan routing protokol yang digunakan.
+buff=( h323 )
+mp=(m)
+flows=(1) #banyak komunikasi yang terjadi
+try=(1 2 3 4 5 6 7 8 9 10) #banyak replikasi
+
+codec=(G.711 G.723.1) #banyak codec
+nnode=(75) #banyak node
+bt="off" #background traffic
+
+proj=`pwd`
+for routing in "${routings[@]}"
+do
+	#echo $routing
+	trace_log_g_711=$proj/trace_$routing_log_g_711
+	trace_log_g_723_1=$proj/trace_$routing_log_g_723_1
+	trace_log_gsm_amr=$proj/trace_$routing_log_gsm_amr
+	#echo "$HOME/$proj/trace_${routing}_log_g_711"
+	if [[ -f $proj/trace_${routing}_log_g_711 ]] && [[ -f $proj/trace_${routing}_log_g_723_1 ]] && [[ -f $proj/trace_${routing}_log_gsm_amr ]] 
+	then
+		echo "tracelog exist, recreating"
+		sleep 2
+		rm $proj/trace_${routing}_log_g_711
+		rm $proj/trace_${routing}_log_g_723_1
+		rm $proj/trace_${routing}_log_gsm_amr
+	fi
+done
+
+count=0
+
+#####
+
+for i in "${mp[@]}"
+do
+        #for j in "${min[@]}"
+        #do  
+                for k in "${try[@]}"
+                do  
+                                for w in "${buff[@]}"
+                                do  
+    
+                                        for z in "${codec[@]}"
+                                        do  
+                                                #for m in "${mobility[@]}"
+                                                #do
+                                                for c in "${nnode[@]}"
+												do
+                                                        for x in "${routings[@]}"
+                                                        do
+                                                                
+                                                                        for q in "${flows[@]}"
+                                                                        do
+                                                                                echo "##"
+                                                                                echo " #  ns main.tcl replikasi ke-$k $w $z $q $x $c $c mobility background traffic $bt $flow # "
+                                                                                echo "##"
+                                                                                sleep 1
+                                                                                ns main_rep.tcl $k $w $z $q $x $c $bt
+                                                                        done
+                                                                
+                                                        done			
+							
+                                                done
+                                                #done
+                                        done
+                                done
+
+                done
+                count=$(($count+1))
+        #done
+done
+

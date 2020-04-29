@@ -50,7 +50,12 @@ for ( i in end_time ) {
  
 #printf("%f\n", sum);
 #printf("%f\n", recvnum);
-delay=sum/recvnum;
+if (recvnum != 0) {
+	delay=sum/recvnum;
+} else {
+	delay=-1;
+}
+
 #printf("%.9f ms\n", delay);
 printf("%.2f\n", delay*1000); #in milisecond
 #printf("%.2f\n", start);

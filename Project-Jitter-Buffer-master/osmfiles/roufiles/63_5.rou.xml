@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Wed Apr 29 11:32:07 2020 by Eclipse SUMO duarouter Version 1.5.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="osmfiles/netfiles/mau_sebudi.net.xml"/>
+        <additional-files value="osmfiles/netfiles/type.add.xml"/>
+        <route-files value="trips.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="osmfiles/roufiles/63_5.rou.xml"/>
+        <alternatives-output value="osmfiles/roufiles/63_5.rou.alt.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="1.0"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="myType" maxSpeed="7.00" vClass="passenger"/>
+    <vehicle id="0" type="myType" depart="0.00">
+        <route edges="-685526965 -527775975#0 451798708#3 -gneE61 -gneE60"/>
+    </vehicle>
+    <vehicle id="1" type="myType" depart="0.02">
+        <route edges="gneE12 gneE14 gneE15 gneE16 gneE17 gneE18 527775975#0"/>
+    </vehicle>
+    <vehicle id="2" type="myType" depart="0.03">
+        <route edges="gneE20 gneE15 gneE16 gneE17 gneE18 -451798708#2 -451798708#1 527775828#0"/>
+    </vehicle>
+    <vehicle id="3" type="myType" depart="0.05">
+        <route edges="-451798708#3 -gneE18 -gneE17 -gneE16 -gneE15 -gneE14 -gneE12 -gneE11 -gneE10 -701166831 701166830#1"/>
+    </vehicle>
+    <vehicle id="4" type="myType" depart="0.06">
+        <route edges="451798708#3 -451798708#3"/>
+    </vehicle>
+    <vehicle id="5" type="myType" depart="0.08">
+        <route edges="451798708#0 527775828#0 527775828#1 527775828#2 701166835 -gneE3 -gneE2 -gneE1"/>
+    </vehicle>
+    <vehicle id="6" type="myType" depart="0.10">
+        <route edges="-gneE26 -gneE25 -gneE24 -210617558#2 451798708#0 gneE19 gneE20 -gneE14 -gneE12 gneE60 gneE61 -451798708#3"/>
+    </vehicle>
+    <vehicle id="7" type="myType" depart="0.11">
+        <route edges="-gneE41 -gneE35 -gneE34 gneE31 gneE32 685526965"/>
+    </vehicle>
+    <vehicle id="8" type="myType" depart="0.13">
+        <route edges="-gneE21 -210617558#3 -210617558#2 -210617558#1 gneE1 gneE2 gneE3 -701166835 701166835 -gneE3"/>
+    </vehicle>
+    <vehicle id="9" type="myType" depart="0.14">
+        <route edges="gneE30 530135875#0 -530135875#0 -gneE30 -gneE29 gneE22 gneE23 gneE26 gneE27 gneE28 -451798708#1 -gneE9 -gneE8 -gneE7 -gneE6 -gneE5 -gneE4"/>
+    </vehicle>
+    <vehicle id="10" type="myType" depart="0.16">
+        <route edges="gneE35 -210617558#5 -210617558#4 -210617558#3 -210617558#2 -210617558#1"/>
+    </vehicle>
+    <vehicle id="11" type="myType" depart="0.17">
+        <route edges="gneE35 701166838 530135875#0 530135875#1 -527775975#1 685526965"/>
+    </vehicle>
+    <vehicle id="12" type="myType" depart="0.19">
+        <route edges="-gneE11 -gneE10 527775828#1 -527775828#1 gneE10 gneE11 gneE12 gneE14 gneE15 gneE16 gneE17 gneE18 527775975#0 685526965"/>
+    </vehicle>
+    <vehicle id="13" type="myType" depart="0.21">
+        <route edges="gneE30 530135875#0 -530135875#0 -gneE30 -gneE29 gneE22 gneE23 gneE26 gneE27 gneE28 -451798708#1 -gneE9 -gneE8 -gneE7 -gneE6 -gneE5"/>
+    </vehicle>
+    <vehicle id="14" type="myType" depart="0.22">
+        <route edges="gneE29 gneE34 gneE35 gneE41 gneE42"/>
+    </vehicle>
+    <vehicle id="15" type="myType" depart="0.24">
+        <route edges="451798708#3 -gneE61 -gneE60 gneE12 gneE14 gneE15 gneE16 gneE17 gneE18 527775975#0 -gneE32 -gneE31 -gneE29"/>
+    </vehicle>
+    <vehicle id="16" type="myType" depart="0.25">
+        <route edges="-210617558#2 -210617558#1 gneE1 gneE2 gneE3 -701166835 527775828#3 701166839"/>
+    </vehicle>
+    <vehicle id="17" type="myType" depart="0.27">
+        <route edges="-gneE20 -gneE19 451798708#1 451798708#2 451798708#3"/>
+    </vehicle>
+    <vehicle id="18" type="myType" depart="0.29">
+        <route edges="527775828#0 -527775828#0 451798708#1 -gneE28 -gneE27 -gneE26 -gneE23 -gneE22 gneE29 gneE30 -701166838"/>
+    </vehicle>
+    <vehicle id="19" type="myType" depart="0.30">
+        <route edges="gneE3 -701166835 -527775828#2 -527775828#1 -527775828#0 451798708#1 -gneE28 -gneE27 -gneE26 -gneE23 -gneE22 gneE29 gneE30 gneE45"/>
+    </vehicle>
+    <vehicle id="20" type="myType" depart="0.32">
+        <route edges="-gneE14 -gneE12 -gneE11 -gneE10 527775828#1 -527775828#1 gneE10 gneE11 gneE12 gneE14 -gneE20 -gneE19"/>
+    </vehicle>
+    <vehicle id="21" type="myType" depart="0.33">
+        <route edges="gneE11 gneE60 gneE61 451798708#4 -701166839 -527775828#3"/>
+    </vehicle>
+    <vehicle id="22" type="myType" depart="0.35">
+        <route edges="685526965 -gneE28 -gneE27 -gneE26 -gneE23 -gneE22 gneE29 gneE30 gneE45 -gneE42"/>
+    </vehicle>
+    <vehicle id="23" type="myType" depart="0.37">
+        <route edges="-701166839 -527775828#3 -527775828#2 -527775828#1 gneE10 gneE11 gneE12 gneE14 gneE15"/>
+    </vehicle>
+    <vehicle id="24" type="myType" depart="0.38">
+        <route edges="-685526965 -527775975#0 -gneE18 -gneE17 -gneE16 -gneE15 -gneE14 -gneE12 -gneE11 -gneE10 527775828#1 527775828#2 527775828#3 -527775828#3"/>
+    </vehicle>
+    <vehicle id="25" type="myType" depart="0.40">
+        <route edges="-gneE28 -gneE27 -gneE26 -gneE23 gneE56"/>
+    </vehicle>
+    <vehicle id="26" type="myType" depart="0.41">
+        <route edges="-451798708#3 -451798708#2 -gneE28 -gneE27 -gneE26 -gneE23 -gneE22 -gneE21 210617558#4 -210617558#4 gneE21"/>
+    </vehicle>
+    <vehicle id="27" type="myType" depart="0.43">
+        <route edges="-451798708#3 -gneE18 -gneE17 -gneE16 -gneE15 -gneE20 -gneE19 -gneE9 -gneE8 -gneE7 -gneE6"/>
+    </vehicle>
+    <vehicle id="28" type="myType" depart="0.44">
+        <route edges="-gneE20 -gneE19 527775828#0 527775828#1 527775828#2 701166835 -701166835"/>
+    </vehicle>
+    <vehicle id="29" type="myType" depart="0.46">
+        <route edges="-gneE26 -gneE23 -gneE22 gneE29 gneE31 gneE32 -527775975#0 451798708#3"/>
+    </vehicle>
+    <vehicle id="30" type="myType" depart="0.48">
+        <route edges="-gneE18 -gneE17 -gneE16 -gneE15 -gneE14 -gneE12 gneE60 gneE61 451798708#4"/>
+    </vehicle>
+    <vehicle id="31" type="myType" depart="0.49">
+        <route edges="-gneE33 -gneE31 gneE30 530135875#0 -530135875#0 -gneE30"/>
+    </vehicle>
+    <vehicle id="32" type="myType" depart="0.51">
+        <route edges="210617558#2 -210617558#2 -210617558#1 527775826#0"/>
+    </vehicle>
+    <vehicle id="33" type="myType" depart="0.52">
+        <route edges="210617558#5 gneE41 gneE42 gneE43"/>
+    </vehicle>
+    <vehicle id="34" type="myType" depart="0.54">
+        <route edges="451798708#3 -gneE61 -gneE60 gneE12 gneE14 gneE15 gneE16 gneE17 gneE18 527775975#0 685526965"/>
+    </vehicle>
+    <vehicle id="35" type="myType" depart="0.56">
+        <route edges="685526965 -451798708#1 451798708#1"/>
+    </vehicle>
+    <vehicle id="36" type="myType" depart="0.57">
+        <route edges="gneE16 gneE17 gneE18 -451798708#2 -451798708#1 527775828#0"/>
+    </vehicle>
+    <vehicle id="37" type="myType" depart="0.59">
+        <route edges="gneE25 gneE26 gneE27 gneE28 -451798708#1 -451798708#0 -210617558#1"/>
+    </vehicle>
+    <vehicle id="38" type="myType" depart="0.60">
+        <route edges="gneE14 gneE15 gneE16 gneE17 gneE18 527775975#0 -gneE32 -gneE58 -gneE57"/>
+    </vehicle>
+    <vehicle id="39" type="myType" depart="0.62">
+        <route edges="-210617558#1 527775826#0 701166830#0 -701166830#0"/>
+    </vehicle>
+    <vehicle id="40" type="myType" depart="0.63">
+        <route edges="-210617558#1 210617558#1 210617558#2 gneE24 gneE25 -gneE23 -gneE22 gneE29 gneE31"/>
+    </vehicle>
+    <vehicle id="41" type="myType" depart="0.65">
+        <route edges="-210617558#1 210617558#1 210617558#2 gneE24 gneE25 -gneE23 -gneE22 gneE29 gneE31 gneE33 -527775975#1"/>
+    </vehicle>
+    <vehicle id="42" type="myType" depart="0.67">
+        <route edges="-gneE41 -210617558#5 -210617558#4 gneE21 gneE22 gneE23 -gneE25 -gneE24"/>
+    </vehicle>
+    <vehicle id="43" type="myType" depart="0.68">
+        <route edges="-685526965 -gneE32 -gneE31 gneE34 gneE35 701166838"/>
+    </vehicle>
+    <vehicle id="44" type="myType" depart="0.70">
+        <route edges="701166838 530135875#0 530135875#1 -527775975#1 685526965"/>
+    </vehicle>
+    <vehicle id="45" type="myType" depart="0.71">
+        <route edges="685526965 -gneE28 -gneE27 -gneE26 -gneE23 -gneE22 gneE29 gneE59 gneE58"/>
+    </vehicle>
+    <vehicle id="46" type="myType" depart="0.73">
+        <route edges="gneE29 gneE34 gneE35 -210617558#5 -210617558#4 gneE21"/>
+    </vehicle>
+    <vehicle id="47" type="myType" depart="0.75">
+        <route edges="527775975#0 -527775975#0 -gneE18 -gneE17 -gneE16 -gneE15 -gneE14 -gneE12 gneE60 gneE61 -451798708#3"/>
+    </vehicle>
+    <vehicle id="48" type="myType" depart="0.76">
+        <route edges="-527775828#0 -451798708#0 451798708#0"/>
+    </vehicle>
+    <vehicle id="49" type="myType" depart="0.78">
+        <route edges="451798708#4 -701166839 -527775828#3 -527775828#2 -527775826#1 701166830#0 701166830#1 gneE4"/>
+    </vehicle>
+    <vehicle id="50" type="myType" depart="0.79">
+        <route edges="gneE33 -530135875#1 -530135875#0 gneE45 gneE43"/>
+    </vehicle>
+    <vehicle id="51" type="myType" depart="0.81">
+        <route edges="527775828#0 -527775828#0 451798708#1 -gneE28 -gneE27 -gneE26 -gneE23 -gneE22 gneE29 gneE34 gneE35"/>
+    </vehicle>
+    <vehicle id="52" type="myType" depart="0.83">
+        <route edges="527775975#1 -gneE33 -gneE31 -gneE29 -gneE21 -210617558#3 -210617558#2 -210617558#1 gneE1"/>
+    </vehicle>
+    <vehicle id="53" type="myType" depart="0.84">
+        <route edges="-gneE31 gneE30 -701166838 -gneE35 -gneE34"/>
+    </vehicle>
+    <vehicle id="54" type="myType" depart="0.86">
+        <route edges="-gneE29 gneE22 gneE23 gneE26 gneE27 gneE28 451798708#2 -451798708#2 -gneE28"/>
+    </vehicle>
+    <vehicle id="55" type="myType" depart="0.87">
+        <route edges="-gneE30 -gneE29 -gneE21 -210617558#3 -210617558#2 -210617558#1 210617558#1"/>
+    </vehicle>
+    <vehicle id="56" type="myType" depart="0.89">
+        <route edges="527775975#0 -gneE32 -gneE58 -gneE59 gneE31"/>
+    </vehicle>
+    <vehicle id="57" type="myType" depart="0.90">
+        <route edges="685526965 -451798708#1 gneE19 gneE20"/>
+    </vehicle>
+    <vehicle id="58" type="myType" depart="0.92">
+        <route edges="527775828#0 gneE10 gneE11 gneE12 gneE14 gneE15 gneE16 gneE17 gneE18 527775975#0 527775975#1 -527775975#1"/>
+    </vehicle>
+    <vehicle id="59" type="myType" depart="0.94">
+        <route edges="-527775828#0 451798708#1 451798708#2 527775975#0 527775975#1 -527775975#1"/>
+    </vehicle>
+    <vehicle id="60" type="myType" depart="0.95">
+        <route edges="451798708#0 -gneE9 -gneE8"/>
+    </vehicle>
+    <vehicle id="61" type="myType" depart="0.97">
+        <route edges="-gneE20 -gneE19 527775828#0 527775828#1 527775828#2 701166835 -701166835"/>
+    </vehicle>
+    <vehicle id="62" type="myType" depart="0.98">
+        <route edges="-gneE41 -210617558#5 -210617558#4 gneE21 gneE22 gneE23 gneE26 gneE27 gneE28 -451798708#1"/>
+    </vehicle>
+</routes>

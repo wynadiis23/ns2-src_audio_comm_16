@@ -2,19 +2,22 @@
 ####
 #mobility & traffic generation
 ####
-nnode=(25 35 45 55 65 75) #definisikan jumlah node
+nnode=(75) #definisikan jumlah node
 mobility=()
 
 #ganti osm file dengan file osm yang dipakai
 proj=NS/voip/Project-Jitter-Buffer-master
-netfiles=osmfiles/netfiles/sebudi_edit4.net.xml
+netfiles=osmfiles/netfiles/mau_sebudi.net.xml
+#netfiles=osmfiles/netfiles/linux_map_mau.net.xml
+#netfiles=osmfiles/netfiles/sebudi_edit4.net.xml
 poly=osmfiles/polyfiles
 rout=osmfiles/roufiles
 sumocfg=osmfiles/sumocfg
 sumoxml=osmfiles/sumoxml
 ns2config=osmfiles/ns2config
 ns2mobility=osmfiles/mobility
-rerouter=osmfiles/netfiles/rerouter.add.xml
+#rerouter=osmfiles/netfiles/rerouter.add.xml
+rerouter=osmfiles/netfiles/mau_sebudi_rerouter.add.xml
 type=osmfiles/netfiles/type.add.xml
 
 #netconvert --osm-files $osm -o $netfiles/netfiles.net.xml
@@ -23,7 +26,9 @@ do
 	#polyconvert proses
 	echo "***********Generate Mobility for $i node***************"
 	echo "polyconvert proccess"
-	polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
+	polyconvert --osm-files osmfiles/mau_sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
+	#polyconvert --osm-files osmfiles/mau_sebudi_edit.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
+	#polyconvert --osm-files osmfiles/sebudi.osm --net-file $netfiles --type-file $SUMO_HOME/data/typemap/osmPolyconvert.typ.xml -o $poly/$i.poly.xml
 	#randomTrips.py proses
 	echo "randomTrips proccess"
 	#python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $rerouter -a $type -r $rout/$i.rou.xml -e $i -l #ini akan generate n node hingga $i second, 1 node per 1 second, jadi jika ini $i=50, maka 10 node dalam 10 detik 
@@ -41,7 +46,7 @@ do
 	#python $SUMO_HOME/tools/randomTrips.py -n $netfiles -r $rout/$i.rou.xml -e 1 -p 0.02 -l #akan membuat 1/0.02 node dalam 1 detik. 
 	python $SUMO_HOME/tools/randomTrips.py --trip-attributes="type=\"myType\"" -n $netfiles -a $rerouter -a $type -r $rout/$i.rou.xml -e 1 -p $x -l #akan membuat 1/$x node dalam 1 detik pada file route.
 	#echo "membuat $round node per 1 detik"
-	sleep 5
+	sleep 2
 	
 
 	echo "building $i sumo.cfg configuration"
@@ -49,7 +54,7 @@ do
      		<input>
          		<net-file value='"$HOME/$proj/$netfiles"'/>
 			<route-files value='"$HOME/$proj/$rout/$i.rou.xml"'/>
-   			<additional-files value='"$HOME/$proj/$poly/$i.poly.xml"'/>
+   			<additional-files value='"$HOME/$proj/$poly/$i.poly.xml,/home/adisaputra/NS/voip/Project-Jitter-Buffer-master/osmfiles/netfiles/mau_sebudi_rerouter.add.xml"'/>
      		</input>
 		<time>
 			<begin value='"0"'/>

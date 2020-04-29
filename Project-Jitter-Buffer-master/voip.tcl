@@ -450,9 +450,9 @@ proc scenario {} {
 			      # s i n g l e f l o w
 			      set f [create_udp $node_([lindex $vnode1 [expr $opt(try)-1]]) $node_([lindex $vnode2 [expr $opt(try)-1]]) $fid "voip"]
 			      puts [lindex $vnode1 [expr $opt(try)-1]]
-				  $node_([lindex $vnode1 [expr $opt(try)-1]]) label "snode->n([lindex $vnode2 [expr $opt(try)-1]])"
+				  $node_([lindex $vnode1 [expr $opt(try)-1]]) label "source"
 				  puts [lindex $vnode2 [expr $opt(try)-1]]
-				  $node_([lindex $vnode2 [expr $opt(try)-1]]) label "dnode<-n([lindex $vnode1 [expr $opt(try)-1]])"
+				  $node_([lindex $vnode2 [expr $opt(try)-1]]) label "destination"
 			  }
 			  if {$opt(voip-bidirectional) != "off"} {
 			      ;# create the opposite dir correlated flow
