@@ -34,9 +34,9 @@ set opt(e2et-per)            0.0        ;# Add Packet Error Rate
 # VoIP configuration
 #
 
-set opt(voip-bidirectional) 	     "off"        ;# VoIP bidirectional enable switch <on|off>
+set opt(voip-bidirectional) 	     "on"        ;# VoIP bidirectional enable switch <on|off>
 set opt(voip-debug)		     "nodebug"	  ;# VoIP debug options - "debug" or "nodebug"
-set opt(voip-model)                  weibull-custom   ;# VoIP VAD model #jika one-to-one, maka itu push to talk communication, half dulplex sifatnya. vad juga bisa weibull custom dan exponential
+set opt(voip-model)                  one-to-one   ;# VoIP VAD model #jika one-to-one, maka itu push to talk communication, half dulplex sifatnya. vad juga bisa weibull custom dan exponential
 set opt(voip-exponential-talk)       1            ;# Average talkspurt period duration, in sec, with exponential VAD model
 set opt(voip-exponential-silence)    1.5          ;# Average silence period duration, in sec, with exponential VAD model
 set opt(voip-codec)                  $opt(codec)	;#G.723.1;# VoIP codec
@@ -457,7 +457,8 @@ proc scenario {} {
 			  if {$opt(voip-bidirectional) != "off"} {
 			      ;# create the opposite dir correlated flow
 			      create_voip [expr $fid+1] [lindex $start $i] $stop
-			      create_udp $node_([lindex $vnode2 $i]) $node_([lindex $vnode1 $i]) [expr $fid+1] "voip"
+			      #create_udp $node_([lindex $vnode2 $i]) $node_([lindex $vnode1 $i]) [expr $fid+1] "voip"
+			      create_udp $node_([lindex $vnode2 [expr $opt(try)-1]]) $node_([lindex $vnode1 [expr $opt(try)-1]]) [expr $fid+1] "voip"
 			      set f [expr $f+1]
 			  }
 
