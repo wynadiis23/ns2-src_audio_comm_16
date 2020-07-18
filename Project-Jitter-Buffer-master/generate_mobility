@@ -2,7 +2,7 @@
 ####
 #mobility & traffic generation
 ####
-nnode=(75) #definisikan jumlah node
+nnode=(25 35 45 55 65 75) #definisikan jumlah node
 mobility=()
 
 #ganti osm file dengan file osm yang dipakai

@@ -69,11 +69,13 @@ def main():
 				tampung_r=R0-tampung_id[x]-tampung_ie[x]
 				
 				if tampung_r < 0:
-					tampung_r = 0
+					#tampung_r = 0
+					tampung_mos = 1
 				elif tampung_r > 100:
-					tampung_r = 100
-				
-				tampung_mos=(1+(0.035*tampung_r)+tampung_r*(tampung_r-60)*(100-tampung_r)*0.000007)	
+					#tampung_r = 100
+					tampung_mos = 4.5
+				elif tampung_r > 0 and tampung_r < 100:
+					tampung_mos=(1+(0.035*tampung_r)+tampung_r*(tampung_r-60)*(100-tampung_r)*0.000007)	
 				R.append(tampung_r) #tidak pakai cf
 				MOS.append(tampung_mos)
 				a+=1

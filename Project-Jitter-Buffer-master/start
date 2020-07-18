@@ -1,16 +1,16 @@
 #!/bin/bash
 
-rm outputs/*
-rm trace/*
-rm nam/*
+#rm outputs/*
+#rm trace/*
+#rm nam/*
 rm R/*
 
 #generate mobility
 #./generate_mobility
 
-./script-n
+#./script-n
 cd awk #pindah direktori
-./calculate
+#./calculate
 cd .. #pindah direktori
 ./mos_calculate
 #./home/adisaputra/NS/voip/Project-Jitter-Buffer-master/awk/calculate

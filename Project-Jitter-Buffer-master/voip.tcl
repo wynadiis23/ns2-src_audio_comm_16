@@ -458,6 +458,8 @@ proc scenario {} {
 			      ;# create the opposite dir correlated flow
 			      create_voip [expr $fid+1] [lindex $start $i] $stop
 			      #create_udp $node_([lindex $vnode2 $i]) $node_([lindex $vnode1 $i]) [expr $fid+1] "voip"
+			      $node_([lindex $vnode1 [expr $opt(try)-1]]) label "node 2 arah"
+			      $node_([lindex $vnode2 [expr $opt(try)-1]]) label "node 2 arah"
 			      create_udp $node_([lindex $vnode2 [expr $opt(try)-1]]) $node_([lindex $vnode1 [expr $opt(try)-1]]) [expr $fid+1] "voip"
 			      set f [expr $f+1]
 			  }
