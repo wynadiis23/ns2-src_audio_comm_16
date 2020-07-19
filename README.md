@@ -21,5 +21,5 @@ files:
         generate_mobility!: generate pergerakan untuk node, berdasarkan file SUMO. akan menghasilkan file tcl.
         ln@: file perhitungan untuk R factor dan MOS.
         main$: file konfigurasi utuk proses simulasi/node pada simulasi. pemanggilan ns2voip disini
-        start!: 
+        start!: x
         
