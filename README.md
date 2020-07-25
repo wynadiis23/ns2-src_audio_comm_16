@@ -7,33 +7,33 @@ src: program simulasi
 
 src info
 folder:
-+---awk
-|   +---delay
-|   \---packetloss
-+---BTraffic
-|   +---25
-|   +---35
-|   +---45
-|   +---55
-|   +---65
-|   \---75
-+---osmfiles
-|   +---mobility
-|   |   +---25
-|   |   +---35
-|   |   +---45
-|   |   +---55
-|   |   +---65
-|   |   \---75
-|   +---netfiles
-|   +---ns2config
-|   +---polyfiles
-|   +---roufiles
-|   +---sumocfg
-|   \---sumoxml
-+---outputs
-+---R
-\---temp
+    +---awk
+    |   +---delay
+    |   \---packetloss
+    +---BTraffic
+    |   +---25
+    |   +---35
+    |   +---45
+    |   +---55
+    |   +---65
+    |   \---75
+    +---osmfiles
+    |   +---mobility
+    |   |   +---25
+    |   |   +---35
+    |   |   +---45
+    |   |   +---55
+    |   |   +---65
+    |   |   \---75
+    |   +---netfiles
+    |   +---ns2config
+    |   +---polyfiles
+    |   +---roufiles
+    |   +---sumocfg
+    |   \---sumoxml
+    +---outputs
+    +---R
+    \---temp
 1. awk: folder hasil perhitungan delay dan packet loss disini. script awk perhitungan packet loss dan delay untuk masing-masing codec juga disini.
 2. BTtraffic: background traffic (optional).
 3. osmfiles: files mobilitas node, network files, ns2config dari SUMO, route files, sumocfg disini.
