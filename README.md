@@ -10,11 +10,8 @@ src info
 folder:
 
     +---awk
-
     |   +---delay
-
     |   \---packetloss
-
     +---BTraffic
     |   +---25
     |   +---35
@@ -47,12 +44,17 @@ folder:
 5. R: folder hasil perhitungan R factor dan hasil konversinya ke MOS. hasil dalam bentuk csv/
 
 files:
-    penting:
-    !bash script
-    @python script
-    $tcl script
+penting:
+
+!bash script
+
+@python script
+
+$tcl script
         1. generate_mobility!: generate pergerakan untuk node, 
 berdasarkan file SUMO. akan menghasilkan file tcl.
+
         2. ln@: file perhitungan untuk R factor dan MOS.
+
         3. main$: file konfigurasi utuk proses simulasi/node pada 
 simulasi. pemanggilan ns2voip disini
