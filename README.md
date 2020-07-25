@@ -49,6 +49,7 @@ penting:
     @python script
 
 $tcl script
+    
     1. generate_mobility!: generate pergerakan untuk node, berdasarkan file SUMO. akan menghasilkan file tcl.
 
     2. ln@: file perhitungan untuk R factor dan MOS.
