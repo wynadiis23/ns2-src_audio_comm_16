@@ -45,16 +45,12 @@ folder:
 
 files:
 penting:
-
-!bash script
-
-@python script
+    !bash script
+    @python script
 
 $tcl script
-        1. generate_mobility!: generate pergerakan untuk node, 
-berdasarkan file SUMO. akan menghasilkan file tcl.
+    1. generate_mobility!: generate pergerakan untuk node, berdasarkan file SUMO. akan menghasilkan file tcl.
 
-        2. ln@: file perhitungan untuk R factor dan MOS.
+    2. ln@: file perhitungan untuk R factor dan MOS.
 
-        3. main$: file konfigurasi utuk proses simulasi/node pada 
-simulasi. pemanggilan ns2voip disini
+    3. main$: file konfigurasi utuk proses simulasi/node pada simulasi. pemanggilan ns2voip disini
