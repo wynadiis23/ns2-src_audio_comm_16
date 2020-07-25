@@ -7,16 +7,38 @@ src: program simulasi
 
 #src info
 folder:
-
-awk: folder hasil perhitungan delay dan packet loss disini. script awk perhitungan packet loss dan delay untuk masing-masing codec juga disini.
-
-BTtraffic: background traffic (optional).
-
-osmfiles: files mobilitas node, network files, ns2config dari SUMO, route files, sumocfg disini.
-
-outputs: (optional)
-
-R: folder hasil perhitungan R factor dan hasil konversinya ke MOS. hasil dalam bentuk csv/
++---awk
+|   +---delay
+|   \---packetloss
++---BTraffic
+|   +---25
+|   +---35
+|   +---45
+|   +---55
+|   +---65
+|   \---75
++---osmfiles
+|   +---mobility
+|   |   +---25
+|   |   +---35
+|   |   +---45
+|   |   +---55
+|   |   +---65
+|   |   \---75
+|   +---netfiles
+|   +---ns2config
+|   +---polyfiles
+|   +---roufiles
+|   +---sumocfg
+|   \---sumoxml
++---outputs
++---R
+\---temp
+1. awk: folder hasil perhitungan delay dan packet loss disini. script awk perhitungan packet loss dan delay untuk masing-masing codec juga disini.
+2. BTtraffic: background traffic (optional).
+3. osmfiles: files mobilitas node, network files, ns2config dari SUMO, route files, sumocfg disini.
+4. outputs: (optional)
+5. R: folder hasil perhitungan R factor dan hasil konversinya ke MOS. hasil dalam bentuk csv/
 
 files:
     penting:
@@ -26,5 +48,9 @@ files:
         generate_mobility!: generate pergerakan untuk node, berdasarkan file SUMO. akan menghasilkan file tcl.
         ln@: file perhitungan untuk R factor dan MOS.
         main$: file konfigurasi utuk proses simulasi/node pada simulasi. pemanggilan ns2voip disini
+<<<<<<< HEAD
         start!: 
+=======
+        start!: x
+>>>>>>> 7bd9dac28d541f3f50f0187213c3e399cd1a6cb8
         
