@@ -5,7 +5,7 @@ Data Program Tugas Akhir. NS2
 ns-allinone-2.35: core/root simulator ns2. 
 src: program simulasi
 
-#src info
+src info
 folder:
 +---awk
 |   +---delay
