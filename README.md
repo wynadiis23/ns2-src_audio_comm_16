@@ -44,7 +44,6 @@ folder:
     5. R: folder hasil perhitungan R factor dan hasil konversinya ke MOS. hasil dalam bentuk csv/
 
 files:
-penting:
 
     |   generate_mobility
     |   generate_mobility_rep
@@ -234,5 +233,8 @@ penting:
 penjelasan script selain dari SUMO.
 script dibuat dengan menggunakan beberapa bahasa pemrograman. bash, python dan tcl serta awk.
 
-    #### bash script
-    1. maskahsakj
+#### Bash Script
+    1. **/generate_mobility**: proses pembentukan file tcl untuk pergerakan node. script ini juga akan memproses file osm pada folder osm file dengan fungsi SUMO.
+    2. **/mos_calculate**: perhitungan MOS, menghasilkan file **csv** pada folder R. mos_calculate menghitung berdasarkan *delay* dan *packet loss* pada folder **awk**
+    3. **/script-n**: file penting selain main.tcl. mengatur jenis codec, jumlah replikasi, jenis decoder dan lainnya.
+    4. **/start**: bash script yang akan menjalankan script lainnya. **jalankan script ini untuk memulai proses simulasi**.
